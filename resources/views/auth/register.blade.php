@@ -1,16 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.private')
 
 @section('content')
 
-<div class="container">
-
-    <div class="row">
-
-        <div class="form-container small-6 small-centered columns">
-
-            <div class="form-title text-center">
-                Register
-            </div>
+    <div id="admin">
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x margin-top-80">
+        <div class="cell medium-6 medium-offset-3">
+          <h1 class="h2">Register</h1>
 
             <form class="register-form" method="POST" action="{{ route('register') }}">
 
@@ -58,7 +54,7 @@
                 </div>
 
                 <div class="register_button">
-                    <button type="submit" class="button">
+                    <button type="submit" class="button large dark expanded">
                         Register
                     </button>
                 </div>
@@ -70,6 +66,7 @@
 
     </div>
 
+</div>
 </div>
 
 @endsection

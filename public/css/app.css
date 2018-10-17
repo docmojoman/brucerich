@@ -4223,6 +4223,17 @@ select[multiple] {
   color: #fefefe;
 }
 
+.button.dark {
+  background-color: #212121;
+  color: #fefefe;
+}
+
+.button.dark:hover,
+.button.dark:focus {
+  background-color: #1a1a1a;
+  color: #fefefe;
+}
+
 .button.disabled,
 .button[disabled] {
   opacity: 0.25;
@@ -4316,6 +4327,22 @@ select[multiple] {
 .button[disabled].alert:hover,
 .button[disabled].alert:focus {
   background-color: #cc4b37;
+  color: #fefefe;
+}
+
+.button.disabled.dark,
+.button[disabled].dark {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.button.disabled.dark,
+.button.disabled.dark:hover,
+.button.disabled.dark:focus,
+.button[disabled].dark,
+.button[disabled].dark:hover,
+.button[disabled].dark:focus {
+  background-color: #212121;
   color: #fefefe;
 }
 
@@ -4446,6 +4473,25 @@ select[multiple] {
 .button.hollow.alert:focus[disabled] {
   border: 1px solid #cc4b37;
   color: #cc4b37;
+}
+
+.button.hollow.dark {
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+.button.hollow.dark:hover,
+.button.hollow.dark:focus {
+  border-color: #111010;
+  color: #111010;
+}
+
+.button.hollow.dark:hover.disabled,
+.button.hollow.dark:hover[disabled],
+.button.hollow.dark:focus.disabled,
+.button.hollow.dark:focus[disabled] {
+  border: 1px solid #212121;
+  color: #212121;
 }
 
 .button.clear {
@@ -4649,6 +4695,37 @@ select[multiple] {
   border-color: transparent;
 }
 
+.button.clear.dark {
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+.button.clear.dark:hover,
+.button.clear.dark:focus {
+  border-color: #111010;
+  color: #111010;
+}
+
+.button.clear.dark:hover.disabled,
+.button.clear.dark:hover[disabled],
+.button.clear.dark:focus.disabled,
+.button.clear.dark:focus[disabled] {
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+.button.clear.dark,
+.button.clear.dark.disabled,
+.button.clear.dark[disabled],
+.button.clear.dark:hover,
+.button.clear.dark:hover.disabled,
+.button.clear.dark:hover[disabled],
+.button.clear.dark:focus,
+.button.clear.dark:focus.disabled,
+.button.clear.dark:focus[disabled] {
+  border-color: transparent;
+}
+
 .button.dropdown::after {
   display: block;
   width: 0;
@@ -4687,6 +4764,10 @@ select[multiple] {
 
 .button.dropdown.hollow.alert::after {
   border-top-color: #cc4b37;
+}
+
+.button.dropdown.hollow.dark::after {
+  border-top-color: #212121;
 }
 
 .button.arrow-only::after {
