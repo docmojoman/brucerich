@@ -11,11 +11,25 @@
 |
 */
 
+/* Guest Routes */
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/media', function () {
+    return view('media');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+/* Admin Routes */
+Route::get('/admin/dashboard', function () {
     return view('dashboard');
 });
 

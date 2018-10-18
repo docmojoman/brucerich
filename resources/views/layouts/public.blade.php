@@ -8,15 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
+    <title>BRUCE RICH | AUTHOR | ENVIRONMENTAL LAWYER @yield('title') | expert on public international finance and the environment | Nonprofits &amp; Activism</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+@include('partials.header')
 
     @yield('content')
 
+@include('partials.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
