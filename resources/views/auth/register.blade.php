@@ -13,13 +13,25 @@
                 {{ csrf_field() }}
 
                 <div class="name">
-                    <label for="email">Name</label>
+                    <label for="name">Name</label>
 
                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" aria-describedby="nameHelpText" required autofocus>
 
                     @if ($errors->has('name'))
                         <span class="help-text" id="nameHelpText">
                             <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="username">
+                    <label for="username">Username</label>
+
+                    <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" aria-describedby="usernameHelpText" required autofocus>
+
+                    @if ($errors->has('username'))
+                        <span class="help-text" id="usernameHelpText">
+                            <strong>{{ $errors->first('username') }}</strong>
                         </span>
                     @endif
                 </div>

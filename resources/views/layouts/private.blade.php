@@ -19,12 +19,12 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x align-right">
         <div class="cell small-9">
-          <h1 id="admin-logo" class="h5"><a href="../admin/dashboard.html" class="uppercase">{{ config('app.name', 'Laravel') }}</a></h1>
+          <h1 id="admin-logo" class="h5"><a href="/admin/dashboard" class="uppercase">{{ config('app.name', 'Laravel') }}</a></h1>
         </div>
         <div class="cell small-3">
           <ul class="dropdown menu" data-dropdown-menu>
             <li>
-              <a href="#">Hello {{ Auth::user()->name }}</a>
+              <a href="#">Hello {{ Auth::user()->username }}</a>
               <ul class="menu">
                 <li>
                   <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
@@ -41,9 +41,25 @@
     </div>
     </div> <!-- #admin-menu -->
     @endif
+    {{-- Alerts --}}
+    @if (session('status'))
+    <div class="grid-container">
+        <div class="callout success" data-closable="slide-out-right fade-out">
+            <p class="h3 text-center">{{ session('status') }}</p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    @endif
 
     @yield('content')
 
+    <div class="grid-x grid-margin-x margin-top-80 margin-bottom-40">
+      <div class="cell small-12 text-center">
+        <h6>{{ config('app.name', 'Laravel') }} <small>Version {{ app()->version() }}</small></h6>
+      </div>
+    </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
@@ -66,6 +82,8 @@
           $('html, body').animate({scrollTop : 0},300);
           return false;
         });
+
+        @stack('scripts')
 
     });
     </script>
