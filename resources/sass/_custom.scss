@@ -868,6 +868,30 @@ a#new-article {
 	margin: 15px 0px 0px;
 }
 
+
+// CK Editor
+
+.ck.ck-reset_all, .ck.ck-reset_all * {
+    border-collapse: collapse;
+    font: normal normal normal var(--ck-font-size-base)/var(--ck-line-height-base) var(--ck-font-face);
+    color: #f7f7f7;
+    text-align: left;
+    white-space: nowrap;
+    cursor: auto;
+    float: none;
+}
+
+// Laravel File Manager
+
+a#lfm-image,
+a#lfm-pdf {
+	width: 8rem;
+}
+
+
+
+
+
 // Scroll to top
 .scrollToTop {
     width: 3.5rem;

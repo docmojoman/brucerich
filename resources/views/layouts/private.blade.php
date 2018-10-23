@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('script-header')
 </head>
 <body>
     @if (Auth::check())
@@ -62,6 +63,7 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @stack('script-link')
     <script>
     $(document).foundation();
 
