@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Insight extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -18,14 +18,10 @@ class Article extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function category()
-    {
-        return $this->belongsTo('App\ArticleGroup');
-    }
-
     public function setTitleAttribute($value)
     {
         $this->attributes['title']  = $value;
         $this->attributes['slug']   = str_slug($value);
     }
+
 }

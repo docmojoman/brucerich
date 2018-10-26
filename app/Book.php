@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Book extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -18,14 +18,14 @@ class Article extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function category()
+    public function sections()
     {
-        return $this->belongsTo('App\ArticleGroup');
+    	return $this->hasMany('App\Section');
     }
 
     public function setTitleAttribute($value)
     {
-        $this->attributes['title']  = $value;
-        $this->attributes['slug']   = str_slug($value);
+    	$this->attributes['title']	= $value;
+    	$this->attributes['slug']	= str_slug($value);
     }
 }

@@ -15,6 +15,6 @@ class ArticleGroup extends Model
 
     public function articles()
     {
-    	$this->belongsTo('App\Article');
+    	return $this->hasMany('App\Article', 'group_id');
     }
 }

@@ -12,18 +12,19 @@
 */
 
 /* Guest Routes */
-
 Route::get('/', 'PageController@index');
 
 Route::get('/about', 'PageController@about');
 
 Route::get('/media', 'PageController@media');
 
-Route::get('/contact', 'PageController@contact');
+Route::get('/books', 'BooksController@index');
 
 Route::get('/articles', 'ArticlesController@index');
 
+Route::get('/insights', 'InsightsController@index');
 
+Route::get('/contact', 'PageController@contact');
 
 
 
@@ -56,6 +57,44 @@ Route::post('/admin/articlegroups', 'Admin\ArticleGroupController@store');
 Route::get('/admin/articlegroups/edit/{id}', 'Admin\ArticleGroupController@edit');
 
 Route::patch('/admin/articlegroups', 'Admin\ArticleGroupController@update');
+
+
+// Books
+Route::get('/admin/books/create', 'Admin\BooksController@create');
+
+Route::get('/admin/books', 'Admin\BooksController@index');
+
+Route::post('/admin/books', 'Admin\BooksController@store');
+
+Route::get('/admin/books/edit/{id}', 'Admin\BooksController@edit');
+
+Route::patch('/admin/books', 'Admin\BooksController@update');
+
+
+// Insights
+Route::get('/admin/insights/create', 'Admin\InsightsController@create');
+
+Route::get('/admin/insights', 'Admin\InsightsController@index');
+
+Route::post('/admin/insights', 'Admin\InsightsController@store');
+
+Route::get('/admin/insights/edit/{id}', 'Admin\InsightsController@edit');
+
+Route::patch('/admin/insights', 'Admin\InsightsController@update');
+
+
+// Videos
+Route::get('/admin/videos/create', 'Admin\VideosController@create');
+
+Route::get('/admin/videos', 'Admin\VideosController@index');
+
+Route::post('/admin/videos', 'Admin\VideosController@store');
+
+Route::get('/admin/videos/edit/{id}', 'Admin\VideosController@edit');
+
+Route::patch('/admin/videos', 'Admin\VideosController@update');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

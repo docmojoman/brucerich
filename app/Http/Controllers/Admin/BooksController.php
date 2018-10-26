@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
+use App\Book;
+
+use App\Section;
 
 use App\Http\Controllers\Controller;
 
@@ -10,7 +12,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
-class ArticlesController extends Controller
+class BooksController extends Controller
 {
     /**
      * Protected for Admin.
@@ -24,21 +26,12 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index()
     {
-        $selectedGroup = $id;
+        $books = \App\Book::all();
 
-        if ($id == null) {
-            $articles = \App\Article::all();
-        } else {
-            $articles = DB::table('articles')->where('group_id', $id)->get();
-        }
-        $categories = \App\ArticleGroup::all();
-        // return $articles;
-
-        // dd($articles);
-        return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup'));
-
+        // dd($books);
+        return view('admin.books.index', compact('books'));
     }
 
     /**
@@ -48,10 +41,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $categories = \App\ArticleGroup::all();
-
-        return view('admin.articles.create', compact('categories'));
-        //
+        return view('admin.books.create');
     }
 
     /**
@@ -62,16 +52,17 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        // $section = $request->input('section.15.description');
         return $request;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(book $book)
     {
         //
     }
@@ -79,36 +70,37 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $categories = \App\ArticleGroup::all();
-        $article = \App\Article::find($id);
+        $book = \App\Book::find($id);
 
-        return view('admin.articles.edit', compact('categories', 'article'));
+        $sections = $book->sections;
+
+        return view('admin.books.edit', compact('book', 'sections'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, book $book)
     {
-        return $request;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(book $book)
     {
         //
     }

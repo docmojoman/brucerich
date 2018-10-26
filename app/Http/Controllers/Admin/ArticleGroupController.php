@@ -59,6 +59,10 @@ class ArticleGroupController extends Controller
 
         $articlegroup->title = request('title');
 
+        $articlegroup->description = request('description');
+
+        $articlegroup->position = request('position');
+
         $articlegroup->save();
 
         return redirect('admin/articlegroups')->with('status', 'New Article Group Created!');

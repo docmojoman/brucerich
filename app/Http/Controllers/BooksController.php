@@ -1,43 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Article;
-
-use App\Http\Controllers\Controller;
+use App\Book;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
-
-class ArticlesController extends Controller
+class BooksController extends Controller
 {
-    /**
-     * Protected for Admin.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index()
     {
-        $selectedGroup = $id;
+        $books = \App\User::find(1)->books()->get();
+        // return $books;
 
-        if ($id == null) {
-            $articles = \App\Article::all();
-        } else {
-            $articles = DB::table('articles')->where('group_id', $id)->get();
-        }
-        $categories = \App\ArticleGroup::all();
-        // return $articles;
+        // dd($books);
+        return view('books.index', compact('books'));
 
-        // dd($articles);
-        return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup'));
 
     }
 
@@ -48,9 +31,6 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $categories = \App\ArticleGroup::all();
-
-        return view('admin.articles.create', compact('categories'));
         //
     }
 
@@ -62,7 +42,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        //
     }
 
     /**
@@ -84,10 +64,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $categories = \App\ArticleGroup::all();
-        $article = \App\Article::find($id);
-
-        return view('admin.articles.edit', compact('categories', 'article'));
+        //
     }
 
     /**
@@ -99,7 +76,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        //
     }
 
     /**

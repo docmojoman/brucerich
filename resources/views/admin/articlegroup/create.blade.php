@@ -11,10 +11,15 @@
     </div>
       <div class="grid-x grid-margin-x margin-top-60">
         <div class="cell medium-6 medium-offset-3">
-          <form method="POST" action="admin/articlegroups">
+          <form method="POST" action="/admin/articlegroups">
             @csrf
+            <input type="hidden" name="position" value="">
             <label>Title:
               <input type="text" name="title" placeholder="Title">
+            </label>
+
+            <label>Description:
+              <textarea name="description" id="" cols="30" rows="10"></textarea>
             </label>
 
             <input type="submit" class="button large dark expanded uppercase" value="Submit">

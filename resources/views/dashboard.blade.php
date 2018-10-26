@@ -14,8 +14,8 @@
           <h2>Book Title</h2>
         </div>
         <div class="cell medium-6">
-          <a class="button large dark expanded uppercase" href="book/create">Add a book</a>
-          <a class="button large dark expanded uppercase" href="book">Edit books</a>
+          <a class="button large dark expanded uppercase" href="books/create">Add a book</a>
+          <a class="button large dark expanded uppercase" href="books">Edit books</a>
         </div>
       </div>
       <hr />
@@ -44,8 +44,8 @@
           <h2>Video</h2>
         </div>
         <div class="cell medium-6">
-          <a class="button large dark expanded uppercase" href="video/create">Add video</a>
-          <a class="button large dark expanded uppercase" href="video">Edit videos</a>
+          <a class="button large dark expanded uppercase" href="videos/create">Add video</a>
+          <a class="button large dark expanded uppercase" href="videos">Edit videos</a>
         </div>
       </div>
       <hr />

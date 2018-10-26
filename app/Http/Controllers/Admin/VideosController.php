@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
+use App\Video;
 
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
-class ArticlesController extends Controller
+class VideosController extends Controller
 {
     /**
      * Protected for Admin.
@@ -24,21 +24,12 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index()
     {
-        $selectedGroup = $id;
+        $videos = \App\Video::all();
 
-        if ($id == null) {
-            $articles = \App\Article::all();
-        } else {
-            $articles = DB::table('articles')->where('group_id', $id)->get();
-        }
-        $categories = \App\ArticleGroup::all();
-        // return $articles;
-
-        // dd($articles);
-        return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup'));
-
+        // dd($videos);
+        return view('admin.videos.index', compact('videos'));
     }
 
     /**
@@ -48,9 +39,6 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $categories = \App\ArticleGroup::all();
-
-        return view('admin.articles.create', compact('categories'));
         //
     }
 
@@ -62,16 +50,16 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Videos $videos)
     {
         //
     }
@@ -79,36 +67,33 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $categories = \App\ArticleGroup::all();
-        $article = \App\Article::find($id);
-
-        return view('admin.articles.edit', compact('categories', 'article'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Videos $videos)
     {
-        return $request;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Videos $videos)
     {
         //
     }

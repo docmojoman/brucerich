@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleGroupsTable extends Migration
+class CreateInsightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateArticleGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_groups', function (Blueprint $table) {
+        Schema::create('insights', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('title');
+            $table->string('slug');
+            $table->string('author');
             $table->text('description');
-            $table->unsignedSmallInteger('position')->nullable();
+            $table->text('copy');
+            $table->boolean('published')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ class CreateArticleGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_groups');
+        Schema::dropIfExists('insights');
     }
 }

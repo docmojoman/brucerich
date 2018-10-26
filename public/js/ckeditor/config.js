@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
-	// Skin
+	// Theme
 	config.skin = 'moono-dark';
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
