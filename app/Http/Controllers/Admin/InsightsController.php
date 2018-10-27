@@ -40,6 +40,7 @@ class InsightsController extends Controller
     public function create()
     {
         //
+        return view('admin.insights.create');
     }
 
     /**
@@ -51,6 +52,7 @@ class InsightsController extends Controller
     public function store(Request $request)
     {
         //
+        return $request;
     }
 
     /**
@@ -72,7 +74,9 @@ class InsightsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $insight = \App\Insight::find($id);
+
+        return view('admin.insights.edit', compact('insight'));
     }
 
     /**

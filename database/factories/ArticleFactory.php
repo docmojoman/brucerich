@@ -14,6 +14,6 @@ $factory->define(App\Article::class, function (Faker $faker) {
             'image'		=> $faker->imageUrl($width = 240, $height = 480),
             'link'		=> $faker->url,
             'pdf'		=> 'file.pdf',
-            'group_id'	=> $faker->numberBetween($min = 0, $max = 6)
+            'group_id'	=> $faker->numberBetween($min = 0, $max = 7)
     ];
 });

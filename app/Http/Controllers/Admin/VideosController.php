@@ -40,6 +40,7 @@ class VideosController extends Controller
     public function create()
     {
         //
+        return view('admin.videos.create');
     }
 
     /**
@@ -51,6 +52,7 @@ class VideosController extends Controller
     public function store(Request $request)
     {
         //
+        return $request;
     }
 
     /**
@@ -72,7 +74,9 @@ class VideosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = \App\Video::find($id);
+
+        return view('admin.videos.edit', compact('video'));
     }
 
     /**

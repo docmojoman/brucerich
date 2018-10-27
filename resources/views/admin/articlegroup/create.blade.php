@@ -5,7 +5,7 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-60">
         <div class="cell medium-12">
-          <h1 class="text-center">Create New Article Group</h1>
+          <h1 class="text-center">Create New Category</h1>
         </div>
       </div>
     </div>

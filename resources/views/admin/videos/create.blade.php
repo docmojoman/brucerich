@@ -5,66 +5,32 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-80">
         <div class="cell medium-8 medium-offset-2">
-          <h1 class="h2 text-center">Add New Article</h1>
-          <form method="POST" action="/admin/articles">
+          <h1 class="h2 text-center">Add New Video</h1>
+          <form method="POST" action="/admin/videos">
             @csrf
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
-            <label>Author ( + coauthor if provided ):
-              <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
+            <label>Video Imbed Code:
+              <textarea name="embed" id="" cols="30" rows="4"></textarea>
             </label>
-            <label>Publication:
-              <input name="publication" type="text" placeholder="Publication" value="{{ old('publication') }}">
+            <label>Caption:
+              <textarea name="caption" id="" cols="30" rows="10"></textarea>
             </label>
-            <label>Date:
-              <input name="date" id="datepicker" type="text" placeholder="Date" value="{{ old('date') }}" autocomplete="off">
-            </label>
-            <label>Page (#):
-              <input name="page" type="text" placeholder="e.g. 28" value="{{ old('page') }}">
-            </label>
-            <label>Description/Excerpt:
-              <textarea name="description" id="editor" cols="30" rows="10">
-                {!! old('description') !!}
-              </textarea>
-            </label>
-            <label>Page Image:
+            <label>Thumbnail:
             <div class="input-group">
                <span class="input-group-btn">
                  <a id="lfm-image" data-input="thumbnail-image" data-preview="holder" class="button dark">
                    <i class="fa fa-picture-o fi-photo"></i> &nbsp;&nbsp;Choose
                  </a>
                </span>
-               <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ old('image') }}">
+               <input id="thumbnail-image" class="form-control" type="text" name="thumbnail" value="{{ old('thumbnail') }}">
              </div>
             </label>
-            <label>Link:
-              <input name="link" type="text" placeholder="link" value="{{ old('link') }}">
-            </label>
-            <label>Pdf:
-            <div class="input-group">
-               <span class="input-group-btn">
-                 <a id="lfm-pdf" data-input="thumbnail-pdf" data-preview="holder" class="button dark">
-                   <i class="fi-page-pdf"></i> &nbsp;&nbsp;Choose
-                 </a>
-               </span>
-               <input id="thumbnail-pdf" class="form-control" type="text" name="pdf" value="{{ old('pdf') }}">
-             </div>
-             </label>
             <label>Tags:
-              <input name="tags" type="text" placeholder="tags" >
+              <input type="text" placeholder="tags">
             </label>
-            <label>Category:
-              <select name="group_id">
-                  @if($categories->count() == 0)
-                  <option value="/admin/articlegroups/create">Add New Categories</option>
-                  @else
-                  @foreach($categories as $category)
-                  <option value="{{ $category->id }}" >{{ $category->title }}</option>
-                  @endforeach
-                  @endif
-              </select>
-            </label>
+
             <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
           </form>
         </div>
@@ -84,7 +50,7 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    CKEDITOR.replace( 'description', options );
+    CKEDITOR.replace( 'caption', options );
   </script>
 @endpush
 @push('scripts')
