@@ -24,4 +24,9 @@ class Insight extends Model
         $this->attributes['slug']   = str_slug($value);
     }
 
+    public static function insights()
+    {
+        return static::where('published', 1)->pluck('id', 'title');
+    }
+
 }

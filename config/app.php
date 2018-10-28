@@ -172,6 +172,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // View Composers
+        App\Providers\ArticleGroupsServiceProvider::class,
+        App\Providers\BooksServiceProvider::class,
 
     ],
 

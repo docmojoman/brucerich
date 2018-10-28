@@ -31,7 +31,7 @@ class ArticlesController extends Controller
         if ($id == null) {
             $articles = \App\Article::all();
         } else {
-            $articles = DB::table('articles')->where('group_id', $id)->get();
+            $articles = \App\Article::where('group_id', $id)->get();
         }
         $categories = \App\ArticleGroup::all();
         // return $articles;

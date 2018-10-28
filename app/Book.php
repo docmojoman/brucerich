@@ -28,4 +28,11 @@ class Book extends Model
     	$this->attributes['title']	= $value;
     	$this->attributes['slug']	= str_slug($value);
     }
+
+    public static function books()
+    {
+        // \App\Book::where('published', 1)->pluck('id', 'title');
+        return static::where('published', 1)->pluck('id', 'title');
+    }
+
 }

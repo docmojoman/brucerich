@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
-
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class InsightsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,19 +13,9 @@ class ArticlesController extends Controller
      */
     public function index($id = null)
     {
+        $insights = \App\Insight::where('published', 1)->get();
 
-        if ($id == null) {
-            $articles = \App\Article::where('published', 1)->get();
-        } else {
-            $category = \App\ArticleGroup::where('id', $id)->get();
-            $articles = \App\Article::where([
-                ['group_id', '=', $id],
-                ['published', '=', '1'],
-            ])->get();
-        }
-
-        return view('articles.index', compact('articles', 'category'));
-
+        return view('insights.index', compact('insights'));
     }
 
     /**
@@ -59,11 +47,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $article = \App\Article::find($id);
+        $insight = \App\Insight::find($id);
 
-        $category = \App\ArticleGroup::find($article->group_id);
-
-        return view('articles.show', compact('article', 'category'));
+        return view('insights.show', compact('insight'));
     }
 
     /**
@@ -99,4 +85,5 @@ class ArticlesController extends Controller
     // {
     //     //
     // }
+
 }

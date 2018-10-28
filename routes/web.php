@@ -18,11 +18,15 @@ Route::get('/about', 'PageController@about');
 
 Route::get('/media', 'PageController@media');
 
-Route::get('/books', 'BooksController@index');
+Route::get('/books/{id?}', 'BooksController@index');
 
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles/{id?}', 'ArticlesController@index');
+
+Route::get('/article/{id}', 'ArticlesController@show');
 
 Route::get('/insights', 'InsightsController@index');
+
+Route::get('/insight/{id}', 'InsightsController@show');
 
 Route::get('/contact', 'PageController@contact');
 
@@ -32,7 +36,7 @@ Route::get('/contact', 'PageController@contact');
 Auth::routes();
 
 Route::get('/admin/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware('auth');
 
 // Articles
@@ -98,7 +102,7 @@ Route::patch('/admin/videos', 'Admin\VideosController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// UniSharp
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+// UniSharp (from middleware array 'web',)
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
      \UniSharp\LaravelFilemanager\Lfm::routes();
  });

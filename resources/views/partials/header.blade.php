@@ -15,59 +15,48 @@
                             <li>
                             <a id="menu-about" href="about" class="menu-title">About</a>
                                 <ul class="vertical menu align-left hide-for-medium">
-                                    <li><a href="about#about">About The Author</a></li>
-                                    <li><a href="media#about">Media</a></li>
+                                    <li><a href="/about#about">About The Author</a></li>
+                                    <li><a href="/media#about">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                                 <ul class="vertical menu align-left show-for-medium">
-                                    <li><a href="about">About The Author</a></li>
-                                    <li><a href="media">Media</a></li>
+                                    <li><a href="/about">About The Author</a></li>
+                                    <li><a href="/media">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                             </li>
                             <li>
-                            <a id="menu-books" href="books" class="menu-title">Books</a>
+                            <a id="menu-books" href="/books" class="menu-title">Books</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
-                                    <li><a href="book#book">Mortgaging The Earth</a></li>
-                                    <li><a href="book#book">Foreclosing The Future</a></li>
-                                    <li><a href="book#book">To Uphold The World</a></li>
-                                    <li><a href="book#book">Ashoka In Our Time</a></li>
-                                    <li><a href="books#books">View All</a></li>
+                                    @foreach($books as $title => $id)
+                                    <li><a href="/books/{{ $id }}">{{ $title }}</a></li>
+                                    @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
-                                    <li><a href="book">Mortgaging The Earth</a></li>
-                                    <li><a href="book">Foreclosing The Future</a></li>
-                                    <li><a href="book">To Uphold The World</a></li>
-                                    <li><a href="book">Ashoka In Our Time</a></li>
+                                    @foreach($books as $title => $id)
+                                    <li><a href="/books/{{ $id }}">{{ $title }}</a></li>
+                                    @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                            <a id="menu-articles" href="articles" class="menu-title">Articles</a>
+                            <a id="menu-articles" href="/articles" class="menu-title">Articles</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
-                                    <li><a href="article#article">Economic Forum: The Developing World</a></li>
-                                    <li><a href="article#article">Environmental Forum: Cover Stories</a></li>
-                                    <li><a href="article#article">Law Review Articles And Comments</a></li>
-                                    <li><a href="article#article">Congressional Testimony</a></li>
-                                    <li><a href="article#article">Development Finance, Environment And Institutions</a></li>
-                                    <li><a href="article#article">Ashoka, Buddhism And Globalization</a></li>
-                                    <li><a href="article#article">Topical Articles And Reviews</a></li>
-                                    <li><a href="articles#articles">View All</a></li>
+                                    @foreach($articlegroups as $articlegroup)
+                                    <li><a href="/articles/{{ $articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    @endforeach
+                                    <li><a href="/articles#articles">View All</a></li>
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
-                                    <li><a href="article">Economic Forum: The Developing World</a></li>
-                                    <li><a href="article">Environmental Forum: Cover Stories</a></li>
-                                    <li><a href="article">Law Review Articles And Comments</a></li>
-                                    <li><a href="article">Congressional Testimony</a></li>
-                                    <li><a href="article">Development Finance, Environment And Institutions</a></li>
-                                    <li><a href="article">Ashoka, Buddhism And Globalization</a></li>
-                                    <li><a href="article">Topical Articles And Reviews</a></li>
+                                    @foreach($articlegroups as $articlegroup)
+                                    <li><a href="/articles/{{ $articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                                <a href="insights#insights"class="menu-title hide-for-medium">Insights</a>
-                                <a href="insights"class="menu-title show-for-medium">Insights</a>
+                                <a href="/insights"class="menu-title hide-for-medium">Insights</a>
+                                <a href="/insights"class="menu-title show-for-medium">Insights</a>
                             </li>
                             <li>
-                                <a href="contact#contact"class="menu-title hide-for-medium">Contact</a>
-                                <a href="contact"class="menu-title show-for-medium">Contact</a>
+                                <a href="/contact#contact"class="menu-title hide-for-medium">Contact</a>
+                                <a href="/contact"class="menu-title show-for-medium">Contact</a>
                             </li>
                         </ul> <!-- .vertical .medium-horizontal .menu .align-right -->
                     </div> <!-- #nav -->

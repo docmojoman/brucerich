@@ -17,4 +17,9 @@ class ArticleGroup extends Model
     {
     	return $this->hasMany('App\Article', 'group_id');
     }
+
+    public static function articlegroups()
+    {
+        return static::all();
+    }
 }

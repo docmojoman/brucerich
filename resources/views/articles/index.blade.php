@@ -9,10 +9,12 @@
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
               <li><a href="./">Home</a></li>
-              <li><a href="#">Articles</a></li>
+              <li><a href="/articles">Articles</a></li>
+              @if(isset($category))
               <li>
-                <span class="show-for-sr">Current: </span> Economic Forum
+                <span class="show-for-sr">Current: </span> {{ $category[0]->title }}
               </li>
+              @endif
             </ul>
           </nav>
         </div> <!-- .cell .medium-12 -->
@@ -23,8 +25,10 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          <h1 class="h2">Economic Forum</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed nesciunt, aliquam mollitia amet perspiciatis quidem veritatis illo. Eos nobis quas quisquam iste, nam odio soluta dolorem rerum delectus, non! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ipsam nesciunt aperiam fuga quasi, deleniti, culpa optio, explicabo corporis sed nobis sit veniam. Ex quaerat, unde cupiditate, reiciendis accusamus fugiat?</p>
+          @if(isset($category))
+          <h1 class="h2">{{ $category[0]->title }}</h1>
+          <p class="lead">{{ $category[0]->description }}</p>
+          @endif
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
@@ -35,10 +39,10 @@
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
         <div class="cell medium-2 list-icon">
-          <a href="articles/{{ $article->slug }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
+          <a href="/article/{{ $article->id }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="articles/{{ $article->slug }}">{{ $article->title }}</a></h2>
+          <h2 class="h3"><a href="/article/{{ $article->id }}">{{ $article->title }}</a></h2>
           <p>{{ str_limit($article->description, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
