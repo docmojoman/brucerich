@@ -35,14 +35,17 @@
           <span class="book">
             <p><img src="{{ asset('img/book-01.png') }}" alt=""></p>
             <ul class="book-submenu">
-              <li><a href="#about">About</a></li>
+              @foreach($sections as $section)
+              <li><a href="#{{ $section->header }}">{{ str_limit($section->header, 26) }}</a></li>
+              @endforeach
+              {{-- <li><a href="#about">About</a></li>
               <li><a href="#videos">Videos</a></li>
               <li><a href="#review">Review Quotes</a></li>
               <li><a href="#reviews">Reviews</a></li>
               <li><a href="#articles">Articles, Interviews, Essays</a></li>
               <li><a href="#cover">Cover Images</a></li>
               <li><a href="#publishers">Publisher's Pages</a></li>
-              <li><a href="#purchasing">Purchasing Options</a></li>
+              <li><a href="#purchasing">Purchasing Options</a></li> --}}
             </ul>
             <p><img class="buy-button-amazon" src="assets/img/buy-button-amazon.png" alt=""></p>
             <h3 class="h4">Tags:</h3>
@@ -68,41 +71,28 @@ Rissa Johnson
 
           <h2 class="h3 uppercase">Media</h2>
 
-          <img src="assets/img/00-speaking-fpo.jpg" alt="">
+          <img src="{{ asset('img/00-speaking-fpo.jpg') }}" alt="">
           <p  class="image-cite">Bruce Rich discussing “Foreclosing the Future” at the Institute for Agriculture and Trade Policy. <a href="">View Video on YouTube</a></p>
 
           <p><a href="">Show All</a></p>
 
-          <h2 class="h3 uppercase">Reviews</h2>
+          <!-- Dynamic Section -->
+          <ul class="accordion" data-accordion data-multi-expand="true">
+            @foreach($sections as $section)
+            <!-- Dynamic Row -->
+            <li class="accordion-item is-active" data-accordion-item>
+              <!-- Accordion tab title -->
+              <a href="#" class="accordion-title"><a name="{{ $section->header }}">
+                <h2 class="h3 uppercase">{{ $section->header }}</h2>
+              </a>
 
-          <p class="review">“Foreclosing the Future carefully documents the World Bank's adherence to 'pushing the money out the door,' refusing to learn from past mistakes, tolerating corruption, trashing the planet, and evicting the poor—all in devout service to a mis-measure of wealth. Bruce Rich gives a tragic, honest, and well-argued account of the decline of a once-promising institution.”</p>
-
-          <p class="byline">—Herman Daly, Former Senior World Bank Economist, Professor Emeritus, School of Public Policy, University of Maryland</p>
-
-          <p class="review">“A compelling account of the past two decades of global environmental politics as played out in the world's leading development institution. Foreclosing the Future underscores that the need for public scrutiny of international  nancial institutions is as great as ever.”</p>
-
-          <p class="byline">—Senator Tom Udall, New Mexico, Senate Foreign Relations Committee, Senate Appropriations Committee</p>
-
-          <p class="review">“Deeply-researched and  lled with heretofore publicly unavailable Bank documents.... His book argues thoroughly and methodically that the Bank's permissive attitude towards environmental destruction has continued, if not worsened, in the past decade.”</p>
-
-          <p class="byline">—New Republic</p>
-
-          <p class="review">“The strength of the book, however, is its dissection of the Bank's approach to climate change.”</p>
-
-          <p class="byline">—Financial Times</p>
-
-          <p><a href="">Show All</a></p>
-
-          <h2 class="h3 uppercase">Additional Info</h2>
-
-          <p class="book-info">Four page summary of the book, in Bretton Woods Project "At Issue":<br />
-            <a href="https://www.brettonwoodsproject.org/wp-content/uploads/2013/10/At-Issue-Bruce-Rich-FINAL.pdf" target="_blank">
-            https://www.brettonwoodsproject.org/&hellip;</a></p>
-
-          <p class="book-info">Excerpt from the book published on Alternet:<br />
-            <a href="https://www.alternet.org/environment/how-world-bank-hurtling-us-toward-environmental-ruin" target="_blank">https://www.alternet.org/environment/&hellip;</a></p>
-
-          <p><a href="">Show All</a></p>
+              <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+              <div class="accordion-content" data-tab-content>{{ $section->description }}</div>
+            </li>
+            <!-- End Dynamic Row -->
+            @endforeach
+          </ul>
+          <!-- End Dynamic Section -->
 
         </div> <!-- .cell .medium-9 .article-body -->
       </div> <!-- .grid-x .grid-margin-x -->
