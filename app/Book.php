@@ -29,9 +29,24 @@ class Book extends Model
     	$this->attributes['slug']	= str_slug($value);
     }
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
+
+/**
+* Public Menu
+* View Composer
+*
+*/
     public static function books()
     {
-        // \App\Book::where('published', 1)->pluck('id', 'title');
+
         return static::where('published', 1)->pluck('id', 'title');
     }
 

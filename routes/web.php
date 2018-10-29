@@ -20,6 +20,8 @@ Route::get('/media', 'PageController@media');
 
 Route::get('/books/{id?}', 'BooksController@index');
 
+Route::get('/book/{id}', 'BooksController@show');
+
 Route::get('/articles/{id?}', 'ArticlesController@index');
 
 Route::get('/article/{id}', 'ArticlesController@show');

@@ -25,27 +25,6 @@ class BooksController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -53,7 +32,13 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = \App\Book::find($id);
+
+        $sections = $book->sections;
+
+        // dd($sections);
+
+        return view('books.show', compact('book', 'sections'));
     }
 
     /**

@@ -12,7 +12,7 @@
               <li><a href="/articles">Articles</a></li>
               @if(isset($category))
               <li>
-                <span class="show-for-sr">Current: </span> {{ $category[0]->title }}
+                <span class="show-for-sr">Current: </span> {{ $category->title }}
               </li>
               @endif
             </ul>
@@ -26,8 +26,10 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
           @if(isset($category))
-          <h1 class="h2">{{ $category[0]->title }}</h1>
-          <p class="lead">{{ $category[0]->description }}</p>
+          <h1 class="h2">{{ $category->title }}</h1>
+          <p class="lead">{{ $category->description }}</p>
+          @else
+          <h1 class="h2">Articles</h1>
           @endif
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->

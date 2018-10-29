@@ -23,6 +23,16 @@ class Article extends Model
         return $this->belongsTo('App\ArticleGroup');
     }
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
+
     public function setTitleAttribute($value)
     {
         $this->attributes['title']  = $value;
