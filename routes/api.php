@@ -16,9 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-// Tags
-// Route::get('/admin/tags', 'Admin\TagsController@index');
-
-// Route::get('/admin/tags/fetch/{tag?}', 'Admin\TagsController@fetch');
-
