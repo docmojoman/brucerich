@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Relation::morphMap([
+            'books'     => 'App\Book',
+            'articles'  => 'App\Article',
+            'insights'  => 'App\Insight',
+            'videos'    => 'App\Video',
+        ]);
     }
 
     /**

@@ -18,11 +18,8 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('author');
-            $table->string('publication');
-            $table->date('date');
+            $table->string('image');
             $table->text('about');
-            $table->string('video');
             $table->unsignedSmallInteger('position')->nullable();
             $table->boolean('published')->default(0);
             $table->softDeletes();

@@ -76,7 +76,9 @@ class InsightsController extends Controller
     {
         $insight = \App\Insight::find($id);
 
-        return view('admin.insights.edit', compact('insight'));
+        $tags = $insight->tags;
+
+        return view('admin.insights.edit', compact('insight', 'tags'));
     }
 
     /**

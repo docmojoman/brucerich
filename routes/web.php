@@ -100,6 +100,12 @@ Route::get('/admin/videos/edit/{id}', 'Admin\VideosController@edit');
 
 Route::patch('/admin/videos', 'Admin\VideosController@update');
 
+// Tags
+Route::get('/admin/tags', 'Admin\TagsController@index');
+
+Route::get('/admin/tags/fetch', 'Admin\TagsController@fetch');
+
+// Route::get('/admin/tags/fetch/{tag?}', 'Admin\TagsController@fetch');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

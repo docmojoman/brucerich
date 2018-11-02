@@ -86,8 +86,9 @@ class ArticlesController extends Controller
     {
         $categories = \App\ArticleGroup::all();
         $article = \App\Article::find($id);
+        $tags = $article->tags;
 
-        return view('admin.articles.edit', compact('categories', 'article'));
+        return view('admin.articles.edit', compact('categories', 'article', 'tags'));
     }
 
     /**

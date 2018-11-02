@@ -38,4 +38,14 @@ class Article extends Model
         $this->attributes['title']  = $value;
         $this->attributes['slug']   = str_slug($value);
     }
+
+
+    /**
+     * Get all of the tags for the article.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
 }

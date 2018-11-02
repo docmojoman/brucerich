@@ -79,7 +79,9 @@ class BooksController extends Controller
 
         $sections = $book->sections;
 
-        return view('admin.books.edit', compact('book', 'sections'));
+        $tags = $book->tags;
+
+        return view('admin.books.edit', compact('book', 'sections', 'tags'));
     }
 
     /**

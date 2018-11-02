@@ -25,8 +25,9 @@
         "ajv": "^6.5.4",
         "ajv-keywords": "^3.2.0",
         "ckeditor": "^4.10.1",
-        "imagemin": "^6.0.0",
+        "imagemin": "^5.3.1",
         "jquery-datepicker": "^1.12.3",
+        "select2": "^4.0.6-rc.1",
         "slick-carousel": "^1.8.1"
     }
 }

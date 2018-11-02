@@ -76,7 +76,9 @@ class VideosController extends Controller
     {
         $video = \App\Video::find($id);
 
-        return view('admin.videos.edit', compact('video'));
+        $tags = $video->tags;
+
+        return view('admin.videos.edit', compact('video', 'tags'));
     }
 
     /**

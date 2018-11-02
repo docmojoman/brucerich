@@ -24,4 +24,13 @@ class Video extends Model
         $this->attributes['slug']   = str_slug($value);
     }
 
+    /**
+     * Get all of the tags for the video.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
+
 }

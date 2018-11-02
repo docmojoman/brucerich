@@ -28,7 +28,8 @@
              </div>
             </label>
             <label>Tags:
-              <input type="text" placeholder="tags">
+              <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
+              </select>
             </label>
 
             <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
@@ -38,11 +39,13 @@
 @endsection
 @push('script-header')
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/vader/jquery-ui.css">
-  <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/select2/select2.css') }}">
+    <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
 @endpush
 @push('script-link')
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+  <script src="{{ asset('js/select2/select2.js') }}"></script>
   <script>
     var options = {
       filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
@@ -59,4 +62,26 @@
     $( "#datepicker" ).datepicker(
        { dateFormat: "yy-mm-dd" }
     );
+
+    $('#tags').select2({
+        placeholder: "Choose tags…",
+        minimumInputLength: 2,
+        tags: 'true',
+        tokenSeparators: [',', '|'],
+        ajax: {
+            url: '/admin/tags/fetch',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
 @endpush

@@ -13,4 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
-   .copy('node_modules/ckeditor/', 'public/js/ckeditor/', false);;
+   .copy('node_modules/ckeditor/', 'public/js/ckeditor/', false)
+   .copy('node_modules/select2/dist/css/', 'public/css/select2/', false)
+   .copy('node_modules/select2/dist/js/', 'public/js/select2/', false);

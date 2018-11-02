@@ -46,8 +46,16 @@ class Book extends Model
 */
     public static function books()
     {
-
         return static::where('published', 1)->pluck('id', 'title');
+    }
+
+    /**
+     * Get all of the tags for the book.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
     }
 
 }

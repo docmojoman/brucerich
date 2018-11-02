@@ -11144,8 +11144,6 @@ __webpack_require__(35);
 
 __webpack_require__(36);
 
-// require('ckeditor/ckeditor');
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

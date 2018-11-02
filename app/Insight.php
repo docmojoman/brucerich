@@ -33,4 +33,13 @@ class Insight extends Model
         return static::where('published', 1)->pluck('id', 'title');
     }
 
+    /**
+     * Get all of the tags for the insight.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
+
 }
