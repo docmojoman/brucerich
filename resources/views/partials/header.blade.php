@@ -27,12 +27,12 @@
                             <a id="menu-books" href="/books" class="menu-title">Books</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($books as $title => $id)
-                                    <li><a href="/books/{{ $id }}">{{ $title }}</a></li>
+                                    <li><a href="/book/{{ $id }}">{{ $title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
                                     @foreach($books as $title => $id)
-                                    <li><a href="/books/{{ $id }}">{{ $title }}</a></li>
+                                    <li><a href="/book/{{ $id }}">{{ $title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
