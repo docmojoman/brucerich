@@ -5,11 +5,11 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-80">
         <div class="cell medium-8 medium-offset-2">
-          <h1 class="h2 text-center">Edit Book</h1>
+          <h1 class="h2 text-center">Add New Book</h1>
           <form method="POST" action="/admin/books">
             @csrf
             <label>Book Title:
-              <input name="title" type="text" placeholder="Title" value="{{ $book->title }}">
+              <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
             <label>Book Image:
             <div class="input-group">
@@ -18,30 +18,30 @@
                    <i class="fa fa-picture-o fi-photo"></i> &nbsp;&nbsp;Choose
                  </a>
                </span>
-               <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ $book->image }}">
+               <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ old('image') }}">
              </div>
             </label>
             <label>About:
               <textarea name="about" id="editor" cols="30" rows="10">
-                {!! $book->about !!}
+                {!! old('about') !!}
               </textarea>
             </label>
             {{-- Begin Dynamic Form Sections --}}
-            @foreach($sections as $section)
             <label>Header:
-              <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
+              <input name="section[][header][]" type="text" placeholder="Title" value="">
             </label>
             <label>Content:
-              <textarea name="section[{{ $section->id }}][description][]" id="editor" class="editor" cols="30" rows="10">{!! $section->description !!}</textarea>
+              <textarea name="section[][description][]" class="editor" cols="30" rows="10"></textarea>
             </label>
-            @endforeach
             {{-- End Dynamic Form Section --}}
+            <hr />
+            <div class="text-center">
+              <button class="new_section button large dark margin-top-40">Add New Text Section</button>
+              <button class="new_section button large dark margin-top-40">Add New Video Section</button>
+            </div>
             <hr />
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
-                @foreach($tags as $tag)
-                <option value="{{ $tag->id }}" selected="selected">{{ $tag->name }}</option>
-                @endforeach
               </select>
             </label>
             <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
@@ -66,13 +66,6 @@
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
     CKEDITOR.replace( 'about', options );
-    var elements = CKEDITOR.document.find( '.editor' ),
-        i = 0,
-        element;
-
-    while ( ( element = elements.getItem( i++ ) ) ) {
-        CKEDITOR.replace( element, options );
-    }
   </script>
 @endpush
 @push('scripts')

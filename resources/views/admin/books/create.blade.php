@@ -27,7 +27,16 @@
               </textarea>
             </label>
             {{-- Begin Dynamic Form Sections --}}
+            <div class="sections"></div>
             {{-- End Dynamic Form Section --}}
+            <hr />
+            <div class="text-center">
+              <label>Add New Section
+              <br />
+              <button class="new_section button large dark margin-top-20" data-id="text" >Add New Section</button>
+              <button class="new_section button large dark margin-top-20"data-id="video" >Add Video to Page</button>
+            </div>
+            </label>
             <hr />
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
@@ -55,6 +64,26 @@
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
     CKEDITOR.replace( 'about', options );
+
+    function addEditor(){
+      var elements = CKEDITOR.document.find( '.editor' ),
+        i = 0,
+        element;
+
+      while ( ( element = elements.getItem( i++ ) ) ) {
+          CKEDITOR.replace( element, options );
+      }
+      console.log('Loaded!');
+    }
+
+
+    function addNamedEditor(name){
+
+      CKEDITOR.replace( name, options );
+
+      console.log('Loaded!');
+    }
+
   </script>
 @endpush
 @push('scripts')
@@ -63,6 +92,36 @@
     $( "#datepicker" ).datepicker(
        { dateFormat: "yy-mm-dd" }
     );
+
+    //Sections
+
+    var sections    = $(".sections");
+    var x = 0;
+
+    $( "button.new_section" ).click(function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    if (id == 'text')
+    {
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor" + x + "\" cols=\"30\" rows=\"10\">Add Text Here!</textarea>";
+
+        var name = "section[" + x + "][description][]";
+
+        x++;
+
+        $(sections).append(str);
+
+        addNamedEditor(name);
+
+      } else {
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Embed Video Here!</textarea>";
+        x++;
+
+        $(sections).append(str);
+      }
+    });
+
+    //Tags
 
     $('#tags').select2({
         placeholder: "Choose tags…",
