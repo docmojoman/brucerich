@@ -2,7 +2,7 @@
     <div class="grid-container">
         <div id="header" class="grid-x  grid-margin-x">
             <div id="logo-cell" class="cell medium-3">
-                <a href="{{url('./')}}"><img id="logo" src="{{ asset('img/brucerich_logo.svg') }}" alt="Bruce Rich Logo"></a>
+                <a href="./"><img id="logo" src="{{ asset('img/brucerich_logo.svg') }}" alt="Bruce Rich Logo"></a>
             </div> <!-- #header -->
             <div class="cell medium-auto">
                 <div class="grid-x">
@@ -13,50 +13,50 @@
                     <div class="cell" id="nav">
                         <ul class="vertical medium-horizontal menu" data-responsive-menu="accordion medium-dropdown">
                             <li>
-                            <a id="menu-about" href="{{ url('about') }}" class="menu-title">About</a>
+                            <a id="menu-about" href="about" class="menu-title">About</a>
                                 <ul class="vertical menu align-left hide-for-medium">
-                                    <li><a href="{{ url('/about#about') }}">About The Author</a></li>
-                                    <li><a href="{{ url('/media#about') }}">Media</a></li>
+                                    <li><a href="/about#about">About The Author</a></li>
+                                    <li><a href="/media#about">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                                 <ul class="vertical menu align-left show-for-medium">
-                                    <li><a href="{{ url('/about') }}">About The Author</a></li>
-                                    <li><a href="{{ url('/media') }}">Media</a></li>
+                                    <li><a href="/about">About The Author</a></li>
+                                    <li><a href="/media">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                             </li>
                             <li>
-                            <a id="menu-books" href="{{ url('/books') }}" class="menu-title">Books</a>
+                            <a id="menu-books" href="/books" class="menu-title">Books</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
-                                    @foreach($books as $book)
-                                    <li><a href="{{ url('/book/').'/'.$book->id }}">{{ $book->title }}</a></li>
+                                    @foreach($books as $title => $id)
+                                    <li><a href="/book/{{ $id }}">{{ $title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
-                                    @foreach($books as $book)
-                                    <li><a href="{{ url('/book/').'/'.$book->id }}">{{ $book->title }}</a></li>
+                                    @foreach($books as $title => $id)
+                                    <li><a href="/book/{{ $id }}">{{ $title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                            <a id="menu-articles" href="{{ url('/articles') }}" class="menu-title">Articles</a>
+                            <a id="menu-articles" href="/articles" class="menu-title">Articles</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($articlegroups as $articlegroup)
-                                    <li><a href="{{ url('/articles').'/'.$articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    <li><a href="/articles/{{ $articlegroup->id }}">{{ $articlegroup->title }}</a></li>
                                     @endforeach
-                                    <li><a href="{{ url('/articles#articles') }}">View All</a></li>
+                                    <li><a href="/articles#articles">View All</a></li>
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
                                     @foreach($articlegroups as $articlegroup)
-                                    <li><a href="{{ url('/articles').'/'.$articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    <li><a href="/articles/{{ $articlegroup->id }}">{{ $articlegroup->title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                                <a href="{{ url('/insights') }}"class="menu-title hide-for-medium">Insights</a>
-                                <a href="{{ url('/insights') }}"class="menu-title show-for-medium">Insights</a>
+                                <a href="/insights"class="menu-title hide-for-medium">Insights</a>
+                                <a href="/insights"class="menu-title show-for-medium">Insights</a>
                             </li>
                             <li>
-                                <a href="{{ url('/contact#contact') }}"class="menu-title hide-for-medium">Contact</a>
-                                <a href="{{ url('/contact') }}"class="menu-title show-for-medium">Contact</a>
+                                <a href="/contact#contact"class="menu-title hide-for-medium">Contact</a>
+                                <a href="/contact"class="menu-title show-for-medium">Contact</a>
                             </li>
                         </ul> <!-- .vertical .medium-horizontal .menu .align-right -->
                     </div> <!-- #nav -->

@@ -1,0 +1,36 @@
+
+
+
+  $('tbody#sortable').sortable({
+    update: function (event, ui) {
+      $(this).children().each(function (index) {
+        if ($(this).attr('data-position') != (index+1)) {
+          $(this).attr('data-position', (index+1)).addClass('updated');
+        }
+      });
+      saveNewPositions();
+    }
+  });
+
+  function saveNewPositions() {
+    var positions = [];
+    $('.updated').each(function () {
+      positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+      $(this).removeClass('updated');
+    });
+
+    $.ajax({
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "{{ url('/admin/sort/update') }}",
+      dataType: 'text',
+      data: {
+        sortable_type: "article",
+        positions: positions
+      }, success: function (response) {
+        console.log(response);
+      }
+    });
+  }

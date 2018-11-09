@@ -26,9 +26,25 @@ class ArticleGroupController extends Controller
      */
     public function index()
     {
-        $articlegroups = ArticleGroup::all();
+        // $articlegroups = ArticleGroup::all();
+        $sortable_type = 'articleGroup';
+        $unsorted_groups = ArticleGroup::all();
+        $groupIds = $unsorted_groups->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $groupIds)->pluck('sortable_id');
 
-        // dd($articlegroups);
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_groups->sortByIds($order->toArray());
+
+            $ags = $ordered->values()->toArray();
+
+            $articlegroups = array_map(function($array){
+                return (object)$array;
+            }, $ags);
+        } else {
+            $articlegroups = ArticleGroup::all();
+        }
+
         // return $articlegroups;
 
         return view('admin.articlegroup.index', compact('articlegroups'));

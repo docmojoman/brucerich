@@ -27,17 +27,31 @@ class ArticlesController extends Controller
     public function index($id = null)
     {
         $selectedGroup = $id;
+        $sortable_type = 'article';
 
         if ($id == null) {
+            $sort = false; // toggle sorting off
             $articles = \App\Article::all();
+            $order = null;
         } else {
-            $articles = \App\Article::where('group_id', $id)->get();
+            $sort = true;
+            $unsorted_articles = \App\Article::where('group_id', $id)->get();
+            $groupIds = $unsorted_articles->pluck('id');
+            $order = \App\Sort::groupOrder($sortable_type, $groupIds)->pluck('sortable_id');
+
+            // Use SortableCollection Class
+            $ordered = $unsorted_articles->sortByIds($order->toArray());
+
+            $arts = $ordered->values()->toArray();
+
+            $articles = array_map(function($array){
+                return (object)$array;
+            }, $arts);
         }
         $categories = \App\ArticleGroup::all();
         // return $articles;
 
-        // dd($articles);
-        return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup'));
+        return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup', 'sort'));
 
     }
 
@@ -62,6 +76,10 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        // Store Request Data
+
+        // Attach New Record to Soratable
+
         return $request;
     }
 
@@ -113,4 +131,5 @@ class ArticlesController extends Controller
     {
         //
     }
+
 }

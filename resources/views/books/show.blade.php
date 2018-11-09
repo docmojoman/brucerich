@@ -8,8 +8,8 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="./">Home</a></li>
-              <li><a href="/books">Books</a></li>
+              <li><a href="{{ url('./') }}">Home</a></li>
+              <li><a href="{{ url('/books') }}">Books</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> {{ $book->title }}
               </li>
@@ -108,7 +108,7 @@ Rissa Johnson
       <!-- /divider -->
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          <p class="nav-return"><a href="books.html">Return to List</a></p>
+          <p class="nav-return"><a href="{{ url('/books') }}">Return to List</a></p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->

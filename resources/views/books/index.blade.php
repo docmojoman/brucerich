@@ -7,7 +7,7 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="./">Home</a></li>
+              <li><a href="{{ url('./') }}">Home</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> Books
               </li>
@@ -33,10 +33,10 @@
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
         <div class="cell medium-2 list-icon">
-          <a href="/books/{{ $book->id }}"><img src="{{ asset('img/book-01.png') }}" alt=""></a>
+          <a href="{{ url('/books').'/'.$book->id }}"><img src="{{ asset('img/book-01.png') }}" alt=""></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="/book/{{ $book->id }}">{{ $book->title }}</a></h2>
+          <h2 class="h3"><a href="{{ url('/book').'/'.$book->id }}">{{ $book->title }}</a></h2>
           {{ $book->about }}
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->

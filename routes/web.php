@@ -105,6 +105,13 @@ Route::get('/admin/tags', 'Admin\TagsController@index');
 
 Route::get('/admin/tags/fetch', 'Admin\TagsController@fetch');
 
+
+// Sort Order
+Route::get('/admin/sort/{sortable_type}', 'Admin\SortsController@index');
+
+Route::post('/admin/sort/update', 'Admin\SortsController@update');
+
+
 // Route::get('/admin/tags/fetch/{tag?}', 'Admin\TagsController@fetch');
 
 

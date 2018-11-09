@@ -15,7 +15,7 @@
       <hr />
       <div class="grid-x grid-margin-x margin-top-30">
         <div class="cell small-8">
-          <h2 class="h4 header-menu">Insight</h2> <span class="header-instruction">(Drag row to re-order list):</span>
+          <h2 class="h4 header-menu">Insight</h2> <!-- <span class="header-instruction">(Drag row to re-order list):</span> -->
         </div>
         <div class="cell small-2">
           <h2 class="h4">Status</h2>
@@ -60,10 +60,4 @@
       <!-- /row -->
       @endforeach
       @endif
-      <div class="grid-x grid-margin-x margin-top-20">
-        <div class="cell small-2 small-offset-10">
-          <a href="" id="new-article" class="button dark">
-            <i class="fi-check"></i> Set Sort Order</a>
-        </div>
-      </div>
 @endsection

@@ -567,6 +567,45 @@ ul.book-submenu {
 
 }
 
+thead#sortable-head {
+	width: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+	border: none;
+	border-width: 0px;
+	background-color: #fff;
+	border-style: hidden;
+	border-bottom: 1px solid #444;
+
+	tr {
+		border-bottom: 1px solid #444;
+		background-color: #fff;
+	}
+}
+
+tbody#sortable {
+	width: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+	border: none;
+	border-width: 0px;
+	background-color: #fff;
+	border-style: hidden;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
+
+	tr {
+		border-bottom: 1px solid #444;
+		background-color: #fff;
+	}
+
+	td {
+		padding: 20px 5px;
+		background-color: #fff;
+	}
+}
+
+
 ul#articles-page li:first-child,
 ul#insights-page li:first-child {
     padding-left: 0px;

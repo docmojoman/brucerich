@@ -24,6 +24,14 @@ class Article extends Model
     }
 
     /**
+     * Enable SortableCollection Sorting Feature.
+     */
+    public function newCollection(array $models = array())
+    {
+        return new SortableCollection($models);
+    }
+
+    /**
      * Get the route key for the model.
      *
      * @return string
@@ -39,13 +47,21 @@ class Article extends Model
         $this->attributes['slug']   = str_slug($value);
     }
 
-
     /**
      * Get all of the tags for the article.
      */
     public function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get all of the order positions for the article.
+     */
+    public function position()
+    {
+        return $this->morphToMany('App\Sort', 'sortable')
                     ->withTimestamps();
     }
 }

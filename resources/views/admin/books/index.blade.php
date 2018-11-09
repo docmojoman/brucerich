@@ -8,34 +8,35 @@
           <h1 class="text-center">Books</h1>
         </div>
         <div class="cell small-2 align-middle">
-          <a href="/admin/books/create" id="new-article" class="button dark">
+          <a href="{{ url('/admin/books/create') }}" id="new-article" class="button dark">
             <i class="fi-plus"></i> New Book</a>
         </div>
       </div>
       <hr />
       <div class="grid-x grid-margin-x margin-top-30">
-        <div class="cell small-8">
-          <h2 class="h4 header-menu">Books</h2> <span class="header-instruction">(Drag row to re-order list):</span>
-        </div>
-        <div class="cell small-2">
-          <h2 class="h4">Status</h2>
-        </div>
-        <div class="cell small-2">
-          <h2 class="h4">Edit</h2>
-        </div>
-      </div>
-      <hr />
-      <!-- list -->
-      <!-- row -->
-      @if($books->count() == 0)
+        <div class="cell small-12">
+          <!-- table head -->
+          <table>
+            <thead id="sortable-head">
+            <tr>
+              <th class="text-left"><h2 class="h4 header-menu">Books</h2> <span class="header-instruction">(Drag row to re-order list):</span>
+              </th>
+              <th><h2 class="h4">Status</h2></th>
+              <th><h2 class="h4">Edit</h2></th>
+            </tr>
+          </thead>
+          <!-- end table head -->
+          <!-- table body -->
+          <tbody id="sortable">
+      @if(count($books) == 0)
+      <tr>
+        <td colspan="3" class="text-center">There are no books.</td>
+      </tr>
       @else
       @foreach($books as $book)
-      <div class="grid-x grid-margin-x margin-top-20">
-        <div class="cell small-8">
-          <p class="title"><a href="/book/{{ $book->slug }}">{{ $book->title }}</a></p>
-        </div>
-        <div class="cell small-2">
-          <select>
+            <tr data-index="{{ $book->id }}" data-position="">
+              <td><p class="title"><a href="{{ url('/book').'/'.$book->slug }}">{{ $book->title }}</a></p></td>
+              <td><select>
             <option>Status</option>
             <option value="0"
             @if($book->published == 0)
@@ -45,25 +46,58 @@
             @if($book->published == 1)
             selected
             @endif >Published</option>
-          </select>
-        </div>
-        <div class="cell small-2">
-          <select
+          </select></td>
+              <td><select
            onChange="top.location.href=this.options[this.selectedIndex].value;">
             <option>Select&hellip;</option>
-            <option value="/admin/books/edit/{{ $book->id }}">Edit</option>
-            <option value="/admin/books/delete/{{ $book->id }}te">Delete</option>
-          </select>
-        </div>
-      </div>
-      <hr />
-      <!-- /row -->
+            <option value="{{ url('/admin/books/edit').'/'.$book->id }}">Edit</option>
+            <option value="{{ url('/admin/books/delete').'/'.$book->id }}">Delete</option>
+          </select></td>
+            </tr>
       @endforeach
       @endif
-      <div class="grid-x grid-margin-x margin-top-20">
-        <div class="cell small-2 small-offset-10">
-          <a href="/admin/books/sort" id="new-article" class="button dark">
-            <i class="fi-check"></i> Set Sort Order</a>
+            </tbody>
+          </table>
         </div>
       </div>
+
 @endsection
+@push('script-link')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+@endpush
+@push('scripts')
+  $('tbody#sortable').sortable({
+    update: function (event, ui) {
+      $(this).children().each(function (index) {
+        if ($(this).attr('data-position') != (index+1)) {
+          $(this).attr('data-position', (index+1)).addClass('updated');
+        }
+      });
+      saveNewPositions();
+    }
+  });
+
+  function saveNewPositions() {
+    var positions = [];
+    $('.updated').each(function () {
+      positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+      $(this).removeClass('updated');
+    });
+
+    $.ajax({
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "{{ url('/admin/sort/update') }}",
+      dataType: 'text',
+      data: {
+        sortable_type: "book",
+        positions: positions
+      }, success: function (response) {
+        console.log(response);
+      }
+    });
+  }
+@endpush

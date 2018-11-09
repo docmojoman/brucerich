@@ -13,7 +13,6 @@ class BooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // \App\Book::where('published', 1)->pluck('id', 'title');
         // Books View Composer
         view()->composer('partials.header', function ($view)
         {

@@ -69,7 +69,7 @@
         tags: 'true',
         tokenSeparators: [',', '|'],
         ajax: {
-            url: '/admin/tags/fetch',
+            url: "{{ url('/admin/tags/fetch') }}"',
             dataType: 'json',
             data: function (params) {
                 return {

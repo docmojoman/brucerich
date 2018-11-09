@@ -28,7 +28,24 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = \App\Book::all();
+        // $books = \App\Book::all();
+        $sortable_type = 'book';
+        $unsorted_books = Book::all();
+        $bookIds = $unsorted_books->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $bookIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_books->sortByIds($order->toArray());
+
+            $bks = $ordered->values()->toArray();
+
+            $books = array_map(function($array){
+                return (object)$array;
+            }, $bks);
+        } else {
+            $books = Book::all();
+        }
 
         // dd($books);
         return view('admin.books.index', compact('books'));

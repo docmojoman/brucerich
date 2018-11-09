@@ -46,7 +46,29 @@ class Book extends Model
 */
     public static function books()
     {
-        return static::where('published', 1)->pluck('id', 'title');
+        $sortable_type = 'book';
+        $unsorted_books = static::select('id', 'title')->where('published', 1)->get();
+        // dd($unsorted_books);
+        $bookIds = $unsorted_books->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $bookIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_books->sortByIds($order->toArray());
+
+            $bks = $ordered->values()->toArray();
+
+            $books = array_map(function($array){
+                return (object)$array;
+            }, $bks);
+        } else {
+            $books = static::all();
+        }
+
+        // dd($books);
+
+        return $books;
+        // return static::where('published', 1)->pluck('id', 'title');
     }
 
     /**
@@ -55,6 +77,24 @@ class Book extends Model
     public function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Enable SortableCollection Sorting Feature.
+     */
+    public function newCollection(array $models = array())
+    {
+        return new SortableCollection($models);
+    }
+
+    /**
+     * Get all of the order positions for the article.
+     * $book->position()->attach(#);
+     */
+    public function position()
+    {
+        return $this->morphToMany('App\Sort', 'sortable')
                     ->withTimestamps();
     }
 
