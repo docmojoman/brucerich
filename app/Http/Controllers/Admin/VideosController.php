@@ -26,7 +26,25 @@ class VideosController extends Controller
      */
     public function index()
     {
-        $videos = \App\Video::all();
+        // $videos = \App\Video::all();
+
+        $sortable_type = 'video';
+        $unsorted_videos = Video::all();
+        $videoIds = $unsorted_videos->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $videoIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_videos->sortByIds($order->toArray());
+
+            $bks = $ordered->values()->toArray();
+
+            $videos = array_map(function($array){
+                return (object)$array;
+            }, $bks);
+        } else {
+            $videos = Video::all();
+        }
 
         // dd($videos);
         return view('admin.videos.index', compact('videos'));

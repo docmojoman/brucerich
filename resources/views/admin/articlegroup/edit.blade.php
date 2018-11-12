@@ -4,12 +4,14 @@
     <div id="admin">
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-60">
-        <div class="cell medium-12">
-          <h1 class="text-center">Edit Category</h1>
+        <div class="cell medium-4 medium-offset-4">
+          <h1 class="h2 text-center">Edit Category</h1>
+        </div>
+        <div class="cell medium-2 text-right padding-top-20">
+          <a onclick="return confirm('Are you sure you want to delete this category?')" href="{{ url('/admin/articlegroups/delete', $articlegroup->id) }}" class="">Delete Category</a>
         </div>
       </div>
-    </div>
-      <div class="grid-x grid-margin-x margin-top-60">
+      <div class="grid-x grid-margin-x">
         <div class="cell medium-6 medium-offset-3">
           <form method="POST" action="/admin/articlegroups">
             @csrf

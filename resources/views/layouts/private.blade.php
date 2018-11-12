@@ -19,10 +19,10 @@
     <div id="admin-menu">
     <div class="grid-container">
       <div class="grid-x grid-margin-x align-right">
-        <div class="cell small-9">
+        <div class="cell small-10">
           <h1 id="admin-logo" class="h5"><a href="/admin/dashboard" class="uppercase">{{ config('app.name', 'Laravel') }}</a></h1>
         </div>
-        <div class="cell small-3">
+        <div class="cell small-2">
           <ul class="dropdown menu" data-dropdown-menu>
             <li>
               <a href="#">Hello {{ Auth::user()->username }}</a>

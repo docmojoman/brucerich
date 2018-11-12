@@ -89,7 +89,7 @@ class Book extends Model
     }
 
     /**
-     * Get all of the order positions for the article.
+     * Get all of the order positions for the book.
      * $book->position()->attach(#);
      */
     public function position()

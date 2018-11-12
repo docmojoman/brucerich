@@ -148,6 +148,26 @@ cite {
 	padding-top: 10px;
 }
 
+.padding-top-11 {
+	padding-top: 10px;
+}
+
+.padding-top-12 {
+	padding-top: 10px;
+}
+
+.padding-top-13 {
+	padding-top: 10px;
+}
+
+.padding-top-14 {
+	padding-top: 10px;
+}
+
+.padding-top-15 {
+	padding-top: 10px;
+}
+
 .padding-top-20 {
 	padding-top: 20px;
 }
@@ -600,9 +620,19 @@ tbody#sortable {
 	}
 
 	td {
+		vertical-align: middle;
 		padding: 20px 5px;
 		background-color: #fff;
 	}
+
+	td:last-of-type, td:nth-of-type(2) {
+	    width: 12%;
+	}
+
+	td a.button.dark.expanded {
+	    margin: 0px;
+	}
+
 }
 
 
@@ -620,14 +650,6 @@ ul#insights-page li:first-child {
 		margin-left: 0px;
 	}
 
-	// a {
-	// 	color: #000;
-	// }
-
-	// a:hover {
-	// 	color: rgba(58, 141, 184, 1.0);
-	// }
-
 	a.small.button.tag,
 	a.button.tag {
 		color: #fff;
@@ -640,7 +662,6 @@ ul#insights-page li:first-child {
 
 	.blog-row-last {
 		padding: 20px 0px;
-		// border-bottom: solid 1px #000;
 	}
 
 	.list-icon > img {
@@ -682,8 +703,6 @@ img#portrait {
 	background-image: url('../img/brucerich_banner_bottom.jpg');
 	background-repeat: no-repeat;
 	padding: 3rem 4.75rem;
-    // background-attachment: fixed;
-    // background-position: top center;
     background-size: cover;
     background-color: rgba(22, 26, 46, 1.0);
     min-height: 225px;
@@ -808,46 +827,6 @@ ul#footer-menu {
 
 }
 
-// rgba(254, 254, 254, 1.0)
-// rgba(218, 218, 220, 1.0)
-
-// ul.dash-menu {
-// 	width: 900px;
-// 	list-style: none;
-
-// }
-
-// ul.dash-list {
-// 	list-style: none;
-// 	width: 100%;
-// 	margin-bottom: 20px;
-
-// 	li {
-// 		display: inline-table;
-// 		vertical-align: middle;
-// 	}
-
-// 	li:first-child {
-// 		width: 25%;
-// 		text-align: right;
-// 	}
-
-// 	li:last-child {
-// 		width: 50%;
-// 	}
-
-// }
-
-// ul.dash-options {
-// 	width: 100%;
-// 	list-style: none;
-
-// 	li {
-// 		display: table;
-// 	}
-// }
-
-
 #admin-menu {
 	height: 80px;
 	color: white;
@@ -905,6 +884,10 @@ h1#admin-logo {
 
 a#new-article {
 	margin: 15px 0px 0px;
+}
+
+.button.dark.expanded.no-margin {
+	margin: 0px;
 }
 
 // Form Stuff

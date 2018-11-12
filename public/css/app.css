@@ -11268,6 +11268,26 @@ cite {
   padding-top: 10px;
 }
 
+.padding-top-11 {
+  padding-top: 10px;
+}
+
+.padding-top-12 {
+  padding-top: 10px;
+}
+
+.padding-top-13 {
+  padding-top: 10px;
+}
+
+.padding-top-14 {
+  padding-top: 10px;
+}
+
+.padding-top-15 {
+  padding-top: 10px;
+}
+
 .padding-top-20 {
   padding-top: 20px;
 }
@@ -11701,8 +11721,18 @@ tbody#sortable tr {
 }
 
 tbody#sortable td {
+  vertical-align: middle;
   padding: 20px 5px;
   background-color: #fff;
+}
+
+tbody#sortable td:last-of-type,
+tbody#sortable td:nth-of-type(2) {
+  width: 12%;
+}
+
+tbody#sortable td a.button.dark.expanded {
+  margin: 0px;
 }
 
 ul#articles-page li:first-child,
@@ -11937,6 +11967,10 @@ h1#admin-logo {
 
 a#new-article {
   margin: 15px 0px 0px;
+}
+
+.button.dark.expanded.no-margin {
+  margin: 0px;
 }
 
 label {

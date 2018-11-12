@@ -76,6 +76,8 @@ Route::get('/admin/books/edit/{id}', 'Admin\BooksController@edit');
 
 Route::patch('/admin/books', 'Admin\BooksController@update');
 
+Route::get('/admin/books/delete/{id}', 'Admin\BooksController@destroy');
+
 
 // Insights
 Route::get('/admin/insights/create', 'Admin\InsightsController@create');
@@ -114,7 +116,7 @@ Route::post('/admin/sort/update', 'Admin\SortsController@update');
 
 // Route::get('/admin/tags/fetch/{tag?}', 'Admin\TagsController@fetch');
 
-
+// Track down this route and eliminate
 Route::get('/home', 'HomeController@index')->name('home');
 
 // UniSharp (from middleware array 'web',)

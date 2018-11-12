@@ -34,3 +34,36 @@
       }
     });
   }
+
+
+
+  // Status Go To Page
+  $statusSelect = $("#status");  //where "#id" is the id of your select
+  $statusSelect.change(function() {
+    //get value of select and navigate to that page
+    if ($statusSelect.val() == 0)
+    {
+      window.location.href='{{ url('/admin/books/status') }}';
+    } else if ($statusSelect.val() == 1)
+    {
+      window.location.href='{{ url('/admin/books/status') }}';
+    }
+  });
+
+  // Edit Go To Page
+  $editSelect = $(".edit");  //where "#id" is the id of your select
+  $editSelect.change(function() {
+    //get value of select and navigate to that page
+    if ($editSelect.data('name') == 'delete')
+    {
+      console.log($editSelect.val());
+      //if (confirm('Are you sure you want to delete your post?')) {
+        //window.location.href='{{ url('/admin/books/delete') }} + "/" + $editSelect.val()';
+      //}
+      return false;
+    } else if ($editSelect.data('name') == 'edit')
+    {
+      console.log($editSelect.val());
+      //window.location.href='{{ url('/admin/books/edit') }} + "/" + $editSelect.val()';
+    }
+  });

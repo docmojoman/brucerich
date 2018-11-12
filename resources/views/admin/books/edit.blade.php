@@ -4,8 +4,15 @@
     <div id="admin">
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-80">
-        <div class="cell medium-8 medium-offset-2">
+        <div class="cell medium-4 medium-offset-4">
           <h1 class="h2 text-center">Edit Book</h1>
+        </div>
+        <div class="cell medium-2 text-right padding-top-20">
+          <a onclick="return confirm('Are you sure you want to delete this book?')" href="{{ url('/admin/books/delete', $book->id) }}" class="">Delete Book</a>
+        </div>
+      </div>
+      <div class="grid-x grid-margin-x">
+        <div class="cell medium-8 medium-offset-2">
           <form method="POST" action="/admin/books">
             @csrf
             <label>Book Title:

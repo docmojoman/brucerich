@@ -34,26 +34,27 @@
       </tr>
       @else
       @foreach($books as $book)
-            <tr data-index="{{ $book->id }}" data-position="">
-              <td><p class="title"><a href="{{ url('/book').'/'.$book->slug }}">{{ $book->title }}</a></p></td>
-              <td><select>
-            <option>Status</option>
-            <option value="0"
-            @if($book->published == 0)
-            selected
-            @endif >Draft</option>
-            <option value="1"
-            @if($book->published == 1)
-            selected
-            @endif >Published</option>
-          </select></td>
-              <td><select
-           onChange="top.location.href=this.options[this.selectedIndex].value;">
-            <option>Select&hellip;</option>
-            <option value="{{ url('/admin/books/edit').'/'.$book->id }}">Edit</option>
-            <option value="{{ url('/admin/books/delete').'/'.$book->id }}">Delete</option>
-          </select></td>
-            </tr>
+      <form id="{{ $book->id }}">
+        <tr data-index="{{ $book->id }}" data-position="">
+          <td><p class="title"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></p></td>
+          <td>
+            <select id="status" onChange="top.location.href=this.options[this.selectedIndex].value;">
+              <option>Status</option>
+              <option value="{{ url('/admin/books/published', $book->id) }}"
+              @if($book->published == 0)
+              selected
+              @endif >Draft</option>
+              <option value="{{ url('/admin/books/published', $book->id) }}"
+              @if($book->published == 1)
+              selected
+              @endif >Published</option>
+            </select>
+          </td>
+          <td>
+            <a href="{{ url('/admin/books/edit', $book->id) }}" class="button dark expanded">Edit</a>
+          </td>
+        </tr>
+      </form>
       @endforeach
       @endif
             </tbody>

@@ -28,7 +28,6 @@ class BooksController extends Controller
      */
     public function index()
     {
-        // $books = \App\Book::all();
         $sortable_type = 'book';
         $unsorted_books = Book::all();
         $bookIds = $unsorted_books->pluck('id');
@@ -121,6 +120,7 @@ class BooksController extends Controller
      */
     public function destroy(book $book)
     {
-        //
+        // return back();
+        return redirect('admin/books');
     }
 }

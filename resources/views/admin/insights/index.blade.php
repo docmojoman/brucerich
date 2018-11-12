@@ -48,12 +48,13 @@
           </select>
         </div>
         <div class="cell small-2">
-          <select
+          {{-- <select
            onChange="top.location.href=this.options[this.selectedIndex].value;">
             <option>Select&hellip;</option>
             <option value="/admin/insights/edit/{{ $insight->id }}">Edit</option>
             <option value="/admin/insights/delete/{{ $insight->id }}te">Delete</option>
-          </select>
+          </select> --}}
+            <a href="{{ url('/admin/insights/edit', $insight->id) }}" class="button dark expanded no-margin">Edit</a>
         </div>
       </div>
       <hr />

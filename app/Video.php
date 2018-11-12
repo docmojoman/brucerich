@@ -33,4 +33,22 @@ class Video extends Model
                     ->withTimestamps();
     }
 
+    /**
+     * Enable SortableCollection Sorting Feature.
+     */
+    public function newCollection(array $models = array())
+    {
+        return new SortableCollection($models);
+    }
+
+    /**
+     * Get all of the order positions for the video.
+     * $video->position()->attach(#);
+     */
+    public function position()
+    {
+        return $this->morphToMany('App\Sort', 'sortable')
+                    ->withTimestamps();
+    }
+
 }

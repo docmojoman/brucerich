@@ -55,34 +55,31 @@
           <!-- end table head -->
           <!-- table body -->
           <tbody id="sortable">
-      @if(count($articles) == 0)
-      <tr>
-        <td colspan="3" class="text-center">There are no articles.</td>
-      </tr>
-      @else
-      @foreach($articles as $article)
-            <tr data-index="{{ $article->id }}" data-position="">
-              <td><p class="title"><a href="{{ url('/article') . '/' . $article->id }}">{{ $article->title }}</a></p></td>
-              <td><select>
-            <option>Status</option>
-            <option value="0"
-            @if($article->published == 0)
-            selected
-            @endif >Draft</option>
-            <option value="1"
-            @if($article->published == 1)
-            selected
-            @endif >Published</option>
-          </select></td>
-              <td><select
-           onChange="top.location.href=this.options[this.selectedIndex].value;">
-            <option>Select&hellip;</option>
-            <option value="{{ url('/admin/articles/edit') . '/' . $article->id }}">Edit</option>
-            <option value="{{ url('/admin/articles/delete') . '/' . $article->id }}">Delete</option>
-          </select></td>
-            </tr>
-      @endforeach
-      @endif
+          @if(count($articles) == 0)
+          <tr>
+            <td colspan="3" class="text-center">There are no articles.</td>
+          </tr>
+          @else
+          @foreach($articles as $article)
+                <tr data-index="{{ $article->id }}" data-position="">
+                  <td><p class="title"><a href="{{ url('/article') . '/' . $article->id }}">{{ $article->title }}</a></p></td>
+                  <td><select>
+                <option>Status</option>
+                <option value="0"
+                @if($article->published == 0)
+                selected
+                @endif >Draft</option>
+                <option value="1"
+                @if($article->published == 1)
+                selected
+                @endif >Published</option>
+              </select></td>
+                  <td>
+                    <a href="{{ url('/admin/articles/edit', $article->id) }}" class="button dark expanded">Edit</a>
+                  </td>
+                </tr>
+          @endforeach
+          @endif
             </tbody>
           </table>
         </div>

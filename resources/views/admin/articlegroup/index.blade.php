@@ -17,18 +17,26 @@
           <!-- table head -->
           <table>
             <thead id="sortable-head">
+            <tr>
+              <th class="text-left"><h2 class="h4 header-menu">Category</h2> <span class="header-instruction">(Drag row to re-order list):</span>
+              </th>
+              <th><h2 class="h4">Edit</h2></th>
+            </tr>
             </thead>
             <!-- end table head -->
             <!-- table body -->
             <tbody id="sortable">
         		@if(count($articlegroups) == 0)
             <tr>
-              <td colspan="3" class="h3 text-center">There are no current Categories</td>
+              <td colspan="2" class="h3 text-center">There are no current Categories</td>
             </tr>
         		@else
       			@foreach($articlegroups as $articlegroup)
             <tr data-index="{{ $articlegroup->id }}" data-position="">
-	        		<td><p class="title"><a href="articlegroups/edit/{{ $articlegroup->id }}">{{ $articlegroup->title }}</a></p></td>
+	        		<td><p class="title">{{ $articlegroup->title }}</p></td>
+              <td>
+                <a href="{{ url('/admin/articlegroups/edit', $articlegroup->id) }}" class="button dark expanded">Edit</a>
+              </td>
       			@endforeach
       			@endif
           	</tbody>
