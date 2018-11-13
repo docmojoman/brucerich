@@ -15,7 +15,9 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = \App\User::find(1)->books()->get();
+        // $books = \App\User::find(1)->books()->get();
+
+        $books = \App\Book::books();
 
         // dd($books);
         return view('books.index', compact('books'));

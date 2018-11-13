@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ArticleGroupController extends Controller
+class ArticleGroupsController extends Controller
 {
 
     /**

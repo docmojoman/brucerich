@@ -48,7 +48,8 @@ class ArticlesController extends Controller
                 return (object)$array;
             }, $arts);
         }
-        $categories = \App\ArticleGroup::all();
+        // $categories = \App\ArticleGroup::all();
+        $categories = \App\ArticleGroup::articlegroups();
         // return $articles;
 
         return view('admin.articles.index', compact('articles', 'categories', 'selectedGroup', 'sort'));
@@ -74,13 +75,33 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         // Store Request Data
+        $article = Article::create([
+            'user_id'       => \Auth::id(),
+            'title'         => request('title'),
+            'author'        => request('author'),
+            'publication'   => request('publication'),
+            'date'          => request('date'),
+            'page'          => request('page'),
+            'description'   => request('description'),
+            'image'         => request('image'),
+            'link'          => request('link'),
+            'pdf'           => request('pdf'),
+            'group_id'      => request('group_id'),
+        ]);
 
-        // Attach New Record to Soratable
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+            $article->tags()->attach($tag);
+        }
 
-        return $request;
+        // return $request;
+        return redirect('admin/articles');
     }
 
     /**
@@ -116,9 +137,45 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        return $request;
+        // Store Request Data
+        Article::where('id', $id)
+                ->update([
+                    'user_id'       => \Auth::id(),
+                    'title'         => request('title'),
+                    'author'        => request('author'),
+                    'publication'   => request('publication'),
+                    'date'          => request('date'),
+                    'page'          => request('page'),
+                    'description'   => request('description'),
+                    'image'         => request('image'),
+                    'link'          => request('link'),
+                    'pdf'           => request('pdf'),
+                    'group_id'      => request('group_id'),
+                ]);
+
+        $article = \App\Article::find($id);
+        // $currentTags = (array) $article->tags()->pluck('id');
+        $syncTags = [];
+
+        // return array_flatten($currentTags);
+        // return request('tags');
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+            // $article->tags()->sync($tag);
+            $t = (int)$tag;
+            array_push($syncTags, $t);
+        }
+
+        // return $syncTags;
+        $article->tags()->sync($syncTags);
+
+        // return $request;
+        return redirect('admin/articles');
     }
 
     /**
@@ -129,7 +186,10 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        \App\Article::destroy($id);
+
+        return redirect('admin/articles');
     }
 
 }

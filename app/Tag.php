@@ -38,4 +38,18 @@ class Tag extends Model
         return $this->morphedByMany('App\Video', 'taggable');
     }
 
+    public static function exists($tag)
+    {
+        return static::where('id', $tag)->exists();
+    }
+
+    public static function addNew($tag)
+    {
+        return static::insertGetId([
+            'name' => $tag,
+            'created_at' => NOW(),
+            'updated_at' => NOW()
+        ]);
+    }
+
 }

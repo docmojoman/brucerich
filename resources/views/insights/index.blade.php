@@ -49,17 +49,11 @@
         <div class="cell medium-3">
           <h2 class="h3">Tags:</h3>
             <ul class="book-submenu">
-              <li><a href="tags.html">Green Tribunal</a></li>
-              <li><a href="tags.html">Economics</a></li>
-              <li><a href="tags.html">India</a></li>
-              <li><a href="tags.html">Environmental Courts</a></li>
-              <li><a href="tags.html">Economic Policy</a></li>
-              <li><a href="tags.html">Deep State</a></li>
-              <li><a href="tags.html">Development Institution</a></li>
-              <li><a href="tags.html">Global Justice</a></li>
-              <li><a href="tags.html">Wealth</a></li>
-              <li><a href="tags.html">Poor</a></li>
-              <li><a href="tags.html">Environmental Courts</a></li>
+              @if($tags->count())
+              @foreach($tags as $tag)
+              <li><a href="{{ url('tag', $tag->name) }}">{{ $tag->name }}</a></li>
+              @endforeach
+              @endif
             </ul>
         </div>
         <!-- /tags column -->

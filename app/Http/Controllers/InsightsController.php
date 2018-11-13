@@ -11,11 +11,12 @@ class InsightsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index()
     {
         $insights = \App\Insight::where('published', 1)->get();
+        $tags = \App\Tag::all();
 
-        return view('insights.index', compact('insights'));
+        return view('insights.index', compact('insights', 'tags'));
     }
 
     /**
@@ -48,8 +49,9 @@ class InsightsController extends Controller
     public function show($id)
     {
         $insight = \App\Insight::find($id);
+        $tags = $insight->tags;
 
-        return view('insights.show', compact('insight'));
+        return view('insights.show', compact('insight', 'tags'));
     }
 
     /**

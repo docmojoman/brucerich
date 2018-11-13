@@ -20,7 +20,7 @@
           <select
            onChange="top.location.href=this.options[this.selectedIndex].value;">
             <option value="{{ url('/admin/articles') }}">Select All&hellip;</option>
-            @if($categories->count() == 0)
+            @if(count($categories) == 0)
             <option value="{{ url('/admin/articlegroups/create') }}">Add New Categories</option>
             @else
             @foreach($categories as $category)

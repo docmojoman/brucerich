@@ -24,6 +24,15 @@ class Insight extends Model
         $this->attributes['slug']   = str_slug($value);
     }
 
+    /**
+     * Add method for fetching published.
+     * \App\Insight::published();
+     */
+    public static function published()
+    {
+        return static::where('published', 1)->get();
+    }
+
     /*
     * Public Menu
     * View Composer

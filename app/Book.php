@@ -30,6 +30,15 @@ class Book extends Model
     }
 
     /**
+     * Add method for fetching published.
+     * \App\Book::published();
+     */
+    public static function published()
+    {
+        return static::where('published', 1)->get();
+    }
+
+    /**
      * Get the route key for the model.
      *
      * @return string
@@ -39,15 +48,14 @@ class Book extends Model
     //     return 'slug';
     // }
 
-/**
-* Public Menu
-* View Composer
-*
-*/
+    /**
+    * Public Menu View Composer
+    * Public List Page
+    */
     public static function books()
     {
         $sortable_type = 'book';
-        $unsorted_books = static::select('id', 'title')->where('published', 1)->get();
+        $unsorted_books = static::where('published', 1)->get();
         // dd($unsorted_books);
         $bookIds = $unsorted_books->pluck('id');
         $order = \App\Sort::groupOrder($sortable_type, $bookIds)->pluck('sortable_id');

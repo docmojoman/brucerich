@@ -41,7 +41,7 @@
                    <i class="fa fa-picture-o fi-photo"></i> &nbsp;&nbsp;Choose
                  </a>
                </span>
-               <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ old('image') }}">
+               <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ $article->image }}">
              </div>
             </label>
             <label>Link:

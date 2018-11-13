@@ -34,6 +34,15 @@ class Video extends Model
     }
 
     /**
+     * Add method for fetching published.
+     * \App\Video::published();
+     */
+    public static function published()
+    {
+        return static::where('published', 1)->get();
+    }
+
+    /**
      * Enable SortableCollection Sorting Feature.
      */
     public function newCollection(array $models = array())

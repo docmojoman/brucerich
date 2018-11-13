@@ -52,17 +52,21 @@ Route::post('admin/articles', 'Admin\ArticlesController@store');
 
 Route::patch('admin/articles/{id}', 'Admin\ArticlesController@update');
 
+Route::get('/admin/articles/delete/{id}', 'Admin\ArticlesController@destroy');
+
 
 // Article Groups
-Route::get('/admin/articlegroups/create', 'Admin\ArticleGroupController@create');
+Route::get('/admin/articlegroups/create', 'Admin\ArticleGroupsController@create');
 
-Route::get('/admin/articlegroups', 'Admin\ArticleGroupController@index');
+Route::get('/admin/articlegroups', 'Admin\ArticleGroupsController@index');
 
-Route::post('/admin/articlegroups', 'Admin\ArticleGroupController@store');
+Route::post('/admin/articlegroups', 'Admin\ArticleGroupsController@store');
 
-Route::get('/admin/articlegroups/edit/{id}', 'Admin\ArticleGroupController@edit');
+Route::get('/admin/articlegroups/edit/{id}', 'Admin\ArticleGroupsController@edit');
 
-Route::patch('/admin/articlegroups', 'Admin\ArticleGroupController@update');
+Route::patch('/admin/articlegroups', 'Admin\ArticleGroupsController@update');
+
+Route::get('/admin/articlegroups/delete/{id}', 'Admin\ArticleGroupsController@destroy');
 
 
 // Books
@@ -90,6 +94,8 @@ Route::get('/admin/insights/edit/{id}', 'Admin\InsightsController@edit');
 
 Route::patch('/admin/insights', 'Admin\InsightsController@update');
 
+Route::get('/admin/insights/delete/{id}', 'Admin\InsightsController@destroy');
+
 
 // Videos
 Route::get('/admin/videos/create', 'Admin\VideosController@create');
@@ -101,6 +107,9 @@ Route::post('/admin/videos', 'Admin\VideosController@store');
 Route::get('/admin/videos/edit/{id}', 'Admin\VideosController@edit');
 
 Route::patch('/admin/videos', 'Admin\VideosController@update');
+
+Route::get('/admin/videos/delete/{id}', 'Admin\VideosController@destroy');
+
 
 // Tags
 Route::get('/admin/tags', 'Admin\TagsController@index');

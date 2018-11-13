@@ -17,9 +17,10 @@ class ArticlesController extends Controller
     {
 
         if ($id == null) {
-            $articles = \App\Article::where('published', 1)->get();
+            $articles = \App\Article::where('published', 1)->orderBy('id', 'desc')->get();
+            // $articles = \App\Article::articles();
         } else {
-            $category = \App\ArticleGroup::find($id);
+            $category = \App\ArticleGroup::findOrFail($id);
             $articles = \App\Article::where([
                 ['group_id', '=', $id],
                 ['published', '=', '1'],
@@ -37,12 +38,12 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $article = \App\Article::find($id);
-        // dd($article);
+        $article = \App\Article::findOrFail($id);
+        $tags = $article->tags;
 
-        $category = \App\ArticleGroup::find($article->group_id);
+        $category = \App\ArticleGroup::findOrFail($article->group_id);
 
-        return view('articles.show', compact('article', 'category'));
+        return view('articles.show', compact('article', 'category', 'tags'));
     }
 
 }
