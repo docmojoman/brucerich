@@ -101,7 +101,7 @@ class ArticlesController extends Controller
         }
 
         // return $request;
-        return redirect('admin/articles');
+        return redirect('admin/articles')->with('status', 'Article created!');
     }
 
     /**
@@ -175,7 +175,7 @@ class ArticlesController extends Controller
         $article->tags()->sync($syncTags);
 
         // return $request;
-        return redirect('admin/articles');
+        return redirect('admin/articles')->with('status', 'Article updated!');
     }
 
     /**

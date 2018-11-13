@@ -26,7 +26,7 @@
               <input name="publication" type="text" placeholder="Publication" value="{{ $article->publication }}">
             </label>
             <label>Date:
-              <input name="date" type="text" placeholder="Date" value="{{ $article->date }}">
+              <input name="date" id="datepicker" type="text" placeholder="Date" value="{{ $article->date }}">
             </label>
             <label>Page (#):
               <input name="page" type="text" placeholder="e.g. 28" value="{{ $article->page }}">

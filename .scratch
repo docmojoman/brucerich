@@ -1,4 +1,12 @@
-
+      @if (session('status'))
+        <div class="callout success" data-closable>
+          <h5>Success!</h5>
+          <p>{{ session('status') }}</p>
+          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
 
 
   $('tbody#sortable').sortable({
