@@ -73,6 +73,27 @@ class Article extends Model
         return static::where('published', 1)->get();
     }
 
+
+    /**
+     * Add method for publishing.
+     * \App\Article::publish($id);
+     */
+    public static function publish($id)
+    {
+        $article = static::find($id);
+
+        if ($article->published == 0) {
+
+            $article->published = 1;
+            $article->save();
+            return true;
+        }
+
+        $article->published = 0;
+        $article->save();
+        return true;
+    }
+
     /**
      * Enable SortableCollection Sorting Feature.
      */

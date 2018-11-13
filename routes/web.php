@@ -54,6 +54,8 @@ Route::patch('admin/articles/{id}', 'Admin\ArticlesController@update');
 
 Route::get('/admin/articles/delete/{id}', 'Admin\ArticlesController@destroy');
 
+Route::get('/admin/articles/publish/{id}', 'Admin\ArticlesController@publish');
+
 
 // Article Groups
 Route::get('/admin/articlegroups/create', 'Admin\ArticleGroupsController@create');

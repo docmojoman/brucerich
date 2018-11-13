@@ -186,10 +186,16 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        // dd($id);
         \App\Article::destroy($id);
 
         return redirect('admin/articles');
+    }
+
+    public function publish($id)
+    {
+        \App\Article::publish($id);
+
+        return back();
     }
 
 }

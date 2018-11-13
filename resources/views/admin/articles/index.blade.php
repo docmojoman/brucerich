@@ -63,17 +63,18 @@
           @foreach($articles as $article)
                 <tr data-index="{{ $article->id }}" data-position="">
                   <td><p class="title"><a href="{{ url('/article') . '/' . $article->id }}">{{ $article->title }}</a></p></td>
-                  <td><select>
-                <option>Status</option>
-                <option value="0"
-                @if($article->published == 0)
-                selected
-                @endif >Draft</option>
-                <option value="1"
-                @if($article->published == 1)
-                selected
-                @endif >Published</option>
-              </select></td>
+                  <td>
+                    <select onChange="top.location.href=this.options[this.selectedIndex].value;">
+                      <option>Status</option>
+                      <option value="{{ url('/admin/articles/publish', $article->id) }}"
+                      @if($article->published == 0)
+                      selected
+                      @endif >Draft</option>
+                      <option value="{{ url('/admin/articles/publish', $article->id) }}"
+                      @if($article->published == 1)
+                      selected
+                      @endif >Published</option>
+                    </select></td>
                   <td>
                     <a href="{{ url('/admin/articles/edit', $article->id) }}" class="button dark expanded">Edit</a>
                   </td>
