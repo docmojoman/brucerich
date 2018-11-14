@@ -28,7 +28,7 @@ Route::get('/article/{id}', 'ArticlesController@show');
 
 Route::get('/insights', 'InsightsController@index');
 
-Route::get('/insight/{id}', 'InsightsController@show');
+Route::get('/insight/{slug}', 'InsightsController@show');
 
 Route::get('/contact', 'PageController@contact');
 
@@ -94,9 +94,11 @@ Route::post('/admin/insights', 'Admin\InsightsController@store');
 
 Route::get('/admin/insights/edit/{id}', 'Admin\InsightsController@edit');
 
-Route::patch('/admin/insights', 'Admin\InsightsController@update');
+Route::patch('/admin/insights/{id}', 'Admin\InsightsController@update');
 
 Route::get('/admin/insights/delete/{id}', 'Admin\InsightsController@destroy');
+
+Route::get('/admin/insights/publish/{id}', 'Admin\InsightsController@publish');
 
 
 // Videos

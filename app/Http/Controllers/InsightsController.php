@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Insight;
+
 class InsightsController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class InsightsController extends Controller
      */
     public function index()
     {
-        $insights = \App\Insight::where('published', 1)->get();
+        $insights = \App\Insight::where('published', 1)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
         $tags = \App\Tag::all();
 
         return view('insights.index', compact('insights', 'tags'));

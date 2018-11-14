@@ -38,7 +38,7 @@
               @foreach($insights as $insight)
             <li>
               <h2 class="h3"><a href="/insight/{{ $insight->id }}">{{ $insight->title }}</a></h2>
-              <p>{{ $insight->description }}</p>
+              <p>{!! $insight->description !!}</p>
               <hr />
             </li>
             @endforeach

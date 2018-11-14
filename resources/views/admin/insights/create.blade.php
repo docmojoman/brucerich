@@ -6,7 +6,7 @@
       <div class="grid-x grid-margin-x margin-top-80">
         <div class="cell medium-8 medium-offset-2">
           <h1 class="h2 text-center">Add New Insight</h1>
-          <form method="POST" action="/admin/articles">
+          <form method="POST" action="{{ url('/admin/insights') }}">
             @csrf
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">

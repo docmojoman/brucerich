@@ -49,10 +49,27 @@ class InsightsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
-        return $request;
+        // Store Request Data
+        $insight = Insight::create([
+            'user_id'       => \Auth::id(),
+            'title'         => request('title'),
+            'author'        => request('author'),
+            'description'   => request('description'),
+            'copy'          => request('copy'),
+        ]);
+
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+            $insight->tags()->attach($tag);
+        }
+
+        // return $request;
+        return redirect('admin/insights')->with('status', 'Insight created!');
     }
 
     /**
@@ -88,9 +105,37 @@ class InsightsController extends Controller
      * @param  \App\Insights  $insights
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Insights $insights)
+    public function update($id)
     {
-        //
+        // Store Request Data
+        Insight::where('id', $id)
+                ->update([
+                    'user_id'       => \Auth::id(),
+                    'title'         => request('title'),
+                    'author'        => request('author'),
+                    'description'   => request('description'),
+                    'copy'   => request('copy'),
+                ]);
+
+        $insight = \App\Insight::find($id);
+
+        $syncTags = [];
+
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+
+            $t = (int)$tag;
+            array_push($syncTags, $t);
+        }
+
+        // return $syncTags;
+        $insight->tags()->sync($syncTags);
+
+        // return $request;
+        return redirect('admin/insights')->with('status', 'Insights Post updated!');
     }
 
     /**
@@ -99,8 +144,18 @@ class InsightsController extends Controller
      * @param  \App\Insights  $insights
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Insights $insights)
+    public function destroy($id)
     {
-        //
+        \App\Insight::destroy($id);
+
+        return redirect('admin/insights');
     }
+
+    public function publish($id)
+    {
+        \App\Insight::publish($id);
+
+        return back();
+    }
+
 }

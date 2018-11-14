@@ -4,8 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Insight extends Model
 {
+    use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -17,6 +28,16 @@ class Insight extends Model
     {
     	return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     public function setTitleAttribute($value)
     {
@@ -31,6 +52,26 @@ class Insight extends Model
     public static function published()
     {
         return static::where('published', 1)->get();
+    }
+
+    /**
+     * Add method for publishing.
+     * \App\Article::publish($id);
+     */
+    public static function publish($id)
+    {
+        $insight = static::find($id);
+
+        if ($insight->published == 0) {
+
+            $insight->published = 1;
+            $insight->save();
+            return true;
+        }
+
+        $insight->published = 0;
+        $insight->save();
+        return true;
     }
 
     /*

@@ -24,9 +24,9 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-9">
           <h1 class="h2">{{ $insight->title }}</h1>
-          <p class="lead">{{ $insight->description }}</p>
+          <p class="lead">{!! $insight->description !!}</p>
 
-          <p>{{ $insight->copy }}</p>
+          <p>{!! $insight->copy !!}</p>
         </div> <!-- .cell .medium-9 -->
         <div class="cell medium-3">
           <h3 class="h4">Tags:</h3>

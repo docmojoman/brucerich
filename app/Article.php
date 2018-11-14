@@ -73,7 +73,6 @@ class Article extends Model
         return static::where('published', 1)->get();
     }
 
-
     /**
      * Add method for publishing.
      * \App\Article::publish($id);

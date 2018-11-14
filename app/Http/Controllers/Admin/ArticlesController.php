@@ -156,17 +156,15 @@ class ArticlesController extends Controller
                 ]);
 
         $article = \App\Article::find($id);
-        // $currentTags = (array) $article->tags()->pluck('id');
+
         $syncTags = [];
 
-        // return array_flatten($currentTags);
-        // return request('tags');
         // Attach Tags
         foreach (request('tags') as $tag) {
             if (!\App\Tag::exists($tag)) {
                 $tag = \App\Tag::addNew($tag);
             }
-            // $article->tags()->sync($tag);
+
             $t = (int)$tag;
             array_push($syncTags, $t);
         }
