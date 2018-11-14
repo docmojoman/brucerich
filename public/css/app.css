@@ -11790,6 +11790,20 @@ img#portrait {
   background-color: #eee;
 }
 
+#media .view-less {
+  margin-top: 0px;
+  display: block;
+  height: 30px;
+  overflow: hidden;
+}
+
+#media .view-more {
+  margin-top: 0px;
+  display: block;
+  height: 130px;
+  overflow-y: scroll;
+}
+
 #footer-container {
   font-size: 1.125rem;
   margin-top: 80px;

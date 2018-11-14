@@ -695,6 +695,20 @@ img#portrait {
 	.card {
 		background-color: #eee;
 	}
+
+	.view-less {
+		margin-top: 0px;
+		display: block;
+		height: 30px;
+		overflow: hidden;
+	}
+
+	.view-more {
+		margin-top: 0px;
+		display: block;
+		height: 130px;
+		overflow-y: scroll;
+	}
 }
 
 #footer-container {
@@ -895,6 +909,8 @@ label {
 	font-weight: 500;
 	margin-top: 20px;
 }
+
+// Media Page
 
 
 // CK Editor
