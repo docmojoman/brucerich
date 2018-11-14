@@ -6,7 +6,7 @@
       <div class="grid-x grid-margin-x margin-top-80">
         <div class="cell medium-8 medium-offset-2">
           <h1 class="h2 text-center">Add New Video</h1>
-          <form method="POST" action="/admin/videos">
+          <form method="POST" action="{{ url('/admin/videos') }}">
             @csrf
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
@@ -59,9 +59,6 @@
 @push('scripts')
     $('#lfm-image').filemanager('image');
     $('#lfm-pdf').filemanager('image');
-    $( "#datepicker" ).datepicker(
-       { dateFormat: "yy-mm-dd" }
-    );
 
     $('#tags').select2({
         placeholder: "Choose tags…",
@@ -69,7 +66,7 @@
         tags: 'true',
         tokenSeparators: [',', '|'],
         ajax: {
-            url: "{{ url('/admin/tags/fetch') }}"',
+            url: '{{ url('/admin/tags/fetch') }}',
             dataType: 'json',
             data: function (params) {
                 return {

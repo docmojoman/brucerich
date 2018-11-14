@@ -13,8 +13,9 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell medium-8 medium-offset-2">
-          <form method="POST" action="/admin/videos">
+          <form method="POST" action="{{ url('/admin/videos', $video->id) }}">
             @csrf
+            @method('PATCH')
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ $video->title }}">
             </label>

@@ -8,7 +8,7 @@
             <div class="cell medium-12">
                 <nav aria-label="You are here:" role="navigation">
                   <ul class="breadcrumbs">
-                    <li><a href="./">Home</a></li>
+                    <li><a href="{{ url('./') }}">Home</a></li>
                     <li>
                       <span class="show-for-sr">Current: </span> Media
                     </li>
@@ -27,66 +27,25 @@
         </div> <!-- .grid-x .grid-margin-x -->
         <!-- media grid -->
         <div id="media" class="grid-x grid-padding-x small-up-1 medium-up-3">
+          @if(count($videos))
+          @foreach($videos as $video)
           <div class="cell">
             <div class="shadow card">
               <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
+                {{-- <a href="#" class="thumbnail">
+                  <img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference.">
+                </a> --}}
+                <div class="responsive-embed">
+                  {!! $video->embed !!}
+                </div>
               </div> <!-- card-section -->
               <div class="card-section">
-                <p>Bruce Rich Speaks at Conference.</p>
+                <p class="text-truncate">{!! $video->caption !!}</p>
               </div> <!-- card-section -->
             </div> <!-- card -->
           </div> <!-- .cell -->
-          <div class="cell">
-            <div class="shadow card">
-              <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
-              </div> <!-- card-section -->
-              <div class="card-section">
-                <p>Bruce Rich Speaks at Conference. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, tempore.</p>
-              </div> <!-- card-section -->
-            </div> <!-- card -->
-          </div> <!-- .cell -->
-          <div class="cell">
-            <div class="shadow card">
-              <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
-              </div> <!-- card-section -->
-              <div class="card-section">
-                <p>Bruce Rich Speaks at Conference.</p>
-              </div> <!-- card-section -->
-            </div> <!-- card -->
-          </div> <!-- .cell -->
-          <div class="cell">
-            <div class="shadow card">
-              <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
-              </div> <!-- card-section -->
-              <div class="card-section">
-                <p>Bruce Rich Speaks at Conference.</p>
-              </div> <!-- card-section -->
-            </div> <!-- card -->
-          </div> <!-- .cell -->
-          <div class="cell">
-            <div class="shadow card">
-              <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
-              </div> <!-- card-section -->
-              <div class="card-section">
-                <p>Bruce Rich Speaks at Conference.</p>
-              </div> <!-- card-section -->
-            </div> <!-- card -->
-          </div> <!-- .cell -->
-          <div class="cell">
-            <div class="shadow card">
-              <div class="card-section">
-                <a href="#" class="thumbnail"><img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference."></a>
-              </div> <!-- card-section -->
-              <div class="card-section">
-                <p>Bruce Rich Speaks at Conference.</p>
-              </div> <!-- card-section -->
-            </div> <!-- card -->
-          </div> <!-- .cell -->
+          @endforeach
+          @endif
         </div>
         <!-- end media grid -->
     </div> <!-- .grid-container -->

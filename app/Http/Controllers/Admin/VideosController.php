@@ -37,11 +37,11 @@ class VideosController extends Controller
             // Use SortableCollection Class
             $ordered = $unsorted_videos->sortByIds($order->toArray());
 
-            $bks = $ordered->values()->toArray();
+            $vid = $ordered->values()->toArray();
 
             $videos = array_map(function($array){
                 return (object)$array;
-            }, $bks);
+            }, $vid);
         } else {
             $videos = Video::all();
         }
@@ -67,10 +67,27 @@ class VideosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
-        return $request;
+        // Store Request Data
+        $video = Video::create([
+            'user_id'           => \Auth::id(),
+            'title'             => request('title'),
+            'embed'             => request('embed'),
+            'thumbnail'         => request('thumbnail'),
+            'caption'           => request('caption'),
+        ]);
+
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+            $video->tags()->attach($tag);
+        }
+
+        // return $request;
+        return redirect('admin/videos')->with('status', 'Video created!');
     }
 
     /**
@@ -106,9 +123,37 @@ class VideosController extends Controller
      * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Videos $videos)
+    public function update($id)
     {
-        //
+        // Store Request Data
+        Video::where('id', $id)
+                ->update([
+                    'user_id'           => \Auth::id(),
+                    'title'             => request('title'),
+                    'embed'             => request('embed'),
+                    'thumbnail'         => request('thumbnail'),
+                    'caption'           => request('caption'),
+                ]);
+
+        $video = \App\Video::find($id);
+
+        $syncTags = [];
+
+        // Attach Tags
+        foreach (request('tags') as $tag) {
+            if (!\App\Tag::exists($tag)) {
+                $tag = \App\Tag::addNew($tag);
+            }
+
+            $vid = (int)$tag;
+            array_push($syncTags, $vid);
+        }
+
+        // return $syncTags;
+        $video->tags()->sync($syncTags);
+
+        // return $request;
+        return redirect('admin/videos')->with('status', 'Video updated!');
     }
 
     /**
@@ -117,8 +162,18 @@ class VideosController extends Controller
      * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Videos $videos)
+    public function destroy($id)
     {
-        //
+        \App\Video::destroy($id);
+
+        return redirect('admin/videos');
     }
+
+    public function publish($id)
+    {
+        \App\Video::publish($id);
+
+        return back();
+    }
+
 }

@@ -16,7 +16,7 @@ Route::get('/', 'PageController@index');
 
 Route::get('/about', 'PageController@about');
 
-Route::get('/media', 'PageController@media');
+Route::get('/media', 'VideosController@index');
 
 Route::get('/books/{id?}', 'BooksController@index');
 
@@ -110,9 +110,11 @@ Route::post('/admin/videos', 'Admin\VideosController@store');
 
 Route::get('/admin/videos/edit/{id}', 'Admin\VideosController@edit');
 
-Route::patch('/admin/videos', 'Admin\VideosController@update');
+Route::patch('/admin/videos/{id}', 'Admin\VideosController@update');
 
 Route::get('/admin/videos/delete/{id}', 'Admin\VideosController@destroy');
+
+Route::get('/admin/videos/publish/{id}', 'Admin\VideosController@publish');
 
 
 // Tags

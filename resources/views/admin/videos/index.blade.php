@@ -39,11 +39,11 @@
           <td>
           <select onChange="top.location.href=this.options[this.selectedIndex].value;">
             <option>Status</option>
-            <option value="{{ url('/admin/videos/published', $video->id) }}"
+            <option value="{{ url('/admin/videos/publish', $video->id) }}"
             @if($video->published == 0)
             selected
             @endif >Draft</option>
-            <option value="{{ url('/admin/videos/published', $video->id) }}"
+            <option value="{{ url('/admin/videos/publish', $video->id) }}"
             @if($video->published == 1)
             selected
             @endif >Published</option>
