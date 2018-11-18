@@ -16,7 +16,7 @@ class InsightsController extends Controller
     public function index()
     {
         $insights = \App\Insight::where('published', 1)
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy('id', 'desc')
                     ->get();
         $tags = \App\Tag::all();
 

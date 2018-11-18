@@ -20,12 +20,12 @@ class CreateArticlesTable extends Migration
             $table->string('slug');
             $table->string('author');
             $table->string('publication');
-            $table->date('date');
+            $table->string('date');
             $table->unsignedSmallInteger('page');
             $table->text('description');
-            $table->string('image');
-            $table->string('link');
-            $table->string('pdf');
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->string('pdf')->nullable();
             $table->unsignedInteger('group_id');
             $table->boolean('published')->default(0);
             $table->softDeletes();

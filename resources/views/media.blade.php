@@ -32,12 +32,13 @@
           <div class="cell">
             <div class="shadow card">
               <div class="card-section">
-                {{-- <a href="#" class="thumbnail">
-                  <img src="{{ asset('img/00-speaking-fpo.jpg') }}" class="media-thumb" alt="Bruce Rich Speaks at Conference.">
-                </a> --}}
+                @if(count($video->embed))
                 <div class="responsive-embed">
                   {!! $video->embed !!}
                 </div>
+                @else
+                <a href="{{ $video->link }}" class="thumbnail"><img src="{{$video->thumbnail}}" alt="{{ $video->title }}" class="media-thumb"></a>
+                @endif
               </div> <!-- card-section -->
               <div class="card-section">
                 <div id="caption-{{ $video->id }}" data-toggler=".view-more" class="view-less">{!! $video->caption !!}</div>

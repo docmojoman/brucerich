@@ -17,8 +17,10 @@ class CreateSectionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('book_id');
             $table->string('header');
-            $table->text('description');
-            $table->unsignedSmallInteger('position')->nullable();
+            $table->text('description')->nullable();
+            $table->text('caption')->nullable();
+            $table->text('embed')->nullable();
+            $table->string('type');
             $table->softDeletes();
             $table->timestamps();
         });

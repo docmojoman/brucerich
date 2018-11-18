@@ -11,13 +11,17 @@
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
-            <label>Video Imbed Code:
+            <div class="callout secondary small"> <!-- callout -->
+              <p>Choose one method (Video Embed or Link with Image):</p>
+            <label>Video Embed Code:
               <textarea name="embed" id="" cols="30" rows="4"></textarea>
             </label>
-            <label>Caption:
-              <textarea name="caption" id="" cols="30" rows="10"></textarea>
+            <p class="text-center">– or –</p>
+            <div class="callout small">
+            <label>Link to Video:
+              <input name="link" type="text" placeholder="Link to video" value="{{ old('link') }}">
             </label>
-            <label>Thumbnail:
+            <label>Image:
             <div class="input-group">
                <span class="input-group-btn">
                  <a id="lfm-image" data-input="thumbnail-image" data-preview="holder" class="button dark">
@@ -26,6 +30,11 @@
                </span>
                <input id="thumbnail-image" class="form-control" type="text" name="thumbnail" value="{{ old('thumbnail') }}">
              </div>
+            </label>
+            </div>
+            </div> <!-- end callout -->
+            <label>Caption:
+              <textarea name="caption" id="" cols="30" rows="6"></textarea>
             </label>
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
@@ -53,7 +62,7 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    CKEDITOR.replace( 'caption', options );
+    // CKEDITOR.replace( 'caption', options );
   </script>
 @endpush
 @push('scripts')

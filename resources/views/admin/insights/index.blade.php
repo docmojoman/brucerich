@@ -28,6 +28,13 @@
       <!-- list -->
       <!-- row -->
       @if($insights->count() == 0)
+      <div class="grid-x grid-margin-x margin-top-20">
+        <div class="cell small-12">
+          <p class="text-center">There are no posts.</p>
+        </div>
+      </div>
+      <hr />
+      <!-- /row -->
       @else
       @foreach($insights as $insight)
       <div class="grid-x grid-margin-x margin-top-20">

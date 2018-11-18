@@ -33,65 +33,50 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-3">
           <span class="book">
-            <p><img src="{{ asset('img/book-01.png') }}" alt=""></p>
+            <p><img src="{{ $book->image }}" alt=""></p>
             <ul class="book-submenu">
+              @if($sections)
               @foreach($sections as $section)
               <li><a href="#{{ $section->header }}">{{ str_limit($section->header, 26) }}</a></li>
               @endforeach
-              {{-- <li><a href="#about">About</a></li>
-              <li><a href="#videos">Videos</a></li>
-              <li><a href="#review">Review Quotes</a></li>
-              <li><a href="#reviews">Reviews</a></li>
-              <li><a href="#articles">Articles, Interviews, Essays</a></li>
-              <li><a href="#cover">Cover Images</a></li>
-              <li><a href="#publishers">Publisher's Pages</a></li>
-              <li><a href="#purchasing">Purchasing Options</a></li> --}}
+              @endif
             </ul>
-            <p><img class="buy-button-amazon" src="assets/img/buy-button-amazon.png" alt=""></p>
+            @if($book->amazon)
+            <p><a href="{{ $book->amazon }}"><img class="buy-button-amazon" src="{{ asset('img/buy-button-amazon.png') }}" alt=""></p></a>
+            @endif
             <h3 class="h4">Tags:</h3>
             <ul class="book-submenu">
-              <li><a href="tags.html">Accounting</a></li>
-              <li><a href="tags.html">Appropriations</a></li>
-              <li><a href="tags.html">Ashoka</a></li>
-              <li><a href="tags.html">Book Tour</a></li>
-              <li><a href="tags.html">Committee</a></li>
-              <li><a href="tags.html">Deep State</a></li>
-              <li><a href="tags.html">Development Institution</a></li>
-              <li><a href="tags.html">Scrutiny</a></li>
-              <li><a href="tags.html">Wealth</a></li>
-              <li><a href="tags.html">Poor</a></li>
-              <li><a href="tags.html">Zebra</a></li>
+              @if($tags)
+              @foreach($tags as $tag)
+              <li><a href="{{ url('tags', $tag->slug)}}" target="_blank">{{ $tag->name }}</a></li>
+              @endforeach
+              @endif
             </ul>
           </span>
         </div> <!-- .cell .medium-3 -->
         <div class="cell medium-auto article-body">
-          <p class="lead">{{ $book->about }}</p>
-Rissa Johnson
-          <p><a href="">Show All</a></p>
+          <p class="lead">{{ $book->introduction }}</p>
+          <p>{{ $book->about }}</p>
+          {{-- <p class="lead"></p> --}}
 
-          <h2 class="h3 uppercase">Media</h2>
+          {{-- <p><a href="">Show All</a></p> --}}
 
-          <img src="{{ asset('img/00-speaking-fpo.jpg') }}" alt="">
-          <p  class="image-cite">Bruce Rich discussing “Foreclosing the Future” at the Institute for Agriculture and Trade Policy. <a href="">View Video on YouTube</a></p>
+          @if($sections)
+          @foreach($sections as $section)
+          <a name="{{ $section->header }}"></a>
+          <h2 class="h3 uppercase">{{ $section->header }}</h2>
 
-          <p><a href="">Show All</a></p>
+          @if($section->type == 'video')
+          <div class="responsive-embed">
+            {!! $section->embed !!}
+          </div>
+          <p  class="image-cite">{{ $section->caption }}</p>
+          @else
+          {!! $section->description !!}
+          @endif
 
-          <!-- Dynamic Section -->
-          <ul class="accordion" data-accordion data-multi-expand="true">
-            @foreach($sections as $section)
-            <!-- Dynamic Row -->
-            <li class="accordion-item is-active" data-accordion-item>
-              <!-- Accordion tab title -->
-              <a href="#" class="accordion-title"><a name="{{ $section->header }}">
-                <h2 class="h3 uppercase">{{ $section->header }}</h2>
-              </a>
-
-              <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-              <div class="accordion-content" data-tab-content>{{ $section->description }}</div>
-            </li>
-            <!-- End Dynamic Row -->
-            @endforeach
-          </ul>
+          @endforeach
+          @endif
           <!-- End Dynamic Section -->
 
         </div> <!-- .cell .medium-9 .article-body -->

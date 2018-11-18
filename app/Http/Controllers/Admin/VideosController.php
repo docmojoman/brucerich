@@ -81,7 +81,7 @@ class VideosController extends Controller
         // Attach Tags
         foreach (request('tags') as $tag) {
             if (!\App\Tag::exists($tag)) {
-                $tag = \App\Tag::addNew($tag);
+                $tag = \App\Tag::create(['name' => $tag]);
             }
             $video->tags()->attach($tag);
         }

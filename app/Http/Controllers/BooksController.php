@@ -36,9 +36,11 @@ class BooksController extends Controller
 
         $sections = $book->sections;
 
+        $tags = $book->tags;
+
         // dd($sections);
 
-        return view('books.show', compact('book', 'sections'));
+        return view('books.show', compact('book', 'sections', 'tags'));
     }
 
 }

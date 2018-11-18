@@ -18,8 +18,9 @@ class CreateVideosTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug');
-            $table->text('embed');
-            $table->string('thumbnail');
+            $table->text('embed')->nullable();
+            $table->string('link')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->text('caption');
             $table->boolean('published')->default(0);
             $table->softDeletes();

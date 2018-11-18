@@ -93,11 +93,13 @@ class ArticlesController extends Controller
         ]);
 
         // Attach Tags
-        foreach (request('tags') as $tag) {
-            if (!\App\Tag::exists($tag)) {
-                $tag = \App\Tag::addNew($tag);
+        if (request('tags')) {
+            foreach (request('tags') as $tag) {
+                if (!\App\Tag::exists($tag)) {
+                    $tag = \App\Tag::create(['name' => $tag]);
+                }
+                $article->tags()->attach($tag);
             }
-            $article->tags()->attach($tag);
         }
 
         // return $request;
@@ -160,17 +162,20 @@ class ArticlesController extends Controller
         $syncTags = [];
 
         // Attach Tags
-        foreach (request('tags') as $tag) {
-            if (!\App\Tag::exists($tag)) {
-                $tag = \App\Tag::addNew($tag);
+        if (request('tags')) {
+            foreach (request('tags') as $tag) {
+                if (!\App\Tag::exists($tag)) {
+                    $tag = \App\Tag::addNew($tag);
+                }
+
+                $t = (int)$tag;
+                array_push($syncTags, $t);
             }
 
-            $t = (int)$tag;
-            array_push($syncTags, $t);
-        }
+            // return $syncTags;
+            $article->tags()->sync($syncTags);
 
-        // return $syncTags;
-        $article->tags()->sync($syncTags);
+        }
 
         // return $request;
         return redirect('admin/articles')->with('status', 'Article updated!');

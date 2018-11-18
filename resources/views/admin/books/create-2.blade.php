@@ -31,10 +31,14 @@
               <input name="amazon" type="text" placeholder="Amazon Link (optional)" value="{{ old('amazon') }}">
             </label>
             <label>Introduction:
-              <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
+              <textarea name="introduction" cols="30" rows="2">
+                {!! old('introduction') !!}
+              </textarea>
             </label>
             <label>About:
-              <textarea name="about" cols="30" rows="6">{!! old('about') !!}</textarea>
+              <textarea name="about" cols="30" rows="6">
+                {!! old('about') !!}
+              </textarea>
             </label>
             {{-- Begin Dynamic Form Sections --}}
             <div class="sections"></div>
@@ -99,13 +103,9 @@
 @push('scripts')
     $('#lfm-image').filemanager('image');
     $('#lfm-pdf').filemanager('image');
-
-    function attachBrowser(id) {
-      var attachto = '#lfm-image-' + id;
-      $(attachto).filemanager('image');
-      console.log('Ka-blooey!');
-    }
-
+    $( "#datepicker" ).datepicker(
+       { dateFormat: "yy-mm-dd" }
+    );
 
     //Sections
 
@@ -117,7 +117,7 @@
     var id = $(this).data('id');
     if (id == 'text')
     {
-        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\"></div>";
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\">";
 
         var name = "section[" + x + "][description][]";
 
@@ -128,11 +128,7 @@
         addNamedEditor(name);
 
       } else {
-        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div>";
-
-        var id = x;
-        attachBrowser(id);
-
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Embed Video Here!</textarea><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\">";
         x++;
 
         $(sections).append(str);

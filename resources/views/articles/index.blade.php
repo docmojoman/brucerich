@@ -45,7 +45,7 @@
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('article', $article->id) }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit($article->description, 360) }}</p>
+          <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row -->
@@ -53,7 +53,6 @@
       <!-- Pagination Row -->
       <div class="grid-x grid-margin-x article-row-last align-middle">
         <div class="cell medium-auto medium-offset-2 list-title">
-          <!-- <p><a href="article.html">View more</a></p> -->
           <ul class="pagination" role="navigation" aria-label="Pagination" id="articles-page">
             <li class="disabled">Previous <span class="show-for-sr">page</span></li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>

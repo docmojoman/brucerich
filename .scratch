@@ -1,12 +1,60 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ueWXAb9PMxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-jDGQHaWiNQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+https://www.amazon.com/Mortgaging-Earth-Environmental-Impoverishment-Development-ebook/dp/B00EYZNNYW/ref=sr_1_2?ie=UTF8&qid=1542489332&sr=8-2&keywords=bruce+rich
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Escaped LFM Image Input
+<label>Image:<div class=\"input-group\"><span class=\"input-group-btn\"><a id=\"lfm-image\" data-input=\"thumbnail-image\" data-preview=\"holder\" class=\"button dark\"><i class=\"fa fa-picture-o fi-photo\"></i> &nbsp;&nbsp;Choose</a></span><input id=\"thumbnail-image\" class=\"form-control\" type=\"text\" name=\"section[" + x + "][image][]\" value=\"\"></div></label><label>Image Alt Tags:<input name=\"section[" + x + "][alt_tags][]\" type=\"text\" placeholder=\"Image Alt Tags\" value=\"\"></label>
+
+
+
+$( "#datepicker" ).datepicker(
+   { dateFormat: "yy-mm-dd" }
+);
+
+
+ckeditor config:
+
+CKEDITOR.editorConfig = function( config ) {
+  config.toolbar = [
+    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'editing', items: [ 'Scayt' ] },
+    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+    { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] },
+    { name: 'tools', items: [ 'Maximize' ] },
+    { name: 'about', items: [ 'About' ] },
+    '/',
+    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'Underline', 'RemoveFormat' ] },
+    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+    { name: 'styles', items: [ 'Styles', 'Format' ] },
+  ];
+};
+
+CKEDITOR.stylesSet.add( 'my_styles', [
+    // Inline styles.
+    { name: 'review', element: 'p', attributes: { 'class': '.review' } },
+    { name: 'byline', element: 'p', attributes: { 'class': '.byline' } },
+    { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } }
+]);
+
+styles to add:
+
+#article-page .review {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+#article-page .byline {
+    font-weight: 600;
+}
+
+
+
+
 
 
       @if (session('status'))

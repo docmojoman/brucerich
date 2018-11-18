@@ -11208,6 +11208,14 @@ cite {
   }
 }
 
+.margin-none {
+  margin: 0px;
+}
+
+.margin-top-0 {
+  margin-top: 0px;
+}
+
 .margin-top-20 {
   margin-top: 20px;
 }
@@ -11238,6 +11246,14 @@ cite {
 
 .margin-top-90 {
   margin-top: 90px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
 }
 
 .margin-bottom-20 {
@@ -11992,6 +12008,12 @@ label {
   margin-top: 20px;
 }
 
+a#lfm-image-5,
+a#lfm-image-4,
+a#lfm-image-3,
+a#lfm-image-2,
+a#lfm-image-1,
+a#lfm-image-0,
 a#lfm-image,
 a#lfm-pdf {
   width: 8rem;

@@ -17,7 +17,6 @@ class CreateArticleGroupsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->unsignedSmallInteger('position')->nullable();
             $table->timestamps();
         });
     }

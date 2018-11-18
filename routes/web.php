@@ -18,7 +18,7 @@ Route::get('/about', 'PageController@about');
 
 Route::get('/media', 'VideosController@index');
 
-Route::get('/books/{id?}', 'BooksController@index');
+Route::get('/books', 'BooksController@index');
 
 Route::get('/book/{id}', 'BooksController@show');
 
@@ -84,6 +84,8 @@ Route::patch('/admin/books', 'Admin\BooksController@update');
 
 Route::get('/admin/books/delete/{id}', 'Admin\BooksController@destroy');
 
+Route::get('/admin/books/publish/{id}', 'Admin\BooksController@publish');
+
 
 // Insights
 Route::get('/admin/insights/create', 'Admin\InsightsController@create');
@@ -129,7 +131,6 @@ Route::get('/admin/sort/{sortable_type}', 'Admin\SortsController@index');
 Route::post('/admin/sort/update', 'Admin\SortsController@update');
 
 
-// Route::get('/admin/tags/fetch/{tag?}', 'Admin\TagsController@fetch');
 
 // Track down this route and eliminate
 Route::get('/home', 'HomeController@index')->name('home');

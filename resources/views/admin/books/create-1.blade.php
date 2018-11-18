@@ -5,30 +5,13 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x margin-top-80">
         <div class="cell medium-8 medium-offset-2">
-          <h1 class="h2 text-center">Add New Article</h1>
-          <form method="POST" action="{{ url('/admin/articles') }}">
+          <h1 class="h2 text-center">Add New Book</h1>
+          <form method="POST" action="/admin/books">
             @csrf
-            <label>Title:
+            <label>Book Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
-            <label>Author ( + coauthor if provided ):
-              <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
-            </label>
-            <label>Publication:
-              <input name="publication" type="text" placeholder="Publication" value="{{ old('publication') }}">
-            </label>
-            <label>Date:
-              <input name="date" id="datepicker" type="text" placeholder="Date" value="{{ old('date') }}" autocomplete="off">
-            </label>
-            <label>Page (#):
-              <input name="page" type="text" placeholder="e.g. 28" value="{{ old('page') }}">
-            </label>
-            <label>Description/Excerpt:
-              <textarea name="description" id="editor" cols="30" rows="10">
-                {!! old('description') !!}
-              </textarea>
-            </label>
-            <label>Page Image:
+            <label>Book Image:
             <div class="input-group">
                <span class="input-group-btn">
                  <a id="lfm-image" data-input="thumbnail-image" data-preview="holder" class="button dark">
@@ -38,32 +21,25 @@
                <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ old('image') }}">
              </div>
             </label>
-            <label>Link:
-              <input name="link" type="text" placeholder="link" value="{{ old('link') }}">
+            <label>About:
+              <textarea name="about" id="editor" cols="30" rows="10">
+                {!! old('about') !!}
+              </textarea>
             </label>
-            <label>Pdf:
-            <div class="input-group">
-               <span class="input-group-btn">
-                 <a id="lfm-pdf" data-input="thumbnail-pdf" data-preview="holder" class="button dark">
-                   <i class="fi-page-pdf"></i> &nbsp;&nbsp;Choose
-                 </a>
-               </span>
-               <input id="thumbnail-pdf" class="form-control" type="text" name="pdf" value="{{ old('pdf') }}">
-             </div>
-             </label>
+            {{-- Begin Dynamic Form Sections --}}
+            <div class="sections"></div>
+            {{-- End Dynamic Form Section --}}
+            <hr />
+            <div class="text-center">
+              <label>Add New Section
+              <br />
+              <button class="new_section button large dark margin-top-20" data-id="text" >Add New Section</button>
+              <button class="new_section button large dark margin-top-20"data-id="video" >Add Video to Page</button>
+            </div>
+            </label>
+            <hr />
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
-              </select>
-            </label>
-            <label>Category:
-              <select name="group_id">
-                  @if($categories->count() == 0)
-                  <option value="/admin/articlegroups/create">Add New Categories</option>
-                  @else
-                  @foreach($categories as $category)
-                  <option value="{{ $category->id }}" >{{ $category->title }}</option>
-                  @endforeach
-                  @endif
               </select>
             </label>
             <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
@@ -87,12 +63,65 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    CKEDITOR.replace( 'description', options );
+    CKEDITOR.replace( 'about', options );
+
+    function addEditor(){
+      var elements = CKEDITOR.document.find( '.editor' ),
+        i = 0,
+        element;
+
+      while ( ( element = elements.getItem( i++ ) ) ) {
+          CKEDITOR.replace( element, options );
+      }
+      console.log('Loaded!');
+    }
+
+
+    function addNamedEditor(name){
+
+      CKEDITOR.replace( name, options );
+
+      console.log('Loaded!');
+    }
+
   </script>
 @endpush
 @push('scripts')
     $('#lfm-image').filemanager('image');
     $('#lfm-pdf').filemanager('image');
+    $( "#datepicker" ).datepicker(
+       { dateFormat: "yy-mm-dd" }
+    );
+
+    //Sections
+
+    var sections    = $(".sections");
+    var x = 0;
+
+    $( "button.new_section" ).click(function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    if (id == 'text')
+    {
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor" + x + "\" cols=\"30\" rows=\"10\">Add Text Here!</textarea>";
+
+        var name = "section[" + x + "][description][]";
+
+        x++;
+
+        $(sections).append(str);
+
+        addNamedEditor(name);
+
+      } else {
+        var str = "<label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Embed Video Here!</textarea>";
+        x++;
+
+        $(sections).append(str);
+      }
+    });
+
+    //Tags
 
     $('#tags').select2({
         placeholder: "Choose tags…",
@@ -100,7 +129,7 @@
         tags: 'true',
         tokenSeparators: [',', '|'],
         ajax: {
-            url: '/admin/tags/fetch',
+            url: "{{ url('/admin/tags/fetch') }}",
             dataType: 'json',
             data: function (params) {
                 return {

@@ -44,17 +44,7 @@ class TagsController extends Controller
             return \Response::json([]);
         }
 
-        // $tags = \App\Tag::select('id', 'name')->where('name', 'like', "$term%")->limit(5)->get();
 
-        // $results = [
-        //     'results' => $tags
-        // ];
-
-        // return $tags;
-        // return $tags->toArray();
-        // dd($tags);
-        // return $tags->toJson();
-        // return response()->json($results);
         $tags = \App\Tag::where('name', 'like', "$term%")->limit(5)->get();
 
         $formatted_tags = [];

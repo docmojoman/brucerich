@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Get all of the books that are assigned this tag.
      */
     public function books()
@@ -50,6 +57,12 @@ class Tag extends Model
             'created_at' => NOW(),
             'updated_at' => NOW()
         ]);
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name']  = $value;
+        $this->attributes['slug']   = str_slug($value);
     }
 
 }

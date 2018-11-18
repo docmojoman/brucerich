@@ -35,12 +35,30 @@
             </label>
             {{-- Begin Dynamic Form Sections --}}
             @foreach($sections as $section)
-            <label>Header:
-              <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
-            </label>
-            <label>Content:
-              <textarea name="section[{{ $section->id }}][description][]" id="editor" class="editor" cols="30" rows="10">{!! $section->description !!}</textarea>
-            </label>
+            <div class="margin-top-30">
+            @if($section->type == 'text')
+            <div class="callout secondary small">
+              <label>Header:
+                <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
+              </label>
+              <label>Content:
+                <textarea name="section[{{ $section->id }}][description][]" id="editor" class="editor" cols="30" rows="10">{!! $section->description !!}</textarea>
+              </label>
+            </div>
+            @else
+            <div class="callout secondary small">
+              <label>Header:
+                <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
+              </label>
+              <label>Caption:
+                <textarea name="section[{{ $section->id }}][caption][]" cols="30" rows="4">{!! $section->caption !!}</textarea>
+              </label>
+              <label>Embed:
+                <textarea name="section[{{ $section->id }}][embed][]" cols="30" rows="3">{!! $section->embed !!}</textarea>
+              </label>
+            </div>
+            @endif
+            </div>
             @endforeach
             {{-- End Dynamic Form Section --}}
             <hr />

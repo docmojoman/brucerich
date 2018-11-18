@@ -31,10 +31,14 @@
               <input name="amazon" type="text" placeholder="Amazon Link (optional)" value="{{ old('amazon') }}">
             </label>
             <label>Introduction:
-              <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
+              <textarea name="introduction" cols="30" rows="2">
+                {!! old('introduction') !!}
+              </textarea>
             </label>
             <label>About:
-              <textarea name="about" cols="30" rows="6">{!! old('about') !!}</textarea>
+              <textarea name="about" cols="30" rows="6">
+                {!! old('about') !!}
+              </textarea>
             </label>
             {{-- Begin Dynamic Form Sections --}}
             <div class="sections"></div>
@@ -128,7 +132,7 @@
         addNamedEditor(name);
 
       } else {
-        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div>";
+        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><div class=\"callout small\"><label>Embed:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><p class=\"text-center margin-bottom-0\">- or -</p><label>Image:<div class=\"input-group\"><span class=\"input-group-btn\"><a id=\"lfm-image-" + x + "\" data-input=\"thumbnail-image\" data-preview=\"holder\" class=\"button dark\"><i class=\"fa fa-picture-o fi-photo\"></i> &nbsp;&nbsp;Choose</a></span><input id=\"thumbnail-image\" class=\"form-control\" type=\"text\" name=\"section[" + x + "][image][]\" value=\"\"></div></label><label>Image Alt Tags:<input name=\"section[" + x + "][alt_tags][]\" type=\"text\" placeholder=\"Image Alt Tags\" value=\"\"></label><label class=\"margin-none\">Link:<input name=\"section[" + x + "][link][]\" type=\"text\" placeholder=\"Video Link\" value=\"\"></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div></div>";
 
         var id = x;
         attachBrowser(id);

@@ -18,9 +18,12 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('image');
+            $table->string('publisher');
+            $table->string('image')->nullable();
+            $table->string('alt_tags')->nullable();
+            $table->string('amazon')->nullable();
+            $table->text('introduction');
             $table->text('about');
-            $table->unsignedSmallInteger('position')->nullable();
             $table->boolean('published')->default(0);
             $table->softDeletes();
             $table->timestamps();

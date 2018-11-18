@@ -68,8 +68,50 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        // $section = $request->input('section.15.description');
-        return $request;
+        $book = \App\Book::create([
+            'user_id'       => \Auth::id(),
+            'title'         => $request->title,
+            'publisher'     => $request->publisher,
+            'image'         => $request->image,
+            'alt_tags'      => $request->alt_tags,
+            'amazon'        => $request->amazon,
+            'introduction'  => $request->introduction,
+            'about'         => $request->about,
+        ]);
+
+        // Check for dynamic sections $initial ?: 'default'
+        if ($request->section) {
+            // $i = 0;
+            foreach ($request->section as $section) {
+                $caption = isset($section['caption']) ? $section['caption'][0] : '';
+                $description = isset($section['description']) ? $section['description'][0] : '';
+                $embed = isset($section['embed']) ? $section['embed'][0] : '';
+                \App\Section::create([
+                    'book_id'       => $book->id,
+                    'header'        => $section['header'][0],
+                    'caption'       => $caption,
+                    'description'   => $description,
+                    'embed'         => $embed,
+                    'type'          => $section['type'][0],
+                ]);
+                // $i++;
+            }
+        }
+
+
+        // Attach Tags
+        if ($request->tags) {
+            foreach ($request->tags as $tag) {
+                if (!\App\Tag::exists($tag)) {
+                    $tag = \App\Tag::create(['name' => $tag]);
+                }
+                $book->tags()->attach($tag);
+            }
+        }
+
+        // return $request;
+        return redirect('admin/books')->with('status', 'Book created!');
+
     }
 
     /**
@@ -107,9 +149,43 @@ class BooksController extends Controller
      * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, book $book)
+    public function update($id)
     {
-        //
+        // Store Request Data
+        Book::where('id', $id)
+                ->update([
+            'user_id'       => \Auth::id(),
+            'title'         => request('title'),
+            'publisher'     => request('publisher'),
+            'image'         => request('image'),
+            'alt_tags'      => request('alt_tags'),
+            'amazon'        => request('amazon'),
+            'introduction'  => request('introduction'),
+            'about'         => request('about'),
+                ]);
+
+        $book = \App\Book::find($id);
+
+        $syncTags = [];
+
+        // Attach Tags
+        if (request('tags')) {
+            foreach (request('tags') as $tag) {
+                if (!\App\Tag::exists($tag)) {
+                    $tag = \App\Tag::addNew($tag);
+                }
+
+                $bk = (int)$tag;
+                array_push($syncTags, $bk);
+            }
+
+            // return $syncTags;
+            $book->tags()->sync($syncTags);
+
+        }
+
+        // return $request;
+        return redirect('admin/books')->with('status', 'Book updated!');
     }
 
     /**
@@ -120,7 +196,16 @@ class BooksController extends Controller
      */
     public function destroy(book $book)
     {
+        \App\Book::destroy($id);
         // return back();
         return redirect('admin/books');
     }
+
+    public function publish($id)
+    {
+        \App\Book::publish($id);
+
+        return back();
+    }
+
 }

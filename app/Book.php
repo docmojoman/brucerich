@@ -4,8 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Book extends Model
 {
+    use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -37,6 +48,27 @@ class Book extends Model
     {
         return static::where('published', 1)->get();
     }
+
+    /**
+     * Add method for publishing.
+     * \App\Article::publish($id);
+     */
+    public static function publish($id)
+    {
+        $book = static::find($id);
+
+        if ($book->published == 0) {
+
+            $book->published = 1;
+            $book->save();
+            return true;
+        }
+
+        $book->published = 0;
+        $book->save();
+        return true;
+    }
+
 
     /**
      * Get the route key for the model.
