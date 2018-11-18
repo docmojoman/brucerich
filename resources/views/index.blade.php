@@ -27,7 +27,8 @@
             </div>
             <div class="cell medium-6 padding-right-5 padding-left-35">
                 <h2 class="h4">Latest Insights</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eos quod nisi error dignissimos ut vel voluptas dolorem saepe, corporis quis magni autem repudiandae architecto maxime ipsa quasi. Pariatur, laudantium. Consectetur adipisicing elit. Velit eos quod nisi error dignissimos ut vel voluptas dolorem saepe, corporis quis magni autem repudiandae architecto maxime ipsa quasi&hellip; <a href="insights.html">Read More</a></p>
+                <p>{{ strip_tags($insights[0]['description']) }}</p>
+                <a href="{{ url('insight', $insights[0]['id']) }}">Read More</a></p>
             </div>
         </div>
         <div class="grid-x grid-margin-x margin-top-60">
