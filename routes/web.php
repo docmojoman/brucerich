@@ -30,6 +30,8 @@ Route::get('/insights', 'InsightsController@index');
 
 Route::get('/insight/{slug}', 'InsightsController@show');
 
+Route::get('/tag/{tag}', 'TagsController@index');
+
 Route::get('/contact', 'PageController@contact');
 
 

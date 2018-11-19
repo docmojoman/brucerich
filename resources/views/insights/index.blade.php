@@ -51,7 +51,7 @@
             <ul class="book-submenu">
               @if($tags->count())
               @foreach($tags as $tag)
-              <li><a href="{{ url('tag', $tag->name) }}">{{ $tag->name }}</a></li>
+              <li><a href="{{ url('tag', $tag->slug) }}">{{ $tag->name }}</a></li>
               @endforeach
               @endif
             </ul>

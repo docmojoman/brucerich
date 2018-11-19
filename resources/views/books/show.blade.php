@@ -48,7 +48,7 @@
             <ul class="book-submenu">
               @if($tags)
               @foreach($tags as $tag)
-              <li><a href="{{ url('tags', $tag->slug)}}" target="_blank">{{ $tag->name }}</a></li>
+              <li><a href="{{ url('tag', $tag->slug)}}">{{ $tag->name }}</a></li>
               @endforeach
               @endif
             </ul>

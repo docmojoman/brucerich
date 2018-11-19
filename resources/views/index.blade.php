@@ -27,8 +27,10 @@
             </div>
             <div class="cell medium-6 padding-right-5 padding-left-35">
                 <h2 class="h4">Latest Insights</h2>
+                @if($insights)
                 <p>{{ strip_tags($insights[0]['description']) }}</p>
                 <a href="{{ url('insight', $insights[0]['id']) }}">Read More</a></p>
+                @endif
             </div>
         </div>
         <div class="grid-x grid-margin-x margin-top-60">
