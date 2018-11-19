@@ -22,9 +22,7 @@
             </label>
 
             <label>Description:
-              <textarea name="description" id="" cols="30" rows="10">
-                {{ $articlegroup->description }}
-              </textarea>
+              <textarea name="description" id="" cols="30" rows="10">{{ $articlegroup->description }}</textarea>
             </label>
 
             <input type="submit" class="button large dark expanded uppercase" value="Submit">

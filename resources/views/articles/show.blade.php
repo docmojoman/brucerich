@@ -1,3 +1,9 @@
+    public function destroy($id)
+    {
+        \App\Article::destroy($id);
+
+        return redirect('admin/articles');
+    }
 @extends('layouts.public')
 @section('title', '- ')
 @section('content')
@@ -48,10 +54,10 @@
         </div> <!-- .cell .medium-3 -->
         <div class="cell medium-auto article-body">
           <ul id="book-cite">
-            <li><a href="#">{{ $article->author }}</a></li>
-            <li><a href="#">{{ $article->publication }}</a></li>
-            <li><a href="#">{{ $article->date }}</a></li>
-            <li><a href="#">p. {{ $article->page }}</a></li>
+            @if($article->author)<li>{{ $article->author }}</li>@endif
+            @if($article->publication)<li>{{ $article->publication }}</li>@endif
+            @if($article->date)<li>{{ $article->date }}</li>@endif
+            @if($article->page)<li>p. {{ $article->page }}</li>@endif
           </ul>
           {!! $article->description !!}
 
