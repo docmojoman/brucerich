@@ -12,7 +12,7 @@
 */
 
 /* Guest Routes */
-Route::get('/', 'PageController@index');
+Route::get('/', 'PageController@index')->name('home');
 
 Route::get('/about', 'PageController@about');
 

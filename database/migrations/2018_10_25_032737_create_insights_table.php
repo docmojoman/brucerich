@@ -18,9 +18,9 @@ class CreateInsightsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('author');
-            $table->text('description');
-            $table->text('copy');
+            $table->string('author')->nullable();
+            $table->text('description')->nullable();
+            $table->text('copy')->nullable();
             $table->boolean('published')->default(0);
             $table->softDeletes();
             $table->timestamps();
