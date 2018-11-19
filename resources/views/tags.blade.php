@@ -8,7 +8,7 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="./">Home</a></li>
+              <li><a href="{{ url('./') }}">Home</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> Tags
               </li>
