@@ -21,7 +21,7 @@ class CreateVideosTable extends Migration
             $table->text('embed')->nullable();
             $table->string('link')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->text('caption');
+            $table->text('caption')->nullable();
             $table->boolean('published')->default(0);
             $table->softDeletes();
             $table->timestamps();

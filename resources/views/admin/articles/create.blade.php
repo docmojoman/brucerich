@@ -18,15 +18,13 @@
               <input name="publication" type="text" placeholder="Publication" value="{{ old('publication') }}">
             </label>
             <label>Date:
-              <input name="date" id="datepicker" type="text" placeholder="Date" value="{{ old('date') }}" autocomplete="off">
+              <input name="date" type="text" placeholder="Date" value="{{ old('date') }}" autocomplete="off">
             </label>
             <label>Page (#):
               <input name="page" type="text" placeholder="e.g. 28" value="{{ old('page') }}">
             </label>
             <label>Description/Excerpt:
-              <textarea name="description" id="editor" cols="30" rows="10">
-                {!! old('description') !!}
-              </textarea>
+              <textarea name="description" id="editor" cols="30" rows="10">{!! old('description') !!}</textarea>
             </label>
             <label>Page Image:
             <div class="input-group">
