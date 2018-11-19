@@ -132,7 +132,7 @@ class ArticleGroupsController extends Controller
     {
         \App\ArticleGroup::destroy($id);
 
-        return redirect('admin/articlegroup');
+        return redirect('admin/articlegroups');
     }
 
 }
