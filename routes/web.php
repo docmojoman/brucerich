@@ -135,7 +135,7 @@ Route::post('/admin/sort/update', 'Admin\SortsController@update');
 
 
 // Track down this route and eliminate
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // UniSharp (from middleware array 'web',)
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
