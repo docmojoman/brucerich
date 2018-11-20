@@ -33,10 +33,10 @@
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
         <div class="cell medium-2 list-icon">
-          <a href="{{ url('/book', $book->id) }}"><img src="{{ $book->image }}" alt="{{ $book->title }}"></a>
+          <a href="{{ url('/book', $book->slug) }}"><img src="{{ $book->image }}" alt="{{ $book->title }}"></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('/book', $book->id) }}">{{ $book->title }}</a></h2>
+          <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
           {{ $book->about }}
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->

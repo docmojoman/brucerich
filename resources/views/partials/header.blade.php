@@ -27,12 +27,12 @@
                             <a id="menu-books" href="{{ url('/books') }}" class="menu-title">Books</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($books as $book)
-                                    <li><a href="{{ url('/book/').'/'.$book->id }}">{{ $book->title }}</a></li>
+                                    <li><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
                                     @foreach($books as $book)
-                                    <li><a href="{{ url('/book/').'/'.$book->id }}">{{ $book->title }}</a></li>
+                                    <li><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
@@ -40,13 +40,13 @@
                             <a id="menu-articles" href="{{ url('/articles') }}" class="menu-title">Articles</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($articlegroups as $articlegroup)
-                                    <li><a href="{{ url('/articles').'/'.$articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    <li><a href="{{ url('/articles', $articlegroup->id) }}">{{ $articlegroup->title }}</a></li>
                                     @endforeach
                                     <li><a href="{{ url('/articles#articles') }}">View All</a></li>
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
                                     @foreach($articlegroups as $articlegroup)
-                                    <li><a href="{{ url('/articles').'/'.$articlegroup->id }}">{{ $articlegroup->title }}</a></li>
+                                    <li><a href="{{ url('/articles', $articlegroup->id) }}">{{ $articlegroup->title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>

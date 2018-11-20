@@ -50,9 +50,9 @@ class InsightsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Insight $insight)
     {
-        $insight = \App\Insight::find($id);
+        // $insight = \App\Insight::find($id);
         $tags = $insight->tags;
 
         return view('insights.show', compact('insight', 'tags'));

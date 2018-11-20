@@ -39,7 +39,7 @@
           <ul>
               @foreach($books as $book)
             <li>
-              <h2 class="h3"><a href="{{ url('/book', $book->id) }}">{{ $book->title }}</a></h2>
+              <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
               <p>{!! str_limit($book->about, 180) !!}</p>
               <hr />
             </li>
@@ -53,7 +53,7 @@
           <ul>
               @foreach($articles as $article)
             <li>
-              <h2 class="h3"><a href="{{ url('/article', $article->id) }}">{{ $article->title }}</a></h2>
+              <h2 class="h3"><a href="{{ url('/article', $article->slug) }}">{{ $article->title }}</a></h2>
               <p>{!! str_limit($article->description, 180) !!}</p>
               <hr />
             </li>
@@ -67,7 +67,7 @@
           <ul>
               @foreach($insights as $insight)
             <li>
-              <h2 class="h3"><a href="{{ url('/insight', $insight->id) }}">{{ $insight->title }}</a></h2>
+              <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
               <p>{!! str_limit($insight->description, 180) !!}</p>
               <hr />
             </li>
@@ -81,7 +81,7 @@
           <ul>
               @foreach($videos as $video)
             <li>
-              <h2 class="h3"><a href="{{ url('/video', $video->id) }}">{{ $video->title }}</a></h2>
+              <h2 class="h3"><a href="{{ url('/video', $video->slug) }}">{{ $video->title }}</a></h2>
               <p>{!! str_limit($video->caption,180) !!}</p>
               <hr />
             </li>

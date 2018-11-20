@@ -18,17 +18,19 @@ Route::get('/about', 'PageController@about');
 
 Route::get('/media', 'VideosController@index');
 
+Route::get('/video/{video}', 'VideosController@show');
+
 Route::get('/books', 'BooksController@index');
 
-Route::get('/book/{id}', 'BooksController@show');
+Route::get('/book/{book}', 'BooksController@show');
+
+Route::get('/article/{article}', 'ArticlesController@show');
 
 Route::get('/articles/{id?}', 'ArticlesController@index');
 
-Route::get('/article/{id}', 'ArticlesController@show');
-
 Route::get('/insights', 'InsightsController@index');
 
-Route::get('/insight/{slug}', 'InsightsController@show');
+Route::get('/insight/{insight}', 'InsightsController@show');
 
 Route::get('/tag/{tag}', 'TagsController@index');
 

@@ -41,10 +41,10 @@
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
         <div class="cell medium-2 list-icon">
-          <a href="{{ url('article', $article->id) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
+          <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('article', $article->id) }}">{{ $article->title }}</a></h2>
+          <h2 class="h3"><a href="{{ url('article', $article->slug) }}">{{ $article->title }}</a></h2>
           <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->

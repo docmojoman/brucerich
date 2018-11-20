@@ -37,7 +37,7 @@
           <ul>
               @foreach($insights as $insight)
             <li>
-              <h2 class="h3"><a href="{{ url('/insight', $insight->id) }}">{{ $insight->title }}</a></h2>
+              <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
               <p>{!! $insight->description !!}</p>
               <hr />
             </li>

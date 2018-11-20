@@ -36,9 +36,10 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = \App\Article::findOrFail($id);
+        // return $article;
+        // $article = \App\Article::findOrFail($id);
         $tags = $article->tags;
 
         $category = \App\ArticleGroup::findOrFail($article->group_id);
