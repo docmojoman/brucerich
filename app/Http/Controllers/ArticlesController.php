@@ -24,7 +24,7 @@ class ArticlesController extends Controller
             $articles = \App\Article::where([
                 ['group_id', '=', $id],
                 ['published', '=', '1'],
-            ])->get();
+            ])->paginate(10);
         }
 
         return view('articles.index', compact('articles', 'category'));

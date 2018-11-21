@@ -17,7 +17,7 @@ class InsightsController extends Controller
     {
         $insights = \App\Insight::where('published', 1)
                     ->orderBy('id', 'desc')
-                    ->get();
+                    ->paginate(10);
         $tags = \App\Tag::all();
 
         return view('insights.index', compact('insights', 'tags'));

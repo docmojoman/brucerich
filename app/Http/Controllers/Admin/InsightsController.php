@@ -28,7 +28,6 @@ class InsightsController extends Controller
     {
         $insights = \App\Insight::all()->sortByDesc('id');
 
-        // dd($insights);
         return view('admin.insights.index', compact('insights'));
     }
 

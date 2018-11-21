@@ -134,3 +134,54 @@ styles to add:
       //window.location.href='{{ url('/admin/books/edit') }} + "/" + $editSelect.val()';
     }
   });
+
+
+// Pagination
+
+          <div class="grid-x grid-margin-x article-row-last align-middle">
+            <div class="cell medium-12">
+              <ul class="pagination" id="insights-page" role="navigation" aria-label="Pagination">
+                <li class="disabled">Previous <span class="show-for-sr">page</span></li>
+                <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+                <li><a href="#0" aria-label="Page 2">2</a></li>
+                <li><a href="#0" aria-label="Page 3">3</a></li>
+                <li><a href="#0" aria-label="Page 4">4</a></li>
+                <li class="ellipsis" aria-hidden="true"></li>
+                <li><a href="#0" aria-label="Page 12">12</a></li>
+                <li><a href="#0" aria-label="Page 13">13</a></li>
+                <li><a href="#0" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+              </ul>
+            </div> <!-- .cell .medium-auto .medium-offset-2 .list-title -->
+          </div> <!-- .grid-x .grid-margin-x article-row -->
+
+
+
+<nav aria-label="Pagination">
+  <ul class="pagination">
+    <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
+    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+    <li><a href="#" aria-label="Page 2">2</a></li>
+    <li><a href="#" aria-label="Page 3">3</a></li>
+    <li><a href="#" aria-label="Page 4">4</a></li>
+    <li class="ellipsis" aria-hidden="true"></li>
+    <li><a href="#" aria-label="Page 12">12</a></li>
+    <li><a href="#" aria-label="Page 13">13</a></li>
+    <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+  </ul>
+</nav>
+
+
+// default
+<ul class="pagination" role="navigation">
+  <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+  <span class="page-link" aria-hidden="true">‹</span>
+  </li>
+
+  <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+  <li class="page-item"><a class="page-link" href="http://brucerich1.dojo/insights?page=2">2</a></li>
+  <li class="page-item"><a class="page-link" href="http://brucerich1.dojo/insights?page=3">3</a></li>
+
+  <li class="page-item">
+  <a class="page-link" href="http://brucerich1.dojo/insights?page=2" rel="next" aria-label="Next »">›</a>
+  </li>
+</ul>
