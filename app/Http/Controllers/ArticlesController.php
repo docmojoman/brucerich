@@ -17,8 +17,7 @@ class ArticlesController extends Controller
     {
 
         if ($id == null) {
-            $articles = \App\Article::where('published', 1)->orderBy('id', 'desc')->get();
-            // $articles = \App\Article::articles();
+            $articles = \App\Article::where('published', 1)->orderBy('id', 'desc')->paginate(6);
         } else {
             $category = \App\ArticleGroup::findOrFail($id);
             $articles = \App\Article::where([

@@ -53,7 +53,9 @@
       <!-- Pagination Row -->
       <div class="grid-x grid-margin-x article-row-last align-middle">
         <div class="cell medium-auto medium-offset-2 list-title">
+          @if($articles->links() != null)
           {{ $articles->links() }}
+          @endif
         </div> <!-- .cell .medium-auto .medium-offset-2 .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Pagination Row -->
