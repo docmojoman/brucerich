@@ -413,6 +413,8 @@ ul.vertical.menu.align-left.submenu.is-dropdown-submenu.first-sub {
 
 #slideshow {
 	display: block;
+	width: 100%;
+	overflow: hidden;
 
 	img {
 		height: 210px ;
