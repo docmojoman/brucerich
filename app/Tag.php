@@ -50,12 +50,19 @@ class Tag extends Model
         return static::where('id', $tag)->exists();
     }
 
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name']  = $value;
+        $this->attributes['slug']   = str_slug($value);
+    }
+
     public static function addNew($tag)
     {
         return static::insertGetId([
-            'name' => $tag,
-            'created_at' => NOW(),
-            'updated_at' => NOW()
+            'name'          => $tag,
+            'slug'          => str_slug($tag),
+            'created_at'    => NOW(),
+            'updated_at'    => NOW()
         ]);
     }
 
@@ -67,12 +74,6 @@ class Tag extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name']  = $value;
-        $this->attributes['slug']   = str_slug($value);
     }
 
 }

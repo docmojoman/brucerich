@@ -11,10 +11,25 @@
     <title>BRUCE RICH | AUTHOR | ENVIRONMENTAL LAWYER @yield('title') | expert on public international finance and the environment | Nonprofits &amp; Activism</title>
 
     <!-- Styles -->
+    <style>
+      .scrollToTop {
+        display: none;
+      }
+    </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 @include('partials.header')
+    @if (session('status'))
+    <div class="grid-container">
+        <div class="callout success" data-closable="slide-out-right fade-out">
+            <p class="h3 text-center">{{ session('status') }}</p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    @endif
 
     @yield('content')
 

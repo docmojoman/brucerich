@@ -198,7 +198,7 @@ class ArticlesController extends Controller
     {
         \App\Article::publish($id);
 
-        return back();
+        return back()->with('status', 'Article published!');
     }
 
 }

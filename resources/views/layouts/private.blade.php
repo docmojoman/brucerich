@@ -11,6 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
 
     <!-- Styles -->
+    <style>
+      .scrollToTop {
+        display: none;
+      }
+    </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('script-header')
 </head>
@@ -44,7 +49,7 @@
     @endif
     {{-- Alerts --}}
     @if (session('status'))
-    <div class="grid-container">
+    <div class="grid-container alert-message">
         <div class="callout success" data-closable="slide-out-right fade-out">
             <p class="h3 text-center">{{ session('status') }}</p>
             <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
@@ -61,14 +66,18 @@
         <h6>{{ config('app.name', 'Laravel') }} <small>Version {{ app()->version() }}</small></h6>
       </div>
     </div>
+    <!-- sticky scroll to top  -->
+    <a href="#" class="scrollToTop">&nbsp;</a>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('script-link')
     <script>
     $(document).foundation();
 
-        // scrollToTop
-        $(document).ready(function(){
+        $('div.alert-message').delay(3000).fadeOut(350);
+
+    // scrollToTop
+    $(document).ready(function(){
 
         //Check to see if the window is top if not then display button
         $(window).scroll(function(){

@@ -18,6 +18,9 @@
             <label>Book Title:
               <input name="title" type="text" placeholder="Title" value="{{ $book->title }}">
             </label>
+            <label>Publisher/Date:
+              <input name="publisher" type="text" placeholder="Publisher/Date" value="{{ $book->publisher }}">
+            </label>
             <label>Book Image:
             <div class="input-group">
                <span class="input-group-btn">
@@ -28,16 +31,24 @@
                <input id="thumbnail-image" class="form-control" type="text" name="image" value="{{ $book->image }}">
              </div>
             </label>
+            <label>Book Image Alt Tags:
+              <input name="alt_tags" type="text" placeholder="Book Image Alt Tags" value="{{ $book->alt_tags }}">
+            </label>
+            <label>Amazon Link (optional):
+              <input name="amazon" type="text" placeholder="Amazon Link (optional)" value="{{ $book->amazon }}">
+            </label>
+            <label>Introduction:
+              <textarea name="introduction" cols="30" rows="2">{!! $book->introduction !!}</textarea>
+            </label>
             <label>About:
-              <textarea name="about" id="editor" cols="30" rows="10">
-                {!! $book->about !!}
-              </textarea>
+              <textarea name="about" cols="30" rows="10">{!! $book->about !!}</textarea>
             </label>
             {{-- Begin Dynamic Form Sections --}}
             @foreach($sections as $section)
             <div class="margin-top-30">
             @if($section->type == 'text')
             <div class="callout secondary small">
+              <input type="hidden" name="section[{{ $section->id }}][type][]" value="text">
               <label>Header:
                 <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
               </label>
@@ -47,6 +58,7 @@
             </div>
             @else
             <div class="callout secondary small">
+              <input type="hidden" name="section[{{ $section->id }}][type][]" value="video">
               <label>Header:
                 <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
               </label>

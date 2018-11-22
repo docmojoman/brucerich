@@ -34,7 +34,9 @@ Route::get('/insight/{insight}', 'InsightsController@show');
 
 Route::get('/tag/{tag}', 'TagsController@index');
 
-Route::get('/contact', 'PageController@contact');
+Route::get('/contact', 'ContactController@index');
+
+Route::post('/contact', 'ContactController@send');
 
 
 

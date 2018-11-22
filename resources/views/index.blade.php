@@ -81,16 +81,6 @@
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
         </div> <!-- .grid-x grid-margin-x -->
-        <div class="grid-x grid-margin-x margin-top-60">
-            <div class="cell medium-12">
-                <!-- <p class="text-center"><img src="{{ asset('img/shadow-bkg.png') }}" alt=""></p> -->
-                <!-- <p class="text-center margin-top-60">
-                    <a href=""><img class="social-icons" src="{{ asset('img/buy_book_button-amazib.png') }}" alt=""></a>
-                    <a href=""><img class="social-icons" src="{{ asset('img/buy_book_button-bn.png') }}" alt=""></a>
-                    <a href=""><img class="social-icons" src="{{ asset('img/buy_book_button-800ceo.png') }}" alt=""></a>
-                </p> -->
-            </div> <!-- .cell medium-12 -->
-        </div> <!-- .grid-x grid-margin-x margin-top-60 -->
     </div> <!-- grid-container -->
     </div> <!-- page -->
 @endsection

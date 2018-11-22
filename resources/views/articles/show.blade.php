@@ -1,9 +1,3 @@
-    public function destroy($id)
-    {
-        \App\Article::destroy($id);
-
-        return redirect('admin/articles');
-    }
 @extends('layouts.public')
 @section('title', '- ')
 @section('content')

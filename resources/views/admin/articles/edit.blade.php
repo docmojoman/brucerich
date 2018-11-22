@@ -106,9 +106,6 @@
 @push('scripts')
     $('#lfm-image').filemanager('image');
     $('#lfm-pdf').filemanager('image');
-    $( "#datepicker" ).datepicker(
-       { dateFormat: "yy-mm-dd" }
-    );
 
     $('#tags').select2({
         placeholder: "Choose tags…",

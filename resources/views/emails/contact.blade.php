@@ -1,10 +1,8 @@
 @component('mail::message')
-# Introduction
-
-The body of your message.
-
-@component('mail::button', ['url' => ''])
-Button Text
+# $f_name $l_name sent you a message.
+## From: $email
+@component('mail::panel')
+$body
 @endcomponent
 
 Thanks,<br>

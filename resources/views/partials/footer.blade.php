@@ -41,4 +41,4 @@
     </div> <!-- .grid-container -->
     </div> <!-- footer-container -->
     <!-- sticky scroll to top  -->
-    <a href="#" class="scrollToTop" style="display: block;">&nbsp;</a>
+    <a href="#" class="scrollToTop">&nbsp;</a>

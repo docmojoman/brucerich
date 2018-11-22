@@ -26,9 +26,4 @@ class PageController extends Controller
     	return view('media');
     }
 
-    public function contact()
-    {
-    	return view('contact');
-    }
-
 }

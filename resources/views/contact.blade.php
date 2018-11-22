@@ -8,7 +8,7 @@
             <div class="cell medium-12">
                 <nav aria-label="You are here:" role="navigation">
                   <ul class="breadcrumbs">
-                    <li><a href="./">Home</a></li>
+                    <li><a href="{{ url('./') }}">Home</a></li>
                     <li>
                       <span class="show-for-sr">Current: </span> Contact
                     </li>
@@ -29,34 +29,36 @@
     </div> <!-- .grid-container -->
     </div> <!-- #article-title -->
     <div id="contact">
+              <form action="{{ url('contact') }}" method="POST">
+                @csrf
         <div class="grid-container">
             <div class="grid-x cell">
               <div class="medium-6 cell padding-right-5">
                 <label>First Name
-                  <input type="text" placeholder="First Name">
+                  <input name="f_name" type="text" placeholder="First Name">
                 </label>
               </div>
               <div class="medium-6 cell padding-left-5">
                 <label>Last Name
-                  <input type="text" placeholder="Last Name">
+                  <input name="l_name" type="text" placeholder="Last Name">
                 </label>
               </div>
             </div> <!-- grid-x grid-padding-x cell -->
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
                 <label>Email Address
-                  <input type="text" placeholder="Email Address">
+                  <input name="email" type="text" placeholder="Email Address">
                 </label>
 
                 <label>
                   Message
-                  <textarea placeholder="Message"></textarea>
+                  <textarea name="body" placeholder="Message"></textarea>
                 </label>
 
-                <!-- <button type="button" class="button" value="Submit">Submit</button> -->
                 <input type="submit" class="button" value="Send Message" />
               </div>
             </div>
         </div> <!-- .grid-container -->
+              </form>
     </div> <!-- #contact -->
 @endsection
