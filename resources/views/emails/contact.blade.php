@@ -1,8 +1,8 @@
 @component('mail::message')
-# $f_name $l_name sent you a message.
-## From: $email
+#{{ $contact['f_name'] }} {{ $contact['l_name'] }} sent you a message.
+## From: {{ $contact['email'] }}
 @component('mail::panel')
-$body
+{{ $contact['body'] }}
 @endcomponent
 
 Thanks,<br>

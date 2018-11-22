@@ -35,24 +35,24 @@
             <div class="grid-x cell">
               <div class="medium-6 cell padding-right-5">
                 <label>First Name
-                  <input name="f_name" type="text" placeholder="First Name">
+                  <input name="f_name" type="text" placeholder="First Name" required="required">
                 </label>
               </div>
               <div class="medium-6 cell padding-left-5">
                 <label>Last Name
-                  <input name="l_name" type="text" placeholder="Last Name">
+                  <input name="l_name" type="text" placeholder="Last Name" required="required">
                 </label>
               </div>
             </div> <!-- grid-x grid-padding-x cell -->
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
                 <label>Email Address
-                  <input name="email" type="text" placeholder="Email Address">
+                  <input name="email" type="text" placeholder="Email Address" required="required">
                 </label>
 
                 <label>
                   Message
-                  <textarea name="body" placeholder="Message"></textarea>
+                  <textarea name="body" placeholder="Message" required="required"></textarea>
                 </label>
 
                 <input type="submit" class="button" value="Send Message" />

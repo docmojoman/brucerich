@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 
+use App\Http\Requests\ContactFormRequest;
+
 class ContactController extends Controller
 {
     public function index()
@@ -17,39 +19,17 @@ class ContactController extends Controller
     	return view('contact');
     }
 
-    public function send(Request $request)
+    public function send(ContactFormRequest $request)
     {
-    	$this->validate($request, [
-	      'f_name'		=>  'required',
-	      'l_name'		=>  'required',
-	      'email'  		=>  'required|email',
-	      'body' 		=>  'required'
-	     ]);
+    	$contact = [];
+    	$contact['f_name']	= $request->get('f_name');
+    	$contact['l_name']	= $request->get('l_name');
+    	$contact['email']	= $request->get('email');
+    	$contact['body']	= $request->get('body');
 
-    	$subject = "Message from the Bruce Rich web site";
+    	//
+    	Mail::to(env('APP_EMAIL'))->send(new Contact($contact));
 
-    	// Contact::create($request->all());
-
-    	Mail::to(env('APP_EMAIL'))->send(new \ContactMessage(
-	    	[
-				'f_name'	=> $request->get('f_name'),
-				'l_name'	=> $request->get('l_name'),
-				'email'		=> $request->get('email'),
-				'body'		=>	$request->get('body')
-			]));
-    	// \Mail::send('emails.contact',
-    	// 	[
-    	// 		'f_name'	=> $request->get('f_name'),
-    	// 		'l_name'	=> $request->get('l_name'),
-    	// 		'email'		=> $request->get('email'),
-    	// 		'body'		=>	$request->get('body')
-    	// 	], function($message) use ($request)
-    	// 	{
-    	// 		$message->from('contact@brucerich.com');
-    	// 		$message->to(env('APP_EMAIL', 'Admin'));
-    	// 		$message->subject($subject);
-    	// 	});
-
-	    return back()->with('success', 'Thanks for contacting us!');
+    	return back()->with('success', 'Thanks for contacting us!');
     }
 }

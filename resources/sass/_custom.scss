@@ -965,7 +965,8 @@ a#lfm-pdf {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 1) url(../img/up_icon.png) no-repeat center;
+    background: rgba(255, 255, 255, 0.65) url(../img/up_icon.png) no-repeat center;
+    border: 1px rgba(255, 255, 255, 0.80) solid;
 }
 
 @media screen and (min-width: 40em) {

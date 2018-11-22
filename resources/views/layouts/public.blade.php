@@ -22,7 +22,7 @@
 @include('partials.header')
     @if (session('status'))
     <div class="grid-container">
-        <div class="callout success" data-closable="slide-out-right fade-out">
+        <div class="callout success" data-closable="fade-out">
             <p class="h3 text-center">{{ session('status') }}</p>
             <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
               <span aria-hidden="true">&times;</span>
@@ -49,23 +49,25 @@
         variableWidth: true
       });
 
-    // scrollToTop
-    $(document).ready(function(){
+      $('div.alert-message').delay(3000).fadeOut(350);
 
-      //Check to see if the window is top if not then display button
-      $(window).scroll(function(){
-        if ($(this).scrollTop() > 100) {
-          $('.scrollToTop').fadeIn();
-        } else {
-          $('.scrollToTop').fadeOut();
-        }
-      });
+      // scrollToTop
+      $(document).ready(function(){
 
-      //Click event to scroll to top
-      $('.scrollToTop').click(function(){
-        $('html, body').animate({scrollTop : 0},300);
-        return false;
-      });
+        //Check to see if the window is top if not then display button
+        $(window).scroll(function(){
+          if ($(this).scrollTop() > 100) {
+            $('.scrollToTop').fadeIn();
+          } else {
+            $('.scrollToTop').fadeOut();
+          }
+        });
+
+        //Click event to scroll to top
+        $('.scrollToTop').click(function(){
+          $('html, body').animate({scrollTop : 0},300);
+          return false;
+        });
 
     });
 

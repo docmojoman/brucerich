@@ -12035,7 +12035,8 @@ a#lfm-pdf {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: white url(/images/up_icon.png?02f426206c852ca849ff7912900f550a) no-repeat center;
+  background: rgba(255, 255, 255, 0.65) url(/images/up_icon.png?02f426206c852ca849ff7912900f550a) no-repeat center;
+  border: 1px rgba(255, 255, 255, 0.8) solid;
 }
 
 @media screen and (min-width: 40em) {
