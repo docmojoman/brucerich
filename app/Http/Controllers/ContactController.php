@@ -30,6 +30,11 @@ class ContactController extends Controller
     	//
     	Mail::to(env('APP_EMAIL'))->send(new Contact($contact));
 
-    	return back()->with('success', 'Thanks for contacting us!');
+    	return view('contact-success')->with('success', 'Thanks for contacting us!');
+    }
+
+    public function success()
+    {
+    	return view('contact-success');
     }
 }

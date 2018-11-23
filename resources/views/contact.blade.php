@@ -35,30 +35,35 @@
             <div class="grid-x cell">
               <div class="medium-6 cell padding-right-5">
                 <label>First Name
-                  <input name="f_name" type="text" placeholder="First Name" required="required">
+                  <input name="f_name" type="text" placeholder="First Name" value="{{ old('f_name') }}">
                 </label>
               </div>
               <div class="medium-6 cell padding-left-5">
                 <label>Last Name
-                  <input name="l_name" type="text" placeholder="Last Name" required="required">
+                  <input name="l_name" type="text" placeholder="Last Name" value="{{ old('l_name') }}">
                 </label>
               </div>
             </div> <!-- grid-x grid-padding-x cell -->
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
                 <label>Email Address
-                  <input name="email" type="text" placeholder="Email Address" required="required">
+                  <input name="email" type="text" placeholder="Email Address" value="{{ old('email') }}">
                 </label>
 
                 <label>
                   Message
-                  <textarea name="body" placeholder="Message" required="required"></textarea>
+                  <textarea name="body" placeholder="Message" value="{!! old('body') !!}"></textarea>
                 </label>
 
-                <input type="submit" class="button" value="Send Message" />
+                <label>{!! NoCaptcha::display(['data-theme' => 'dark']) !!}</label>
+
+                <label><input type="submit" class="button" value="Send Message" /></label>
               </div>
             </div>
         </div> <!-- .grid-container -->
               </form>
     </div> <!-- #contact -->
 @endsection
+@push('script-link')
+{!! NoCaptcha::renderJs() !!}
+@endpush

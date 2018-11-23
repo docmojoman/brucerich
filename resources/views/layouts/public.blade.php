@@ -30,24 +30,31 @@
         </div>
     </div>
     @endif
+    @if ($errors->any())
+      <div class="grid-container">
+        <div class="callout alert" data-closable="fade-out">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      </div>
+    @endif
 
     @yield('content')
 
 @include('partials.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @stack('script-link')
     <script>
         $(document).foundation();
 
-      $('.bruce-slides').slick({
-        dots: false,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        variableWidth: true
-      });
+        @stack('slide-show')
 
       $('div.alert-message').delay(3000).fadeOut(350);
 
@@ -68,6 +75,8 @@
           $('html, body').animate({scrollTop : 0},300);
           return false;
         });
+
+        @stack('scripts')
 
     });
 

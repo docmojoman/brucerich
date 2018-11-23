@@ -38,6 +38,8 @@ Route::get('/contact', 'ContactController@index');
 
 Route::post('/contact', 'ContactController@send');
 
+Route::get('/success', 'ContactController@success');
+
 
 
 /* Admin Routes */

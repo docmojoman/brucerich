@@ -84,3 +84,14 @@
     </div> <!-- grid-container -->
     </div> <!-- page -->
 @endsection
+@push('slide-show')
+      $('.bruce-slides').slick({
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        variableWidth: true
+      });
+@endpush
