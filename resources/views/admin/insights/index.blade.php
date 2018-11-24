@@ -39,7 +39,7 @@
       @foreach($insights as $insight)
       <div class="grid-x grid-margin-x margin-top-20">
         <div class="cell small-8">
-          <p class="title"><a href="/insights/{{ $insight->slug }}">{{ $insight->title }}</a></p>
+          <p class="title"><a href="{{ url('insight', $insight->slug) }}">{{ $insight->title }}</a></p>
         </div>
         <div class="cell small-2">
           <select onChange="top.location.href=this.options[this.selectedIndex].value;">

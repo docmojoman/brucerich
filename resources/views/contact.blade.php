@@ -57,7 +57,7 @@
 
                 <label>{!! NoCaptcha::display(['data-theme' => 'dark']) !!}</label>
 
-                <label><input type="submit" class="button" value="Send Message" /></label>
+                <label><input type="submit" class="button dark" value="Send Message" /></label>
               </div>
             </div>
         </div> <!-- .grid-container -->

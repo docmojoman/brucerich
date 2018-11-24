@@ -10,7 +10,7 @@
                   <ul class="breadcrumbs">
                     <li><a href="{{ url('./') }}">Home</a></li>
                     <li>
-                      <span class="show-for-sr">Current: </span> Successful Contact
+                      <span class="show-for-sr">Current: </span> Contact Successful
                     </li>
                   </ul>
                 </nav>
@@ -22,8 +22,9 @@
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell medium-12">
-                <h1 class="h2">Successful Contact</h1>
-                <p>Thanks for making contact.</p>
+                <h1 class="h2">Message Sent</h1>
+                <p>Thank you for your message.</p>
+                <p><a href="{{url('./') }}" class="button dark">Home</a></p>
             </div> <!-- .cell .medium-12 -->
         </div> <!-- .grid-x .grid-margin-x -->
         <div class="v-space-35">&nbsp;</div>

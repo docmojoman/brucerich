@@ -62,7 +62,7 @@
           @else
           @foreach($articles as $article)
                 <tr data-index="{{ $article->id }}" data-position="">
-                  <td><p class="title"><a href="{{ url('/article') . '/' . $article->id }}">{{ $article->title }}</a></p></td>
+                  <td><p class="title"><a href="{{ url('/article', $article->slug) }}">{{ $article->title }}</a></p></td>
                   <td>
                     <select onChange="top.location.href=this.options[this.selectedIndex].value;">
                       <option>Status</option>

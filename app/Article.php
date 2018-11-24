@@ -149,4 +149,27 @@ class Article extends Model
         return $this->morphToMany('App\Sort', 'sortable')
                     ->withTimestamps();
     }
+
+    /**
+     * Scope a query to only include published articles.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePubd($query)
+    {
+        return $query->where('published', '=', 1);
+    }
+
+    /**
+     * Scope a query to only include articles in category.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCategory($query, $id)
+    {
+        return $query->where('group_id', '=', $id);
+    }
+
 }

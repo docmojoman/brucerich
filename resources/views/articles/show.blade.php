@@ -12,7 +12,7 @@
               <li><a href="{{ url('articles') }}">Articles</a></li>
               <li><a href="{{ url('articles', $article->group_id) }}">{{ $category->title }}</a></li>
               <li>
-                <span class="show-for-sr">Current: </span> {{ $article->title }}
+                <span class="show-for-sr">Current: </span> {{ str_limit($article->title, 60, ' …') }}
               </li>
             </ul>
           </nav>
@@ -71,12 +71,16 @@
       <!-- /divider -->
       <div class="grid-x grid-margin-x">
         <div class="cell medium-6 nav-left">
+          @if($pages['prev'])
           <p><i>Previous Post</i></p>
-          <h3 class="h5"><a href="#">From Neil Gorsuch to Amartya Sen: Natural Law, Ethics, Economics</a></h3>
+          <h3 class="h5"><a title="{{ $pages['prev']['title'] }}" href="{{ url('article', $pages['prev']['slug']) }}">{{ str_limit($pages['prev']['title'], 70, ' …') }}</a></h3>
+          @endif
         </div> <!-- .cell .medium-6 .nav-left -->
         <div class="cell medium-auto nav-right">
+          @if($pages['next'])
           <p><i>Next Post</i></p>
-          <h3 class="h5"><a href="#">A Case Study in India Highlights Conservation and Human Needs&hellip;</a></h3>
+          <h3 class="h5"><a title="{{ $pages['next']['title'] }}" href="{{ url('article', $pages['next']['slug']) }}">{{ str_limit($pages['next']['title'], 70, ' …') }}</a></h3>
+          @endif
         </div> <!-- .cell .medium-6 .nav-right -->
       </div> <!-- .grid-x .grid-margin-x -->
       <!-- divider -->
