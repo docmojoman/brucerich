@@ -10,12 +10,12 @@ class TagsController extends Controller
 {
     public function index(Tag $tag)
     {
-    	$books 		= $tag->books;
-    	$articles	= $tag->articles;
-    	$insights	= $tag->insights;
-    	$videos		= $tag->videos;
+    	$books 		= $tag->books->where('published', '=', 1);
+    	$articles	= $tag->articles->where('published', '=', 1);
+    	$insights	= $tag->insights->where('published', '=', 1);
+    	$videos		= $tag->videos->where('published', '=', 1);
     	$tags 		= Tag::all();
-    	// return $tag;
+    	// return $books;
     	if ($tag->count()) {
     	return view('tags', compact('books', 'articles','insights', 'videos', 'tag', 'tags'));
     	} else {
