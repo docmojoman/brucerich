@@ -88,7 +88,7 @@ Route::post('/admin/books', 'Admin\BooksController@store');
 
 Route::get('/admin/books/edit/{id}', 'Admin\BooksController@edit');
 
-Route::patch('/admin/books', 'Admin\BooksController@update');
+Route::patch('/admin/books/{id}', 'Admin\BooksController@update');
 
 Route::get('/admin/books/delete/{id}', 'Admin\BooksController@destroy');
 

@@ -13,7 +13,7 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell medium-8 medium-offset-2">
-          <form method="POST" action="/admin/books">
+          <form method="POST" action="/admin/books/{{ $book->id }}">
             @csrf
             @method('PATCH')
             <label>Book Title:
