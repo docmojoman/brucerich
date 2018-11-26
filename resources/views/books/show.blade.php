@@ -56,10 +56,7 @@
         </div> <!-- .cell .medium-3 -->
         <div class="cell medium-auto article-body">
           <p class="lead">{{ $book->introduction }}</p>
-          <p>{{ $book->about }}</p>
-          {{-- <p class="lead"></p> --}}
-
-          {{-- <p><a href="">Show All</a></p> --}}
+          {!! $book->about !!}
 
           @if($sections)
           @foreach($sections as $section)
