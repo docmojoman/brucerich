@@ -49,6 +49,7 @@
             <div class="margin-top-30">
             @if($section->type == 'text')
             <div class="callout secondary small">
+              <input type="hidden" name="section[{{ $section->id }}][id][]" value="{{ $section->id }}">
               <input type="hidden" name="section[{{ $section->id }}][type][]" value="text">
               <label>Header:
                 <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
@@ -59,6 +60,7 @@
             </div>
             @else
             <div class="callout secondary small">
+              <input type="hidden" name="section[{{ $section->id }}][id][]" value="{{ $section->id }}">
               <input type="hidden" name="section[{{ $section->id }}][type][]" value="video">
               <label>Header:
                 <input name="section[{{ $section->id }}][header][]" type="text" placeholder="Title" value="{{ $section->header }}">
@@ -82,7 +84,7 @@
                 @endforeach
               </select>
             </label>
-            <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
           </form>
         </div>
       </div>

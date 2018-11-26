@@ -164,6 +164,29 @@ class BooksController extends Controller
             'about'         => request('about'),
                 ]);
 
+        // return request('section');
+        // Check for dynamic sections $initial ?: 'default'
+        if (request('section')) {
+            // $i = 0;
+            foreach (request('section') as $section) {
+                $caption = isset($section['caption']) ? $section['caption'][0] : '';
+                $description = isset($section['description']) ? $section['description'][0] : '';
+                $embed = isset($section['embed']) ? $section['embed'][0] : '';
+                \App\Section::where('id', $section['id'][0])
+                ->update([
+                    'book_id'       => $id,
+                    'header'        => $section['header'][0],
+                    'caption'       => $caption,
+                    'description'   => $description,
+                    'embed'         => $embed,
+                    'type'          => $section['type'][0],
+                ]);
+                // $i++;
+            }
+        }
+
+
+        // Attach Tags
         $book = \App\Book::find($id);
 
         $syncTags = [];
