@@ -37,7 +37,7 @@
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
-          {!! $book->about !!}
+          {!! $book->introduction !!}
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row -->
