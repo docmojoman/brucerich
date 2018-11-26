@@ -37,7 +37,22 @@ class Book extends Model
     public function setTitleAttribute($value)
     {
     	$this->attributes['title']	= $value;
-    	$this->attributes['slug']	= str_slug($value);
+    	$this->attributes['slug']	= $this->uniqueSlug($value);
+    }
+
+    /**
+     * Create a unique slug.
+     *
+     * @param  string $title
+     * @return string
+     */
+    public function uniqueSlug($value)
+    {
+        $slug = str_slug($value);
+
+        $count = static::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+
+        return $count ? "{$slug}-{$count}" : $slug;
     }
 
     /**
@@ -88,7 +103,6 @@ class Book extends Model
     {
         $sortable_type = 'book';
         $unsorted_books = static::where('published', 1)->get();
-        // dd($unsorted_books);
         $bookIds = $unsorted_books->pluck('id');
         $order = \App\Sort::groupOrder($sortable_type, $bookIds)->pluck('sortable_id');
 
@@ -105,10 +119,7 @@ class Book extends Model
             $books = static::all();
         }
 
-        // dd($books);
-
         return $books;
-        // return static::where('published', 1)->pluck('id', 'title');
     }
 
     /**

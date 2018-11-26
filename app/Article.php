@@ -58,10 +58,7 @@ class Article extends Model
             $articles = static::all();
         }
 
-        // dd($articles);
-
         return $articles;
-        // return static::where('published', 1)->pluck('id', 'title');
     }
 
     /**
@@ -118,7 +115,7 @@ class Article extends Model
     }
 
     /**
-     * Create a conversation slug.
+     * Create a unique slug.
      *
      * @param  string $title
      * @return string

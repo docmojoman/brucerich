@@ -194,7 +194,7 @@ class BooksController extends Controller
      * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(book $book)
+    public function destroy($id)
     {
         \App\Book::destroy($id);
         // return back();

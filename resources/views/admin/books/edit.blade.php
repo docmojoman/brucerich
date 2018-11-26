@@ -15,6 +15,7 @@
         <div class="cell medium-8 medium-offset-2">
           <form method="POST" action="/admin/books">
             @csrf
+            @method('PATCH')
             <label>Book Title:
               <input name="title" type="text" placeholder="Title" value="{{ $book->title }}">
             </label>

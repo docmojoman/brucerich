@@ -5,12 +5,19 @@
                 <a href="./"><img id="logo" src="{{ asset('img/brucerich_logo.svg') }}" alt="Bruce Rich Logo"></a>
             </div> <!-- #footer-logo-cell -->
             <div class="cell medium-1">
-                <ul id="footer-menu">
-                    <li><a href="about">About</a></li>
-                    <li><a href="books">Books</a></li>
-                    <li><a href="articles">Articles</a></li>
-                    <li><a href="insights">Insights</a></li>
-                    <li><a href="contact">Contact</a></li>
+                <ul id="footer-menu" class="hide-for-medium">
+                    <li><a href="{{ url('about#about') }}">About</a></li>
+                    <li><a href="{{ url('books#mobile') }}">Books</a></li>
+                    <li><a href="{{ url('articles#mobile') }}">Articles</a></li>
+                    <li><a href="{{ url('insights#mobile') }}">Insights</a></li>
+                    <li><a href="{{ url('contact#mobile') }}">Contact</a></li>
+                </ul>
+                <ul id="footer-menu" class="">
+                    <li><a href="{{ url('about') }}">About</a></li>
+                    <li><a href="{{ url('books') }}">Books</a></li>
+                    <li><a href="{{ url('articles') }}">Articles</a></li>
+                    <li><a href="{{ url('insights') }}">Insights</a></li>
+                    <li><a href="{{ url('contact') }}">Contact</a></li>
                 </ul>
             </div> <!-- .cell .medium-1 -->
             <div class="cell medium-3">

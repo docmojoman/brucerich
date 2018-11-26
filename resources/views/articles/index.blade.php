@@ -38,8 +38,8 @@
     <div id="articles-list"> <!-- bite hero  -->
     <div class="grid-container">
       @foreach ($articles as $article)
-      <!-- Article Row -->
-      <div class="grid-x grid-margin-x article-row align-middle">
+      <!-- Article Row Desktop -->
+      <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
         <div class="cell medium-2 list-icon">
           <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
         </div> <!-- .cell .medium-2 -->
@@ -48,7 +48,18 @@
           <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
-      <!-- ./Article Row -->
+      <!-- ./Article Row Desktop -->
+      <!-- Article Row Mobile -->
+      <div class="grid-x grid-margin-x article-row align-middle hide-for-medium">
+        <div class="cell medium-2 list-icon">
+          <a href="{{ url('article', $article->slug) . '#mobile' }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
+        </div> <!-- .cell .medium-2 -->
+        <div class="cell medium-auto list-title">
+          <h2 class="h3"><a href="{{ url('article', $article->slug) . '#mobile' }}">{{ $article->title }}</a></h2>
+          <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
+        </div> <!-- .cell .medium-auto .list-title -->
+      </div> <!-- .grid-x .grid-margin-x article-row -->
+      <!-- ./Article Row Mobile -->
       @endforeach
       <!-- Pagination Row -->
       <div class="grid-x grid-margin-x article-row-last align-middle">

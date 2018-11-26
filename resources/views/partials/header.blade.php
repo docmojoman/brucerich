@@ -27,7 +27,7 @@
                             <a id="menu-books" href="{{ url('/books') }}" class="menu-title">Books</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($books as $book)
-                                    <li><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></li>
+                                    <li><a href="{{ url('/book', $book->slug) . '#mobile' }}">{{ $book->title }}</a></li>
                                     @endforeach
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                                 <ul class="vertical menu align-left wide show-for-medium">
@@ -40,7 +40,7 @@
                             <a id="menu-articles" href="{{ url('/articles') }}" class="menu-title">Articles</a>
                                 <ul class="vertical menu align-left wide hide-for-medium">
                                     @foreach($articlegroups as $articlegroup)
-                                    <li><a href="{{ url('/articles', $articlegroup->id) }}">{{ $articlegroup->title }}</a></li>
+                                    <li><a href="{{ url('/articles', $articlegroup->id) . '#mobile' }}">{{ $articlegroup->title }}</a></li>
                                     @endforeach
                                     <li><a href="{{ url('/articles#articles') }}">View All</a></li>
                                 </ul> <!-- .vertical .menu .align-left .wide -->
@@ -51,11 +51,11 @@
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                                <a href="{{ url('/insights') }}"class="menu-title hide-for-medium">Insights</a>
+                                <a href="{{ url('/insights#mobile') }}"class="menu-title hide-for-medium">Insights</a>
                                 <a href="{{ url('/insights') }}"class="menu-title show-for-medium">Insights</a>
                             </li>
                             <li>
-                                <a href="{{ url('/contact#contact') }}"class="menu-title hide-for-medium">Contact</a>
+                                <a href="{{ url('/contact#mobile') }}"class="menu-title hide-for-medium">Contact</a>
                                 <a href="{{ url('/contact') }}"class="menu-title show-for-medium">Contact</a>
                             </li>
                         </ul> <!-- .vertical .medium-horizontal .menu .align-right -->
@@ -64,4 +64,5 @@
             </div> <!-- .cell .medium-9 -->
         </div> <!-- #header -->
     </div> <!-- grid-container -->
+    <a name="mobile"></a>
     </div> <!-- header-container -->

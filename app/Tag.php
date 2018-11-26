@@ -53,7 +53,22 @@ class Tag extends Model
     public function setNameAttribute($value)
     {
         $this->attributes['name']  = $value;
-        $this->attributes['slug']   = str_slug($value);
+        $this->attributes['slug']   = $this->uniqueSlug($value);
+    }
+
+    /**
+     * Create a unique slug.
+     *
+     * @param  string $title
+     * @return string
+     */
+    public function uniqueSlug($value)
+    {
+        $slug = str_slug($value);
+
+        $count = static::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+
+        return $count ? "{$slug}-{$count}" : $slug;
     }
 
     public static function addNew($tag)

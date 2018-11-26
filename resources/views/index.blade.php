@@ -29,7 +29,7 @@
                 <h2 class="h4">Latest Insights</h2>
                 @if($insights->count())
                 <p>{{ strip_tags($insights[0]['description']) }}</p>
-                <a href="{{ url('insight', $insights[0]['id']) }}">Read More</a></p>
+                <a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
                 @endif
             </div>
         </div>
