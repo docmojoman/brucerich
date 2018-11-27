@@ -91,4 +91,16 @@ class Tag extends Model
         return 'slug';
     }
 
+    public static function usedTags()
+    {
+        // Show only tags that are attached
+        $allTags = static::all();
+        // Get ids from Taggables
+        $attached = \App\Taggable::all()->pluck('tag_id');
+        // Cast to array
+        $uTags = array_unique($attached->toArray());
+
+        return $allTags->whereIn('id', $uTags);
+
+    }
 }

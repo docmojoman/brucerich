@@ -25,7 +25,7 @@
               <textarea name="description" id="" cols="30" rows="10">{{ $articlegroup->description }}</textarea>
             </label>
 
-            <input type="submit" class="button large dark expanded uppercase" value="Submit">
+            <input type="submit" class="button large dark expanded uppercase" value="Update">
           </form>
         </div>
       </div>

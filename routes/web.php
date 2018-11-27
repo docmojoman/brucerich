@@ -45,9 +45,11 @@ Route::get('/success', 'ContactController@success');
 /* Admin Routes */
 Auth::routes();
 
-Route::get('/admin/dashboard', function () {
+Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware('auth');
+
+Route::get('admin/dashboard', 'Admin\DashboardController@index');
 
 // Articles
 Route::get('admin/articles/create', 'Admin\ArticlesController@create');
@@ -138,10 +140,6 @@ Route::get('/admin/sort/{sortable_type}', 'Admin\SortsController@index');
 
 Route::post('/admin/sort/update', 'Admin\SortsController@update');
 
-
-
-// Track down this route and eliminate
-// Route::get('/home', 'HomeController@index')->name('home');
 
 // UniSharp (from middleware array 'web',)
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {

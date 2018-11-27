@@ -40,7 +40,7 @@
               </select>
             </label>
 
-            <input type="submit" class="button large dark expanded margin-top-40" value="Submit">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
           </form>
         </div>
       </div>
