@@ -35,7 +35,7 @@
       @else
       @foreach($videos as $video)
       <tr data-index="{{ $video->id }}" data-position="">
-          <td><p class="title"><a href="{{ url('/admin/video', $video->slug) }}">{{ $video->title }}</a></p></td>
+          <td><p class="title"><a href="{{ url('video', $video->slug) }}">{{ $video->title }}</a></p></td>
           <td>
           <select onChange="top.location.href=this.options[this.selectedIndex].value;">
             <option>Status</option>
