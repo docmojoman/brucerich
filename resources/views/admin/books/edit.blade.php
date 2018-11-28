@@ -13,7 +13,7 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell medium-8 medium-offset-2">
-          <form method="POST" action="/admin/books/{{ $book->id }}">
+          <form method="POST" action="{{ url('/admin/books', $book->id) }}">
             @csrf
             @method('PATCH')
             <label>Book Title:
@@ -76,6 +76,17 @@
             </div>
             @endforeach
             {{-- End Dynamic Form Section --}}
+            {{-- Begin New Dynamic Form Sections --}}
+            <div class="sections"></div>
+            {{-- End New Dynamic Form Section --}}
+            <hr />
+            <div class="text-center">
+              <label>Add New Section
+              <br />
+              <button class="new_section button large dark margin-top-20" data-id="text" >Add New Section</button>
+              <button class="new_section button large dark margin-top-20"data-id="video" >Add Video to Page</button>
+            </div>
+            </label>
             <hr />
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
@@ -84,7 +95,7 @@
                 @endforeach
               </select>
             </label>
-            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Save Changes">
           </form>
         </div>
       </div>
@@ -113,14 +124,71 @@
     while ( ( element = elements.getItem( i++ ) ) ) {
         CKEDITOR.replace( element, options );
     }
+
+    function addEditor(){
+      var elements = CKEDITOR.document.find( '.editor' ),
+        i = 0,
+        element;
+
+      while ( ( element = elements.getItem( i++ ) ) ) {
+          CKEDITOR.replace( element, options );
+      }
+      console.log('Loaded!');
+    }
+
+
+    function addNamedEditor(name){
+
+      CKEDITOR.replace( name, options );
+
+      console.log('Loaded!');
+    }
   </script>
 @endpush
 @push('scripts')
     $('#lfm-image').filemanager('image');
     $('#lfm-pdf').filemanager('image');
-    $( "#datepicker" ).datepicker(
-       { dateFormat: "yy-mm-dd" }
-    );
+
+    function attachBrowser(id) {
+      var attachto = '#lfm-image-' + id;
+      $(attachto).filemanager('image');
+      console.log('Ka-blooey!');
+    }
+
+
+    //Sections
+
+    var sections    = $(".sections");
+    var x = 0;
+
+    $( "button.new_section" ).click(function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    if (id == 'text')
+    {
+        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"n_section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"n_section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"n_section[" + x + "][type][]\" value=\"text\"></div>";
+
+        var name = "n_section[" + x + "][description][]";
+
+        x++;
+
+        $(sections).append(str);
+
+        addNamedEditor(name);
+
+      } else {
+        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"n_section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"n_section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"n_section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"n_section[" + x + "][type][]\" value=\"video\"></div>";
+
+        var id = x;
+        attachBrowser(id);
+
+        x++;
+
+        $(sections).append(str);
+      }
+    });
+
+    //Tags
 
     $('#tags').select2({
         placeholder: "Choose tags…",

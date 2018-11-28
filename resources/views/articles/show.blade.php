@@ -51,7 +51,7 @@
             @if($article->author)<li>{{ $article->author }}</li>@endif
             @if($article->publication)<li>{{ $article->publication }}</li>@endif
             @if($article->date)<li>{{ $article->date }}</li>@endif
-            @if($article->page)<li>p. {{ $article->page }}</li>@endif
+            @if($article->page)<li>{{ $article->page }}</li>@endif
           </ul>
           {!! $article->description !!}
 

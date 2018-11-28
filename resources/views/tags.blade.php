@@ -40,7 +40,7 @@
               @foreach($books as $book)
             <li>
               <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
-              <p>{!! str_limit($book->about, 180) !!}</p>
+              <p>{{ str_limit($book->introduction, 180) }}</p>
               <hr />
             </li>
             @endforeach
@@ -54,7 +54,7 @@
               @foreach($articles as $article)
             <li>
               <h2 class="h3"><a href="{{ url('/article', $article->slug) }}">{{ $article->title }}</a></h2>
-              <p>{!! str_limit($article->description, 180) !!}</p>
+              <p>{!! str_limit($article->introduction, 180) !!}</p>
               <hr />
             </li>
             @endforeach
@@ -68,7 +68,7 @@
               @foreach($insights as $insight)
             <li>
               <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
-              <p>{!! str_limit($insight->description, 180) !!}</p>
+              <p>{!! str_limit($insight->introduction, 180) !!}</p>
               <hr />
             </li>
             @endforeach

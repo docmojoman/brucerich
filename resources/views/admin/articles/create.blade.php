@@ -23,6 +23,9 @@
             <label>Page (#):
               <input name="page" type="text" placeholder="e.g. 28" value="{{ old('page') }}">
             </label>
+            <label>Introduction:
+              <textarea name="introduction" cols="30" rows="2">{{ old('introduction') }}</textarea>
+            </label>
             <label>Description/Excerpt:
               <textarea name="description" id="editor" cols="30" rows="10">{!! old('description') !!}</textarea>
             </label>

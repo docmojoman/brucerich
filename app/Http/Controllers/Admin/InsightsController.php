@@ -55,6 +55,7 @@ class InsightsController extends Controller
             'user_id'       => \Auth::id(),
             'title'         => request('title'),
             'author'        => request('author'),
+            'introduction'   => request('introduction'),
             'description'   => request('description'),
             'copy'          => request('copy'),
         ]);
@@ -114,6 +115,7 @@ class InsightsController extends Controller
                     'user_id'       => \Auth::id(),
                     'title'         => request('title'),
                     'author'        => request('author'),
+                    'introduction'   => request('introduction'),
                     'description'   => request('description'),
                     'copy'   => request('copy'),
                 ]);

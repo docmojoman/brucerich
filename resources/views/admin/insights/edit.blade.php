@@ -22,6 +22,9 @@
             <label>Author ( + coauthor if provided ):
               <input name="author" type="text" placeholder="Author" value="{{ $insight->author }}">
             </label>
+            <label>Introduction:
+              <textarea name="introduction" cols="30" rows="2">{{ $insight->introduction }}</textarea>
+            </label>
             <label>Description/Excerpt:
               <textarea name="description" id="editor" cols="30" rows="10">
                 {!! $insight->description !!}
@@ -40,7 +43,7 @@
               </select>
             </label>
 
-            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Save Changes">
           </form>
         </div>
       </div>

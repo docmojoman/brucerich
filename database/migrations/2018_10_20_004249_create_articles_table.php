@@ -18,10 +18,11 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('slug');
+            $table->string('introduction')->nullable();
             $table->string('author')->nullable();
             $table->string('publication')->nullable();
             $table->string('date')->nullable();
-            $table->unsignedSmallInteger('page')->nullable();
+            $table->string('page')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('link')->nullable();

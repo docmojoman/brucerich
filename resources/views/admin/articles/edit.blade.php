@@ -31,6 +31,9 @@
             <label>Page (#):
               <input name="page" type="text" placeholder="e.g. 28" value="{{ $article->page }}">
             </label>
+            <label>Introduction:
+              <textarea name="introduction" cols="30" rows="2">{{ $article->introduction }}</textarea>
+            </label>
             <label>Description/Excerpt:
               <textarea name="description" id="editor" cols="30" rows="10">{{ $article->description }}</textarea>
             </label>
@@ -79,7 +82,7 @@
                   @endif
               </select>
             </label>
-            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Save Changes">
           </form>
         </div>
       </div>

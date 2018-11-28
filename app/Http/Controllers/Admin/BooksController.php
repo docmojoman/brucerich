@@ -151,6 +151,7 @@ class BooksController extends Controller
      */
     public function update($id)
     {
+        // return request();
         // Store Request Data
         Book::where('id', $id)
                 ->update([
@@ -182,6 +183,23 @@ class BooksController extends Controller
                     'type'          => $section['type'][0],
                 ]);
                 // $i++;
+            }
+        }
+
+        // Check for NEW DYNAMIC sections
+        if (request('n_section')) {
+            foreach (request('n_section') as $n_section) {
+                $caption = isset($n_section['caption']) ? $n_section['caption'][0] : '';
+                $description = isset($n_section['description']) ? $n_section['description'][0] : '';
+                $embed = isset($n_section['embed']) ? $n_section['embed'][0] : '';
+                \App\Section::create([
+                    'book_id'       => $id,
+                    'header'        => $n_section['header'][0],
+                    'caption'       => $caption,
+                    'description'   => $description,
+                    'embed'         => $embed,
+                    'type'          => $n_section['type'][0],
+                ]);
             }
         }
 

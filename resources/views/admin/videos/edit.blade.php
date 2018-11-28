@@ -45,7 +45,7 @@
               </select>
             </label>
 
-            <input type="submit" class="button large dark expanded margin-top-40" value="Update">
+            <input type="submit" class="button large dark expanded margin-top-40" value="Save Changes">
           </form>
         </div>
       </div>
