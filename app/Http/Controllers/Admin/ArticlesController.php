@@ -64,8 +64,9 @@ class ArticlesController extends Controller
     public function create()
     {
         $categories = \App\ArticleGroup::all();
+        $library = true;
 
-        return view('admin.articles.create', compact('categories'));
+        return view('admin.articles.create', compact('categories','library'));
         //
     }
 
@@ -129,8 +130,9 @@ class ArticlesController extends Controller
         $categories = \App\ArticleGroup::all();
         $article = \App\Article::find($id);
         $tags = $article->tags;
+        $library = true;
 
-        return view('admin.articles.edit', compact('categories', 'article', 'tags'));
+        return view('admin.articles.edit', compact('categories', 'article', 'tags','library'));
     }
 
     /**

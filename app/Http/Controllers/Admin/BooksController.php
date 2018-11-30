@@ -57,7 +57,9 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('admin.books.create');
+        $library = true;
+
+        return view('admin.books.create', compact('library'));
     }
 
     /**
@@ -139,7 +141,9 @@ class BooksController extends Controller
 
         $tags = $book->tags;
 
-        return view('admin.books.edit', compact('book', 'sections', 'tags'));
+        $library = true;
+
+        return view('admin.books.edit', compact('book', 'sections', 'tags', 'library'));
     }
 
     /**

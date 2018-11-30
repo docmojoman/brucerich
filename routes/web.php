@@ -134,6 +134,9 @@ Route::get('/admin/tags', 'Admin\TagsController@index');
 
 Route::get('/admin/tags/fetch', 'Admin\TagsController@fetch');
 
+// Filemanager
+Route::get('/admin/filemanager', 'Admin\FilesController@index');
+
 
 // Sort Order
 Route::get('/admin/sort/{sortable_type}', 'Admin\SortsController@index');

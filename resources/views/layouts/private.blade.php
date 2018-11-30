@@ -24,10 +24,24 @@
     <div id="admin-menu">
     <div class="grid-container">
       <div class="grid-x grid-margin-x align-right">
-        <div class="cell small-10">
+        <div class="cell small-3">
           <h1 id="admin-logo" class="h5"><a href="/admin/dashboard" class="uppercase">{{ config('app.name', 'Laravel') }}</a></h1>
         </div>
-        <div class="cell small-2">
+        <div class="cell small-6">
+        @isset($library)
+        <span class="align-right">
+          <div class="input-group">
+           <span class="input-group-btn">
+               <a id="library" data-input="thumbnail" data-preview="holder" class="button">
+                 <i class="fa fa-picture-o"></i> Files
+               </a>
+             </span>
+             <input id="thumbnail" class="form-control" type="text" name="filepath">
+          </div>
+        </span>
+        @endisset
+        </div>
+        <div class="cell small-3">
           <ul class="dropdown menu" data-dropdown-menu>
             <li>
               <a href="#">Hello {{ Auth::user()->username }}</a>
@@ -74,7 +88,9 @@
     <script>
     $(document).foundation();
 
-        $('div.alert-message').delay(3000).fadeOut(350);
+    $('div.alert-message').delay(3000).fadeOut(350);
+
+    $('#library').filemanager('image');
 
     // scrollToTop
     $(document).ready(function(){
@@ -97,6 +113,11 @@
         @stack('scripts')
 
     });
+
+        // File Browser
+        function openFileBrowser() {
+            window.open("{{ url('admin/filemanager') }}", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=800,height=600");
+        }
     </script>
 </body>
 </html>

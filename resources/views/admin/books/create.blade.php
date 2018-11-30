@@ -73,7 +73,7 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    // CKEDITOR.replace( 'about', options );
+    CKEDITOR.replace( 'about', options );
 
     function addEditor(){
       var elements = CKEDITOR.document.find( '.editor' ),

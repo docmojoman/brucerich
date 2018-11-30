@@ -89,6 +89,18 @@
           </ul>
           @endif
           <!-- ./Tag Category Row -->
+          <!-- Tag Category Row -->
+          @if(!$books->count() && !$articles->count() && !$insights->count() && !$videos->count())
+          <h2 class="h3">Results</h2>
+          <ul>
+            <li>
+              <p>Currently there is no content associated with this tag.</p>
+              <hr />
+            </li>
+          </ul>
+          <div class="v-space-20">&nbsp;</div>
+          @endif
+          <!-- ./Tag Category Row -->
         </div> <!-- /content column -->
         <!-- tags column -->
         <div class="cell medium-3">
@@ -98,8 +110,6 @@
               @foreach($tags as $tag)
               <li><a href="{{ url('tag', $tag->slug) }}">{{ $tag->name }}</a></li>
               @endforeach
-              @else
-              <li>There is nothing tagged "{{ $tag->name }}".</li>
               @endif
             </ul>
         </div>

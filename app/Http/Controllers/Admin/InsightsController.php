@@ -38,8 +38,9 @@ class InsightsController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.insights.create');
+        $library = true;
+
+        return view('admin.insights.create', compact('library'));
     }
 
     /**
@@ -97,7 +98,9 @@ class InsightsController extends Controller
 
         $tags = $insight->tags;
 
-        return view('admin.insights.edit', compact('insight', 'tags'));
+        $library = true;
+
+        return view('admin.insights.edit', compact('insight', 'tags', 'library'));
     }
 
     /**

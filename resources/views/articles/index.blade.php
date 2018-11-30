@@ -45,7 +45,7 @@
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('article', $article->slug) }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
+          <p>{{ str_limit($article->introduction, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Desktop -->
@@ -56,7 +56,7 @@
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('article', $article->slug) . '#mobile' }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit(strip_tags($article->description), 360) }}</p>
+          <p>{{ str_limit($article->introduction, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Mobile -->
