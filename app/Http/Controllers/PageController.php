@@ -26,4 +26,9 @@ class PageController extends Controller
     	return view('media');
     }
 
+    public function info()
+    {
+        return view('info');
+    }
+
 }
