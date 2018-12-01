@@ -40,6 +40,8 @@ Route::post('/contact', 'ContactController@send');
 
 Route::get('/success', 'ContactController@success');
 
+Route::get('info', 'PageController@info');
+
 
 
 /* Admin Routes */
