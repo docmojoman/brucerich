@@ -84,9 +84,9 @@
   <script>
     var options = {
       filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}'
     };
     CKEDITOR.replace( 'description', options );
   </script>

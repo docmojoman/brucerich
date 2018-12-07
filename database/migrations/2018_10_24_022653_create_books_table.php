@@ -17,7 +17,9 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('title');
+            $table->string('menu_title');
             $table->string('slug');
+            $table->string('author')->nullable();
             $table->string('publisher')->nullable();
             $table->string('image')->nullable();
             $table->string('alt_tags')->nullable();

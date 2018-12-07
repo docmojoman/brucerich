@@ -8,7 +8,7 @@ class Menu extends Model
 {
     public function build_menu()
     {
-    	$books = \App\Book::where('published', 1)->pluck('id', 'title');
+    	$books = \App\Book::where('published', 1)->pluck('id', 'menu_title');
 
     	$articles = \App\Article::where('published', 1)->pluck('id', 'title');
 

@@ -59,7 +59,7 @@ class BooksController extends Controller
     {
         $library = true;
 
-        return view('admin.books.create', compact('library'));
+        return view('admin.books.create');
     }
 
     /**
@@ -73,6 +73,8 @@ class BooksController extends Controller
         $book = \App\Book::create([
             'user_id'       => \Auth::id(),
             'title'         => $request->title,
+            'menu_title'    => $request->menu_title,
+            'author'        => $request->author,
             'publisher'     => $request->publisher,
             'image'         => $request->image,
             'alt_tags'      => $request->alt_tags,
@@ -143,7 +145,7 @@ class BooksController extends Controller
 
         $library = true;
 
-        return view('admin.books.edit', compact('book', 'sections', 'tags', 'library'));
+        return view('admin.books.edit', compact('book', 'sections', 'tags'));
     }
 
     /**
@@ -161,6 +163,8 @@ class BooksController extends Controller
                 ->update([
             'user_id'       => \Auth::id(),
             'title'         => request('title'),
+            'menu_title'    => request('menu_title'),
+            'author'        => request('author'),
             'publisher'     => request('publisher'),
             'image'         => request('image'),
             'alt_tags'      => request('alt_tags'),

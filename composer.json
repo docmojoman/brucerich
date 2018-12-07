@@ -12,7 +12,7 @@
         "laravel-frontend-presets/zurb-foundation": "^2.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "unisharp/laravel-filemanager": "v2.0.0-alpha5"
+        "unisharp/laravel-filemanager": "v2.0.0-alpha7"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -185,3 +185,16 @@ styles to add:
   <a class="page-link" href="http://brucerich1.dojo/insights?page=2" rel="next" aria-label="Next »">›</a>
   </li>
 </ul>
+
+ckeditor
+http://brucerich1.dojo/laravel-filemanager?type=Files&CKEditor=about&CKEditorFuncNum=0&langCode=en#
+
+Image input
+http://brucerich1.dojo/laravel-filemanager?type=image
+
+
+
+
+// BGR Video embed code
+
+<script type="text/javascript" src="http://video.foxnews.com/v/embed.js?id=5975507957001&w=466&h=263&autoplay=false"></script><noscript>Watch the latest video at <a href="http://www.foxnews.com">foxnews.com</a></noscript>

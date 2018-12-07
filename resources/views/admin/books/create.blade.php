@@ -11,6 +11,12 @@
             <label>Book Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
+            <label>Short Title (Menu):
+              <input name="menu_title" type="text" placeholder="Short Title" value="{{ old('menu_title') }}">
+            </label>
+            <label>Author:
+              <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
+            </label>
             <label>Publisher/Date:
               <input name="publisher" type="text" placeholder="Publisher/Date" value="{{ old('publisher') }}">
             </label>
@@ -69,9 +75,9 @@
   <script>
     var options = {
       filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}'
     };
     CKEDITOR.replace( 'about', options );
 

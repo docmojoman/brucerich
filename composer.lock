@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7f5fd2020abea18b86cba8bd8bbb9c1",
+    "content-hash": "8c4a17abc3e4c265f22a901426351c9c",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -2768,16 +2768,16 @@
         },
         {
             "name": "unisharp/laravel-filemanager",
-            "version": "v2.0.0-alpha5",
+            "version": "v2.0.0-alpha7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UniSharp/laravel-filemanager.git",
-                "reference": "d8fa4bb61782cc14835bcb90dd02be051eb77e3d"
+                "reference": "f25ea4d4f4e782fc20e690d121daacf1539ae032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/d8fa4bb61782cc14835bcb90dd02be051eb77e3d",
-                "reference": "d8fa4bb61782cc14835bcb90dd02be051eb77e3d",
+                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/f25ea4d4f4e782fc20e690d121daacf1539ae032",
+                "reference": "f25ea4d4f4e782fc20e690d121daacf1539ae032",
                 "shasum": ""
             },
             "require": {
@@ -2839,7 +2839,7 @@
                 "tinymce",
                 "upload"
             ],
-            "time": "2018-10-18T10:27:31+00:00"
+            "time": "2018-12-05T14:33:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
