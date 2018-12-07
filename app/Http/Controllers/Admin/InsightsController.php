@@ -140,6 +140,12 @@ class InsightsController extends Controller
 
             // return $syncTags;
             $insight->tags()->sync($syncTags);
+
+        } else {
+            // Detach All Tags
+            $oldTags = $insight->tags()->pluck('id');
+            // return $oldTags;
+            $insight->tags()->detach($oldTags);
         }
 
         // return $request;

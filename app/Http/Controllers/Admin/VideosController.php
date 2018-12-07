@@ -143,17 +143,25 @@ class VideosController extends Controller
         $syncTags = [];
 
         // Attach Tags
-        foreach (request('tags') as $tag) {
-            if (!\App\Tag::exists($tag)) {
-                $tag = \App\Tag::addNew($tag);
+        if (request('tags')) {
+            foreach (request('tags') as $tag) {
+                if (!\App\Tag::exists($tag)) {
+                    $tag = \App\Tag::addNew($tag);
+                }
+
+                $vid = (int)$tag;
+                array_push($syncTags, $vid);
             }
 
-            $vid = (int)$tag;
-            array_push($syncTags, $vid);
-        }
+            // return $syncTags;
+            $video->tags()->sync($syncTags);
 
-        // return $syncTags;
-        $video->tags()->sync($syncTags);
+        } else {
+            // Detach All Tags
+            $oldTags = $video->tags()->pluck('id');
+            // return $oldTags;
+            $video->tags()->detach($oldTags);
+        }
 
         // return $request;
         return redirect('admin/videos')->with('status', 'Video updated!');

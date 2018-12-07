@@ -179,6 +179,11 @@ class ArticlesController extends Controller
             // return $syncTags;
             $article->tags()->sync($syncTags);
 
+        } else {
+            // Detach All Tags
+            $oldTags = $article->tags()->pluck('id');
+            // return $oldTags;
+            $article->tags()->detach($oldTags);
         }
 
         // return $request;
