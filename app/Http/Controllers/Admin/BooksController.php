@@ -231,6 +231,11 @@ class BooksController extends Controller
             // return $syncTags;
             $book->tags()->sync($syncTags);
 
+        } else {
+            // Detach All Tags
+            $oldTags = $book->tags()->pluck('id');
+            // return $oldTags;
+            $book->tags()->detach($oldTags);
         }
 
         // return $request;
