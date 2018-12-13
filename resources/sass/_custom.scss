@@ -448,10 +448,34 @@ ul.vertical.menu.align-left.submenu.is-dropdown-submenu.first-sub {
 
 }
 
+
 #slideshow {
 	display: block;
 	width: 100%;
 	overflow: hidden;
+
+	.bruce-slides{
+		 visibility:hidden;
+		 opacity:0;
+		 transition: opacity 1s;
+	}
+
+	.bruce-slides.slick-initialized{
+		visibility:visible;
+		opacity:1;
+	}
+
+	.bruce-slides .b-slide{
+		display:none ;
+	}
+
+	.bruce-slides .b-slide:first-child{
+		display:block; visibility:hidden;
+	}
+
+	.bruce-slides.slick-initialized .b-slide{
+		display:block;visibility:visible!important;
+	}
 
 	img {
 		height: 210px ;

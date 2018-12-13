@@ -11565,6 +11565,32 @@ ul.vertical.menu.align-left.submenu.is-dropdown-submenu.first-sub {
   overflow: hidden;
 }
 
+#slideshow .bruce-slides {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+#slideshow .bruce-slides.slick-initialized {
+  visibility: visible;
+  opacity: 1;
+}
+
+#slideshow .bruce-slides .b-slide {
+  display: none;
+}
+
+#slideshow .bruce-slides .b-slide:first-child {
+  display: block;
+  visibility: hidden;
+}
+
+#slideshow .bruce-slides.slick-initialized .b-slide {
+  display: block;
+  visibility: visible !important;
+}
+
 #slideshow img {
   height: 210px;
   margin: 4px 2px;
