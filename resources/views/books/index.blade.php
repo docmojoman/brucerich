@@ -22,7 +22,7 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
           <h1 class="h2">Books</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed nesciunt, aliquam mollitia amet perspiciatis quidem veritatis illo. Eos nobis quas quisquam iste, nam odio soluta dolorem rerum delectus, non! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ipsam nesciunt aperiam fuga quasi, deleniti, culpa optio, explicabo corporis sed nobis sit veniam. Ex quaerat, unde cupiditate, reiciendis accusamus fugiat?</p>
+          <p class="lead">Bruce Rich is an American writer and lawyer who has published extensively on the environment in developing countries and development in general. He is the author of <em>To Uphold the World: A Call for a New Global Ethic From Ancient India</em>, a philosophical and historical reflection on the need for a global ethic in a global economy, with a foreword by Amartya Sen and an afterword by the Dalai Lama. He has published extensively on the role of Export Credit Agencies in developing countries, especially concerning the environmental impact of projects funded by them. His most recent book, <em>Foreclosing the Future: The World Bank and the Politics of Environmental Destruction</em>, focuses on issues such as climate change, governance and corruption.</p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
