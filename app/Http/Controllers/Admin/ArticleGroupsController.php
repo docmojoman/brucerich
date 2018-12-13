@@ -117,9 +117,15 @@ class ArticleGroupsController extends Controller
      */
     public function update(Request $request)
     {
-        // Update DB
-        // Return to list
-        return $request;
+        $articlegroup = ArticleGroup::find(request('id'));
+
+        $articlegroup->title = request('title');
+
+        $articlegroup->description = request('description');
+
+        $articlegroup->save();
+
+        return redirect('admin/articlegroups')->with('status', 'Article Group Updated!');
     }
 
     /**

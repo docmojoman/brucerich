@@ -4,18 +4,27 @@
 
     <div id="slideshow">
         <div class="bruce-slides">
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic1.png') }}" alt=""></div>
-          <div><img src="{{ asset('img/slideshow/pic2.jpg') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/a5.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/a8.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/a18.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/b7.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/b20.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/b48.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/c8.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/c24.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/c68.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/d13.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/d34.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/d49.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/d69.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/e27.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/e45.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/e68.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/f4.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/f20.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/f35.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/f50.png') }}" alt=""></div>
+          <div><img src="{{ asset('img/slideshow/f60.png') }}" alt=""></div>
         </div> <!-- .bruce-slides -->
     </div> <!-- slideshow -->
     <!-- Subsplash -->
