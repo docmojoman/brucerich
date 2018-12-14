@@ -19,7 +19,7 @@ class CreateInsightsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('author')->nullable();
-            $table->string('introduction')->nullable();
+            $table->text('introduction')->nullable();
             $table->text('description')->nullable();
             $table->text('copy')->nullable();
             $table->boolean('published')->default(0);

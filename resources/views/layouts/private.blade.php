@@ -90,7 +90,7 @@
 
     $('div.alert-message').delay(3000).fadeOut(350);
 
-    $('#library').filemanager('image');
+    // $('#library').filemanager('image');
 
     // scrollToTop
     $(document).ready(function(){
@@ -115,9 +115,9 @@
     });
 
         // File Browser
-        function openFileBrowser() {
-            window.open("{{ url('admin/filemanager') }}", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=800,height=600");
-        }
+        // function openFileBrowser() {
+        //     window.open("{{ url('admin/filemanager') }}", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=800,height=600");
+        // }
     </script>
 </body>
 </html>
