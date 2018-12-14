@@ -11,9 +11,11 @@ class PageController extends Controller
         $insights = \App\Insight::where('published', 1)
             ->latest()->get();
 
+        $home = true;
+
             // dd($insights);
 
-    	return view('index', compact('insights'));
+    	return view('index', compact('insights', 'home'));
     }
 
     public function about()
