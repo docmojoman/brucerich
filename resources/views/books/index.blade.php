@@ -26,6 +26,7 @@
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
+    @if(count($books) >= 1)
     @foreach($books as $book)
     </div> <!-- #article-title -->
     <div id="articles-list"> <!-- bite hero  -->
@@ -45,4 +46,9 @@
     </div> <!-- grid-container -->
     </div> <!-- #articles-list -->
     @endforeach
+    @else
+    <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
+      <div class="cell v-space-30">&nbsp;</div>
+    </div>
+    @endif
 @endsection

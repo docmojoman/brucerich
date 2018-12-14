@@ -35,6 +35,7 @@
         <div class="cell medium-9">
           <!-- Blog Row -->
           <ul>
+            @if($insights->count())
               @foreach($insights as $insight)
             <li>
               <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
@@ -42,6 +43,9 @@
               <hr />
             </li>
             @endforeach
+            @else
+            <li class="v-space-30">&nbsp;</li>
+            @endif
           </ul>
           <!-- ./Blog Row -->
         </div> <!-- /content column -->

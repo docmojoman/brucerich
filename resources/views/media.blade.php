@@ -53,6 +53,8 @@
             </div> <!-- card -->
           </div> <!-- .cell -->
           @endforeach
+          @else
+          <div class="cell v-space-35">&nbsp;</div>
           @endif
         </div>
         <!-- end media grid -->

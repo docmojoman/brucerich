@@ -37,6 +37,7 @@
     </div> <!-- #article-title -->
     <div id="articles-list"> <!-- bite hero  -->
     <div class="grid-container">
+      @if($articles->count())
       @foreach ($articles as $article)
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
@@ -61,6 +62,11 @@
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Mobile -->
       @endforeach
+      @else
+      <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
+        <div class="cell v-space-30">&nbsp;</div>
+      </div>
+      @endif
       <!-- Pagination Row -->
       <div class="grid-x grid-margin-x article-row-last align-middle">
         <div class="cell medium-auto medium-offset-2 list-title">
