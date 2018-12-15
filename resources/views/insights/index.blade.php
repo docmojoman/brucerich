@@ -34,10 +34,10 @@
         <!-- content column -->
         <div class="cell medium-9">
           <!-- Blog Row -->
-          <ul>
+          <ul class="list-row">
             @if($insights->count())
               @foreach($insights as $insight)
-            <li class="list-row">
+            <li>
               <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
               <p>{{ $insight->introduction }}</p>
               <hr />
