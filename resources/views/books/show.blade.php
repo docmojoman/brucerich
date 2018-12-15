@@ -60,6 +60,7 @@
 
           @if($sections)
           @foreach($sections as $section)
+          <div class="book-section">
           <a name="{{ $section->header }}"></a>
           <h2 class="h3 uppercase">{{ $section->header }}</h2>
 
@@ -72,6 +73,7 @@
           {!! $section->description !!}
           @endif
 
+          </div>
           @endforeach
           @endif
           <!-- End Dynamic Section -->

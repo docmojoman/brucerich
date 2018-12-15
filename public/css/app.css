@@ -11864,6 +11864,14 @@ ul#insights-page li:first-child {
   color: #3a8db8;
 }
 
+.book-section {
+  margin-top: 20px;
+}
+
+.book-section h2.h3 {
+  margin-bottom: 10px;
+}
+
 #contact textarea {
   height: 200px;
 }
