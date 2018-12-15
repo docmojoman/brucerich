@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i');
 
+/*
+* Foundation Mods
+*/
+
 body {
 	font-family: 'Raleway', Helvetica, sans-serif;
 	font-style: medium;
@@ -577,7 +581,7 @@ ul.book-submenu {
 	padding-bottom: 40px;
 
 	p {
-		line-height: 1.8;
+		line-height: 1.8rem;
 	}
 
     img#amazon {

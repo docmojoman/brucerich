@@ -11117,6 +11117,10 @@ a.thumbnail image {
   opacity: 0.75;
 }
 
+/*
+* Foundation Mods
+*/
+
 body {
   font-family: 'Raleway', Helvetica, sans-serif;
   font-style: medium;
@@ -11686,7 +11690,7 @@ ul.book-submenu li a {
 }
 
 #article-page p {
-  line-height: 1.8;
+  line-height: 1.8rem;
 }
 
 #article-page img#amazon {
