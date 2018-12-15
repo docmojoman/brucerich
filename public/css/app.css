@@ -11834,6 +11834,14 @@ ul#insights-page li:first-child {
   margin-left: 0px;
 }
 
+#blog-list li {
+  padding-top: 10px;
+}
+
+#blog-list p {
+  padding-bottom: 15px;
+}
+
 #blog-list a.small.button.tag,
 #blog-list a.button.tag {
   color: #fff;
