@@ -59,7 +59,7 @@ class VideosController extends Controller
     {
         $library = true;
 
-        return view('admin.videos.create', compact('library'));
+        return view('admin.videos.create');
     }
 
     /**
@@ -116,7 +116,7 @@ class VideosController extends Controller
 
         $library = true;
 
-        return view('admin.videos.edit', compact('video', 'tags', 'library'));
+        return view('admin.videos.edit', compact('video', 'tags'));
     }
 
     /**

@@ -66,7 +66,7 @@ class ArticlesController extends Controller
         $categories = \App\ArticleGroup::all();
         $library = true;
 
-        return view('admin.articles.create', compact('categories','library'));
+        return view('admin.articles.create', compact('categories'));
         //
     }
 
@@ -132,7 +132,7 @@ class ArticlesController extends Controller
         $tags = $article->tags;
         $library = true;
 
-        return view('admin.articles.edit', compact('categories', 'article', 'tags','library'));
+        return view('admin.articles.edit', compact('categories', 'article', 'tags'));
     }
 
     /**

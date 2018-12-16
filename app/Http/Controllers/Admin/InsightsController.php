@@ -40,7 +40,7 @@ class InsightsController extends Controller
     {
         $library = true;
 
-        return view('admin.insights.create', compact('library'));
+        return view('admin.insights.create');
     }
 
     /**
@@ -100,7 +100,7 @@ class InsightsController extends Controller
 
         $library = true;
 
-        return view('admin.insights.edit', compact('insight', 'tags', 'library'));
+        return view('admin.insights.edit', compact('insight', 'tags'));
     }
 
     /**
