@@ -67,7 +67,7 @@
                 Beacon Press, 2010</a></h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem voluptate libero ratione accusamus nostrum quas, recusandae, praesentium ipsa dolorem minima, necessitatibus? Reiciendis cupiditate maiores in libero excepturi exercitationem laudantium distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem quod enim qui natus dolore distinctio nisi repellat, ut sit hic atque temporibus ipsum, veniam fugiat eaque fuga aspernatur optio! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quos sunt magnam porro neque harum qui consectetur, optio et cum quas error ut dolore aperiam veritatis eius voluptate asperiores commodi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et illo necessitatibus labore saepe quasi provident veritatis, soluta est dignissimos molestiae, maiores dicta quidem accusantium facere, iusto doloremque. Assumenda, cumque, possimus.</p>
 
-                <p><a href="{{ url('about') }}">Discover more about this book</a></p>
+                <p><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india">Discover more about this book</a></p>
             </div> <!-- .cell medium-9 -->
         </div> <!-- .grid-x grid-margin-x -->
     </div> <!-- grid-container -->
