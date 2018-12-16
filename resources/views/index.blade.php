@@ -80,6 +80,7 @@
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Mortgaging The Earth</a></h2>
                     <p>Lorem ipsum dolor sit amet, how the <strong>World Bank's</strong>  adipisicing elit <strong>Environmental Impovershment</strong>. Dignissimos quo ipsam aperiam velit ad.</p>
+                    <p><a href="http://brucemrich.com/book/mortgaging-the-earth-the-world-bank-environmental-impoverishment-and-the-crisis-of-development">Discover more about this book</a></p>
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
             <div class="cell medium-6 padding-right-5 padding-left-35">
@@ -87,6 +88,7 @@
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Foreclosing the Future</a></h2>
                     <p>How the <strong>World Bank's</strong> Lorem ipsum dolor sit amet, <strong>environmental destruction</strong> adipisicing elit. Dignissimos quo ipsam aperiam velit ad.</p>
+                    <p><a href="http://brucemrich.com/book/foreclosing-the-future-the-world-bank-and-the-politics-of-environmental-destruction">Discover more about this book</a></p>
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
         </div> <!-- .grid-x grid-margin-x -->
