@@ -17,7 +17,7 @@
             <label>Introduction:
               <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
             </label>
-            <label>Description/Excerpt:
+            <label>Description/Home Page Excerpt:
               <textarea name="description" id="editor" cols="30" rows="10">
                 {!! old('description') !!}
               </textarea>
@@ -53,7 +53,6 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Images',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}'
     };
-    CKEDITOR.replace( 'description', options );
     CKEDITOR.replace( 'copy', options );
   </script>
 @endpush
