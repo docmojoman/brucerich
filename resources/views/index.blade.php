@@ -37,7 +37,7 @@
             <div class="cell medium-6 padding-right-5 padding-left-35">
                 <h2 class="h4">Latest Insights</h2>
                 @if($insights->count())
-                <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}
+                <p>{{ str_limit(strip_tags($insights[0]['introduction']), 420) }}
                 <a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
                 @endif
             </div>
