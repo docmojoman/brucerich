@@ -13,7 +13,7 @@
                     <div class="cell" id="nav">
                         <ul class="vertical medium-horizontal menu" data-responsive-menu="accordion medium-dropdown">
                             @empty($home)
-                            <li><a href="{{url('./')}}">Home</a></li>
+                            <li><a class="home-menu-title" href="{{url('./')}}">Home</a></li>
                             @endempty
                             <li>
                             <a id="menu-about" href="{{ url('about') }}" class="menu-title">About</a>

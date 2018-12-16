@@ -11517,7 +11517,8 @@ img.buy-button-amazon {
   color: #3a8db8;
 }
 
-#nav a.menu-title {
+#nav a.menu-title,
+#nav a.home-menu-title {
   padding-left: 0px;
 }
 
