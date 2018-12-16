@@ -26,9 +26,7 @@
               <textarea name="introduction" cols="30" rows="2">{{ $insight->introduction }}</textarea>
             </label>
             <label>Home Page Excerpt:
-              <textarea name="description" id="editor" cols="30" rows="10">
-                {!! $insight->description !!}
-              </textarea>
+              <textarea name="description" id="editor" cols="30" rows="10">{{ $insight->description }}</textarea>
             </label>
             <label>Copy:
               <textarea name="copy" id="editor" cols="30" rows="10">

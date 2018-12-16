@@ -18,9 +18,7 @@
               <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
             </label>
             <label>Home Page Excerpt:
-              <textarea name="description" id="editor" cols="30" rows="10">
-                {!! old('description') !!}
-              </textarea>
+              <textarea name="description" id="editor" cols="30" rows="10">{{ old('description') }}</textarea>
             </label>
             <label>Copy:
               <textarea name="copy" id="editor" cols="30" rows="10">
