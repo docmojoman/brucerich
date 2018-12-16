@@ -32,13 +32,14 @@
         <div class="grid-x margin-top-60">
             <div class="cell medium-6 padding-right-35 border-right">
                 <h2 class="h4">Improbable Challenges</h2>
-                <p>Enjoying improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization.  He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy.&hellip; <a href="{{ url('about') }}">More about Bruce</a></p>
+                <p>Enjoying improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization.  He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy.&hellip;</p>
+                <p><a href="{{ url('about') }}">More about Bruce</a></p>
             </div>
             <div class="cell medium-6 padding-right-5 padding-left-35">
                 <h2 class="h4">Latest Insights</h2>
                 @if($insights->count())
-                <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}
-                <a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
+                <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}</p>
+                <p><a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
                 @endif
             </div>
         </div>
