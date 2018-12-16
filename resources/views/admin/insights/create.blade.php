@@ -14,10 +14,10 @@
             <label>Author ( + coauthor if provided ):
               <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
             </label>
-            <label>Introduction:
+            <label>Description:
               <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
             </label>
-            <label>Description/Home Page Excerpt:
+            <label>Home Page Excerpt:
               <textarea name="description" id="editor" cols="30" rows="10">
                 {!! old('description') !!}
               </textarea>
