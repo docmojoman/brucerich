@@ -36,7 +36,7 @@
           <!-- Tag Category Row -->
           @if($books->count())
           <h2 class="h3">Books</h2>
-          <ul>
+          <ul class="list-row">
               @foreach($books as $book)
             <li>
               <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
@@ -50,7 +50,7 @@
           <!-- Tag Category Row -->
           @if($articles->count())
           <h2 class="h3">Articles</h2>
-          <ul>
+          <ul class="list-row">
               @foreach($articles as $article)
             <li>
               <h2 class="h3"><a href="{{ url('/article', $article->slug) }}">{{ $article->title }}</a></h2>
@@ -64,7 +64,7 @@
           <!-- Tag Category Row -->
           @if($insights->count())
           <h2 class="h3">Insights</h2>
-          <ul>
+          <ul class="list-row">
               @foreach($insights as $insight)
             <li>
               <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
@@ -78,7 +78,7 @@
           <!-- Tag Category Row -->
           @if($videos->count())
           <h2 class="h3">Videos</h2>
-          <ul>
+          <ul class="list-row">
               @foreach($videos as $video)
             <li>
               <h2 class="h3"><a href="{{ url('/video', $video->slug) }}">{{ $video->title }}</a></h2>
@@ -92,7 +92,7 @@
           <!-- Tag Category Row -->
           @if(!$books->count() && !$articles->count() && !$insights->count() && !$videos->count())
           <h2 class="h3">Results</h2>
-          <ul>
+          <ul class="list-row">
             <li>
               <p>Currently there is no content associated with this tag.</p>
               <hr />
