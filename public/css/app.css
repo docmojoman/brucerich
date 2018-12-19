@@ -11711,12 +11711,19 @@ img.social-icons:hover {
 
 #page img.book-sm {
   float: left;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 #page span.book-text {
   display: block;
   width: 90%;
+}
+
+@media screen and (min-width: 40em) {
+  #page img.book-sm {
+    float: left;
+    margin-right: 40px;
+  }
 }
 
 ul.book-submenu {
