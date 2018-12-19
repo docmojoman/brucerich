@@ -12,7 +12,7 @@
                     <li><a href="{{ url('insights#mobile') }}">Insights</a></li>
                     <li><a href="{{ url('contact#mobile') }}">Contact</a></li>
                 </ul>
-                <ul id="footer-menu" class="">
+                <ul id="footer-menu" class="show-for-medium">
                     <li><a href="{{ url('about') }}">About</a></li>
                     <li><a href="{{ url('books') }}">Books</a></li>
                     <li><a href="{{ url('articles') }}">Articles</a></li>
@@ -21,16 +21,19 @@
                 </ul>
             </div> <!-- .cell .medium-1 -->
             <div class="cell medium-3">
-                <p class="text-center">Connect</p>
+                <p class="text-center show-for-medium">Connect</p>
+                <p class="text-center margin-top-15 hide-for-medium">Connect</p>
                 <p class="social-footer text-center">
                     <a href="https://www.facebook.com/brucerich" target="_blank"><img src="{{ asset('img/facebook.png') }}" alt="facebook.com"></a>
                     <a href="https://www.linkedin.com/in/bruce-rich-3ba56b15" target="_blank"><img src="{{ asset('img/linkedin.png') }}" alt="linkedin.com"></a></p>
                 <p class="small text-center show-for-medium">&copy; 2018 Bruce Rich | All Rights Reserved</p>
             </div> <!-- .cell medium-3 -->
             <div class="cell medium-auto">
-                <p class="text-center"><img class="mail-icon" src="{{ asset('img/mail-icon.png') }}" alt=""></p>
-                <p class="text-center margin-bottom-30">Sign-up For News And Alerts</p>
+                <p class="text-center"><img class="mail-icon show-for-medium" src="{{ asset('img/mail-icon.png') }}" alt=""></p>
+                <p class="text-center margin-bottom-30 show-for-medium">Sign-up For News And Alerts</p>
                     <!-- mobile -->
+                    <p class="text-center"><img class="mail-icon margin-top-20 hide-for-medium" src="{{ asset('img/mail-icon.png') }}" alt=""></p>
+                    <p class="text-center margin-bottom-10 hide-for-medium">Sign-up For News And Alerts</p>
                     <span id="subscribe" class="hide-for-medium">
                         <form action="">
                             <input type="email" name="email" placeholder="email"><input type="submit" value=">">
