@@ -30,12 +30,12 @@
     <!-- Subsplash -->
     <div class="grid-container">
         <div class="grid-x margin-top-60">
-            <div class="cell medium-6 padding-right-35 border-right">
+            <div class="cell medium-6 index-about">
                 <h2 class="h4">Improbable Challenges</h2>
                 <p>Enjoying improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization.  He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy.&hellip;</p>
                 <p><a href="{{ url('about') }}">More about Bruce</a></p>
             </div>
-            <div class="cell medium-6 padding-right-5 padding-left-35">
+            <div class="cell medium-6 index-insights">
                 <h2 class="h4">Latest Insights</h2>
                 @if($insights->count())
                 <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}</p>
@@ -76,7 +76,7 @@
     <div id="page">
     <div class="grid-container">
         <div class="grid-x margin-top-60">
-            <div class="cell medium-6 padding-right-35 border-right">
+            <div class="cell medium-6 index-book">
                 <img class="book-sm" src="{{ asset('img/sm-book-01.png') }}" alt="">
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Mortgaging The Earth</a></h2>
@@ -84,7 +84,7 @@
                     <p><a href="http://brucemrich.com/book/mortgaging-the-earth-the-world-bank-environmental-impoverishment-and-the-crisis-of-development">Discover more about this book</a></p>
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
-            <div class="cell medium-6 padding-right-5 padding-left-35">
+            <div class="cell medium-6 index-book-right">
                 <img class="book-sm" src="{{ asset('img/sm-book-02.png') }}" alt="">
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Foreclosing the Future</a></h2>

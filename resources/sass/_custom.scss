@@ -501,6 +501,56 @@ ul.vertical.menu.align-left.submenu.is-dropdown-submenu.first-sub {
 	}
 }
 
+// Index cells
+.index-about {
+	padding-right: 5px;
+}
+
+.index-insights {
+	margin-top: 40px;
+	padding-right: 5px;
+	padding-left: 0px;
+}
+
+.index-book {
+	padding-right: 5px;
+}
+
+.index-book-right {
+	margin-top: 20px;
+	padding-top: 40px;
+	padding-left: 0px;
+	border-top: 1px solid #cacaca;
+}
+// medium-and-up menu styles
+@media screen and (min-width: 40em) {
+	.index-about {
+		padding-right: 35px;
+		border-right: 1px solid #cacaca;
+	}
+
+	.index-insights {
+		margin-top: 0px;
+		padding-right: 5px;
+		padding-left: 35px;
+	}
+
+	.index-book {
+		padding-right: 35px;
+		border-right: 1px solid #cacaca;
+	}
+
+	.index-book-right {
+		margin-top: 0px;
+		padding-top: 0px;
+		padding-right: 5px;
+		padding-left: 35px;
+		border-top: 0px solid #fff;
+	}
+
+}
+
+
 #hero {
 	margin-top: 40px;
 	padding-bottom: 40px;
