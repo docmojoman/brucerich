@@ -54,12 +54,12 @@
                                 </ul> <!-- .vertical .menu .align-left .wide -->
                             </li>
                             <li>
-                                <a href="{{ url('/insights#mobile') }}"class="menu-title hide-for-medium">Insights</a>
-                                <a href="{{ url('/insights') }}"class="menu-title show-for-medium">Insights</a>
+                                <a href="{{ url('/insights#mobile') }}" class="menu-title hide-for-medium">Insights</a>
+                                <a href="{{ url('/insights') }}" class="menu-title show-for-medium">Insights</a>
                             </li>
                             <li>
-                                <a href="{{ url('/contact#mobile') }}"class="menu-title hide-for-medium">Contact</a>
-                                <a href="{{ url('/contact') }}"class="menu-title show-for-medium">Contact</a>
+                                <a href="{{ url('/contact#mobile') }}" class="menu-title hide-for-medium">Contact</a>
+                                <a href="{{ url('/contact') }}" class="menu-title show-for-medium">Contact</a>
                             </li>
                         </ul> <!-- .vertical .medium-horizontal .menu .align-right -->
                     </div> <!-- #nav -->
@@ -67,5 +67,5 @@
             </div> <!-- .cell .medium-9 -->
         </div> <!-- #header -->
     </div> <!-- grid-container -->
-    <a name="mobile"></a>
     </div> <!-- header-container -->
+    <a name="mobile"></a>
