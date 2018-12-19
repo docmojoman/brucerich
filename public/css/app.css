@@ -11181,11 +11181,6 @@ cite {
   margin: 20px 0px;
 }
 
-.lead {
-  font-size: 134.25%;
-  line-height: 1.7;
-}
-
 #header-container {
   background-image: url(/images/brucerich_banner_top-900.jpg?b6d3903601e8bc1a174d5db1990e8b6c);
   background-repeat: no-repeat;
@@ -12187,5 +12182,10 @@ a#lfm-pdf {
     bottom: 40px;
     right: 40px;
   }
+}
+
+.lead {
+  font-size: 134.25%;
+  line-height: 1.7;
 }
 
