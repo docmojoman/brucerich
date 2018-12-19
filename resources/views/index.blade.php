@@ -33,13 +33,20 @@
             <div class="cell medium-6 index-about">
                 <h2 class="h4">Improbable Challenges</h2>
                 <p>Enjoying improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization.  He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy.&hellip;</p>
-                <p><a href="{{ url('about') }}">More about Bruce</a></p>
+
+                <!-- mobile -->
+                <p class="hide-for-medium"><a href="{{ url('about') }}#mobile">More about Bruce</a></p>
+                <!-- desktop -->
+                <p class="show-for-medium"><a href="{{ url('about') }}">More about Bruce</a></p>
             </div>
             <div class="cell medium-6 index-insights">
                 <h2 class="h4">Latest Insights</h2>
                 @if($insights->count())
                 <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}</p>
-                <p><a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
+                <!-- mobile -->
+                <p class="hide-for-medium"><a href="{{ url('insight', $insights[0]['slug']) }}#mobile">Read More</a></p>
+                <!-- desktop -->
+                <p class="show-for-medium"><a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
                 @endif
             </div>
         </div>
@@ -68,7 +75,10 @@
                 Beacon Press, 2010</a></h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem voluptate libero ratione accusamus nostrum quas, recusandae, praesentium ipsa dolorem minima, necessitatibus? Reiciendis cupiditate maiores in libero excepturi exercitationem laudantium distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem quod enim qui natus dolore distinctio nisi repellat, ut sit hic atque temporibus ipsum, veniam fugiat eaque fuga aspernatur optio! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quos sunt magnam porro neque harum qui consectetur, optio et cum quas error ut dolore aperiam veritatis eius voluptate asperiores commodi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et illo necessitatibus labore saepe quasi provident veritatis, soluta est dignissimos molestiae, maiores dicta quidem accusantium facere, iusto doloremque. Assumenda, cumque, possimus.</p>
 
-                <p><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india">Discover more about this book</a></p>
+                <!-- mobile -->
+                <p class="hide-for-medium"><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india#mobile">Discover more about this book</a></p>
+                <!-- desktop -->
+                <p class="show-for-medium"><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india">Discover more about this book</a></p>
             </div> <!-- .cell medium-9 -->
         </div> <!-- .grid-x grid-margin-x -->
     </div> <!-- grid-container -->

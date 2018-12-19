@@ -8,8 +8,10 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="{{ url('./') }}">Home</a></li>
-              <li><a href="{{ url('/books') }}">Books</a></li>
+              <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
+              <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
+              <li class="hide-for-medium"><a href="{{ url('/books') }}#mobile">Books</a></li>
+              <li class="show-for-medium"><a href="{{ url('/books') }}">Books</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> {{ $book->title }}
               </li>
@@ -31,7 +33,7 @@
     <div id="article-page"> <!-- bite hero -->
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
-        <div class="cell medium-3">
+        <div class="cell medium-3 small-order-2 medium-order-1">
           <span class="book">
             <p><img src="{{ $book->image }}" alt=""></p>
             <ul class="book-submenu">
@@ -48,13 +50,14 @@
             <ul class="book-submenu">
               @if($tags)
               @foreach($tags as $tag)
-              <li><a href="{{ url('tag', $tag->slug)}}">{{ $tag->name }}</a></li>
+              <li class="hide-for-medium"><a href="{{ url('tag', $tag->slug)}}#mobile">{{ $tag->name }}</a></li>
+              <li class="show-for-medium"><a href="{{ url('tag', $tag->slug)}}">{{ $tag->name }}</a></li>
               @endforeach
               @endif
             </ul>
           </span>
         </div> <!-- .cell .medium-3 -->
-        <div class="cell medium-auto article-body">
+        <div class="cell medium-auto article-body small-order-1 medium-order-2">
           <p class="lead">{{ $book->introduction }}</p>
           {!! $book->about !!}
 

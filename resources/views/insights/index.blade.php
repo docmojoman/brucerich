@@ -8,7 +8,8 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="./">Home</a></li>
+              <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
+              <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> Insights
               </li>
@@ -38,7 +39,8 @@
             @if($insights->count())
               @foreach($insights as $insight)
             <li>
-              <h2 class="h3"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
+              <h2 class="h3 hide-for-medium"><a href="{{ url('/insight', $insight->slug) }}#mobile">{{ $insight->title }}</a></h2>
+              <h2 class="h3 show-for-medium"><a href="{{ url('/insight', $insight->slug) }}">{{ $insight->title }}</a></h2>
               <p>{{ $insight->introduction }}</p>
               <hr />
             </li>
@@ -55,7 +57,8 @@
             <ul class="book-submenu">
               @if($tags->count())
               @foreach($tags as $tag)
-              <li><a href="{{ url('tag', $tag->slug) }}">{{ $tag->name }}</a></li>
+              <li class="hide-for-medium"><a href="{{ url('tag', $tag->slug) }}#mobile">{{ $tag->name }}</a></li>
+              <li class="show-for-medium"><a href="{{ url('tag', $tag->slug) }}">{{ $tag->name }}</a></li>
               @endforeach
               @endif
             </ul>

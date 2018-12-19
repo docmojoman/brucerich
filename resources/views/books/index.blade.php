@@ -7,7 +7,8 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="{{ url('./') }}">Home</a></li>
+              <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
+              <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> Books
               </li>
@@ -37,7 +38,8 @@
           <a href="{{ url('/book', $book->slug) }}"><img src="{{ $book->image }}" alt="{{ $book->title }}"></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
+          <h2 class="h3 hide-for-medium"><a href="{{ url('/book', $book->slug) }}#mobile">{{ $book->title }}</a></h2>
+          <h2 class="h3 show-for-medium"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></h2>
           <p>{{ $book->introduction }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
