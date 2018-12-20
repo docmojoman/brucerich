@@ -8,9 +8,12 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="{{ url('./') }}">Home</a></li>
-              <li><a href="{{ url('articles') }}">Articles</a></li>
-              <li><a href="{{ url('articles', $article->group_id) }}">{{ $category->title }}</a></li>
+              <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
+              <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
+              <li class="hide-for-medium"><a href="{{ url('articles') }}#mobile">Articles</a></li>
+              <li class="show-for-medium"><a href="{{ url('articles') }}">Articles</a></li>
+              <li class="hide-for-medium"><a href="{{ url('articles', $article->group_id) }}#mobile">{{ $category->title }}</a></li>
+              <li class="show-for-medium"><a href="{{ url('articles', $article->group_id) }}">{{ $category->title }}</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> {{ str_limit($article->title, 60, ' …') }}
               </li>
@@ -32,7 +35,7 @@
     <div id="article-page"> <!-- bite hero -->
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
-        <div class="cell medium-3">
+        <div class="cell medium-3 small-order-2 medium-order-1">
           <span class="book">
             <p><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></p>
 
@@ -46,7 +49,7 @@
             </ul>
           </span>
         </div> <!-- .cell .medium-3 -->
-        <div class="cell medium-auto article-body">
+        <div class="cell medium-auto article-body small-order-1 medium-order-2">
           <ul id="book-cite">
             @if($article->author)<li>{{ $article->author }}</li>@endif
             @if($article->publication)<li>{{ $article->publication }}</li>@endif
@@ -92,7 +95,8 @@
       <!-- /divider -->
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          <p class="nav-return"><a href="{{ url('articles', $article->group_id) }}">Return to List</a></p>
+          <p class="nav-return hide-for-medium"><a href="{{ url('articles', $article->group_id) }}#mobile">Return to List</a></p>
+          <p class="nav-return show-for-medium"><a href="{{ url('articles', $article->group_id) }}">Return to List</a></p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->

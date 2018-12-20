@@ -8,9 +8,16 @@
         <div class="cell medium-12">
           <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-              <li><a href="{{ url('./') }}">Home</a></li>
-              <li><a href="{{ url('articles') }}">Articles</a></li>
+              <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
+              <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
+              @empty($category)
+              <li>
+                <span class="show-for-sr">Current: </span> Articles
+              </li>
+              @endempty
               @if(isset($category))
+              <li class="hide-for-medium"><a href="{{ url('articles') }}#mobile">Articles</a></li>
+              <li class="show-for-medium"><a href="{{ url('articles') }}">Articles</a></li>
               <li>
                 <span class="show-for-sr">Current: </span> {{ $category->title }}
               </li>
@@ -52,9 +59,6 @@
       <!-- ./Article Row Desktop -->
       <!-- Article Row Mobile -->
       <div class="grid-x grid-margin-x article-row align-middle hide-for-medium">
-        <div class="cell medium-2 list-icon">
-          <a href="{{ url('article', $article->slug) . '#mobile' }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
-        </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('article', $article->slug) . '#mobile' }}">{{ $article->title }}</a></h2>
           <p>{{ str_limit($article->introduction, 360) }}</p>

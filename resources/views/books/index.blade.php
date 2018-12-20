@@ -34,7 +34,7 @@
     <div class="grid-container">
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
-        <div class="cell medium-2 list-icon">
+        <div class="cell medium-2 list-icon show-for-medium">
           <a href="{{ url('/book', $book->slug) }}"><img src="{{ $book->image }}" alt="{{ $book->title }}"></a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">

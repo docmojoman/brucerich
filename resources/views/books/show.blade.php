@@ -95,7 +95,8 @@
       <!-- /divider -->
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          <p class="nav-return"><a href="{{ url('/books') }}">Return to List</a></p>
+          <p class="nav-return hide-for-medium"><a href="{{ url('/books') }}#mobile">Return to List</a></p>
+          <p class="nav-return show-for-medium"><a href="{{ url('/books') }}">Return to List</a></p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->

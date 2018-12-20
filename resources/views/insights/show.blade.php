@@ -42,6 +42,17 @@
             </ul>
         </div>
       </div> <!-- .grid-x .grid-margin-x -->
+      <div class="grid-x bottom_line">
+        <div class="cell medium-12">
+          <hr>
+        </div> <!-- .cell .medium-12 -->
+      </div>
+      <div class="grid-x grid-margin-x">
+        <div class="cell medium-12">
+          <p class="nav-return hide-for-medium"><a href="{{ url('/insights') }}#mobile">Return to List</a></p>
+          <p class="nav-return show-for-medium"><a href="{{ url('/insights') }}">Return to List</a></p>
+        </div> <!-- .cell .medium-12 -->
+      </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
     </div> <!-- #article-title -->
 @endsection
