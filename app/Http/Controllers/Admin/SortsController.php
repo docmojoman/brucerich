@@ -99,6 +99,9 @@ class SortsController extends Controller
             $order[$i++] =  $data[0];
         }
 
+        // var_dump ($updates);
+        // die();
+
         // foreach if id is in array
         foreach ($updates as $update) {
             if(!in_array($update['sortable_id'], $order)) {

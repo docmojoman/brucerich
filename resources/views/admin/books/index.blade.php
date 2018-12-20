@@ -28,35 +28,33 @@
           <!-- end table head -->
           <!-- table body -->
           <tbody id="sortable">
-      @if(count($books) == 0)
-      <tr>
-        <td colspan="3" class="text-center">There are no books.</td>
-      </tr>
-      @else
-      @foreach($books as $book)
-      <form id="{{ $book->id }}">
-        <tr data-index="{{ $book->id }}" data-position="">
-          <td><p class="title"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></p></td>
-          <td>
-            <select id="status" onChange="top.location.href=this.options[this.selectedIndex].value;">
-              <option>Status</option>
-              <option value="{{ url('/admin/books/publish', $book->id) }}"
-              @if($book->published == 0)
-              selected
-              @endif >Draft</option>
-              <option value="{{ url('/admin/books/publish', $book->id) }}"
-              @if($book->published == 1)
-              selected
-              @endif >Published</option>
-            </select>
-          </td>
-          <td>
-            <a href="{{ url('/admin/books/edit', $book->id) }}" class="button dark expanded">Edit</a>
-          </td>
-        </tr>
-      </form>
-      @endforeach
-      @endif
+          @if(count($books) == 0)
+          <tr>
+            <td colspan="3" class="text-center">There are no books.</td>
+          </tr>
+          @else
+          @foreach($books as $book)
+            <tr data-index="{{ $book->id }}" data-position="">
+              <td><p class="title"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></p></td>
+              <td>
+                <select id="status" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                  <option>Status</option>
+                  <option value="{{ url('/admin/books/publish', $book->id) }}"
+                  @if($book->published == 0)
+                  selected
+                  @endif >Draft</option>
+                  <option value="{{ url('/admin/books/publish', $book->id) }}"
+                  @if($book->published == 1)
+                  selected
+                  @endif >Published</option>
+                </select>
+              </td>
+              <td>
+                <a href="{{ url('/admin/books/edit', $book->id) }}" class="button dark expanded">Edit</a>
+              </td>
+            </tr>
+          @endforeach
+          @endif
             </tbody>
           </table>
         </div>
