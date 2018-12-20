@@ -76,13 +76,15 @@
         <div class="cell medium-6 nav-left">
           @if($pages['prev'])
           <p><i>Previous Post</i></p>
-          <h3 class="h5"><a title="{{ $pages['prev']['title'] }}" href="{{ url('article', $pages['prev']['slug']) }}">{{ str_limit($pages['prev']['title'], 70, ' …') }}</a></h3>
+          <h3 class="h5 hide-for-medium"><a title="{{ $pages['prev']['title'] }}" href="{{ url('article', $pages['prev']['slug']) }}#mobile">{{ str_limit($pages['prev']['title'], 70, ' …') }}</a></h3>
+          <h3 class="h5 show-for-medium"><a title="{{ $pages['prev']['title'] }}" href="{{ url('article', $pages['prev']['slug']) }}">{{ str_limit($pages['prev']['title'], 70, ' …') }}</a></h3>
           @endif
         </div> <!-- .cell .medium-6 .nav-left -->
         <div class="cell medium-auto nav-right">
           @if($pages['next'])
           <p><i>Next Post</i></p>
-          <h3 class="h5"><a title="{{ $pages['next']['title'] }}" href="{{ url('article', $pages['next']['slug']) }}">{{ str_limit($pages['next']['title'], 70, ' …') }}</a></h3>
+          <h3 class="h5 hide-for-medium"><a title="{{ $pages['next']['title'] }}" href="{{ url('article', $pages['next']['slug']) }}#mobile">{{ str_limit($pages['next']['title'], 70, ' …') }}</a></h3>
+          <h3 class="h5 show-for-medium"><a title="{{ $pages['next']['title'] }}" href="{{ url('article', $pages['next']['slug']) }}">{{ str_limit($pages['next']['title'], 70, ' …') }}</a></h3>
           @endif
         </div> <!-- .cell .medium-6 .nav-right -->
       </div> <!-- .grid-x .grid-margin-x -->
