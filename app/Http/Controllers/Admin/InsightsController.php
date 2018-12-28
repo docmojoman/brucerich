@@ -51,6 +51,10 @@ class InsightsController extends Controller
      */
     public function store()
     {
+        $this->validate($request, [
+            'title'         => 'required'
+        ]);
+
         // Store Request Data
         $insight = Insight::create([
             'user_id'       => \Auth::id(),

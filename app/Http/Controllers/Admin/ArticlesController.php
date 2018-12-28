@@ -78,6 +78,10 @@ class ArticlesController extends Controller
      */
     public function store()
     {
+        $this->validate($request, [
+            'title'         => 'required'
+        ]);
+
         // Store Request Data
         $article = Article::create([
             'user_id'       => \Auth::id(),

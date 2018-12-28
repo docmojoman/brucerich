@@ -61,10 +61,10 @@
     </div>
     </div> <!-- #admin-menu -->
     @endif
-    {{-- Alerts --}}
+    <!-- Alerts -->
     @if (session('status'))
     <div class="grid-container alert-message">
-        <div class="callout success" data-closable="slide-out-right fade-out">
+        <div class="callout success" data-closable="fade-in fade-out">
             <p class="h3 text-center">{{ session('status') }}</p>
             <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
               <span aria-hidden="true">&times;</span>
@@ -72,6 +72,21 @@
         </div>
     </div>
     @endif
+    @if ($errors->any())
+    <div class="grid-container alert-alert">
+        <div class="callout alert" data-closable="fade-in fade-out">
+            <p class="text-center">
+            @foreach ($errors->all() as $error)
+              <strong>{{ $error }}</strong><br />
+            @endforeach
+            </p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    @endif
+    <!-- End Alerts -->
 
     @yield('content')
 
@@ -89,6 +104,8 @@
     $(document).foundation();
 
     $('div.alert-message').delay(3000).fadeOut(350);
+
+    $('div.alert-alert').onclick.delay(3000).fadeOut(350);
 
     // $('#library').filemanager('image');
 

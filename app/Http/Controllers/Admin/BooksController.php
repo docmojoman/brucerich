@@ -70,6 +70,11 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+                'title'         => 'required',
+                'menu_title'    => 'required'
+            ]);
+
         $book = \App\Book::create([
             'user_id'       => \Auth::id(),
             'title'         => $request->title,

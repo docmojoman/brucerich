@@ -70,6 +70,10 @@ class VideosController extends Controller
      */
     public function store()
     {
+        $this->validate($request, [
+            'title'         => 'required'
+        ]);
+
         // Store Request Data
         $video = Video::create([
             'user_id'           => \Auth::id(),
