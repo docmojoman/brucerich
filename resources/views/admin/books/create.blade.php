@@ -9,10 +9,10 @@
           <form method="POST" action="{{ url('/admin/books') }}">
             @csrf
             <label>Book Title:
-              <input name="title" type="text" placeholder="Title" value="{{ old('title') }}">
+              <input id="title" name="title" type="text" placeholder="Title" value="{{ old('title') }}">
             </label>
             <label>Short Title (Menu):
-              <input name="menu_title" type="text" placeholder="Short Title" value="{{ old('menu_title') }}">
+              <input id="shortTitle" name="menu_title" type="text" placeholder="Short Title" value="{{ old('menu_title') }}">
             </label>
             <label>Author:
               <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
@@ -121,9 +121,15 @@
     $( "button.new_section" ).click(function(e) {
     e.preventDefault();
     var id = $(this).data('id');
+    var title = document.getElementById("title").value;
+    var shortTitle = document.getElementById("shortTitle").value;
+
+    if (title.trim() == '' || shortTitle.trim() == '') {
+      return alert('You must enter a Title and a Short Title before you can create a New Section');
+    } else {
     if (id == 'text')
     {
-        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\"></div>";
+        var str = "<div class=\"callout secondary small margin-top-20\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\"></div>";
 
         var name = "section[" + x + "][description][]";
 
@@ -134,7 +140,7 @@
         addNamedEditor(name);
 
       } else {
-        var str = "<div class=\"callout secondary small\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div>";
+        var str = "<div class=\"callout secondary small margin-top-20\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div>";
 
         var id = x;
         attachBrowser(id);
@@ -143,6 +149,9 @@
 
         $(sections).append(str);
       }
+
+    }
+
     });
 
     //Tags
