@@ -105,7 +105,7 @@
 
     $('div.alert-message').delay(3000).fadeOut(350);
 
-    $('div.alert-alert').onclick.delay(3000).fadeOut(350);
+    // $('div.alert-alert').onclick.delay(3000).fadeOut(350);
 
     // $('#library').filemanager('image');
 
