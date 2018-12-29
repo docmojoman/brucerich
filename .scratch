@@ -5,7 +5,7 @@
 https://www.amazon.com/Mortgaging-Earth-Environmental-Impoverishment-Development-ebook/dp/B00EYZNNYW/ref=sr_1_2?ie=UTF8&qid=1542489332&sr=8-2&keywords=bruce+rich
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Escaped LFM Image Input
 <label>Image:<div class=\"input-group\"><span class=\"input-group-btn\"><a id=\"lfm-image\" data-input=\"thumbnail-image\" data-preview=\"holder\" class=\"button dark\"><i class=\"fa fa-picture-o fi-photo\"></i> &nbsp;&nbsp;Choose</a></span><input id=\"thumbnail-image\" class=\"form-control\" type=\"text\" name=\"section[" + x + "][image][]\" value=\"\"></div></label><label>Image Alt Tags:<input name=\"section[" + x + "][alt_tags][]\" type=\"text\" placeholder=\"Image Alt Tags\" value=\"\"></label>

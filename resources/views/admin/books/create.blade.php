@@ -129,7 +129,7 @@
     } else {
     if (id == 'text')
     {
-        var str = "<div class=\"callout secondary small margin-top-20\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\"></div>";
+        var str = "<div class=\"callout secondary small margin-top-20\" data-closable><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Text Title\" value=\"\"></label><label>Content:<textarea name=\"section[" + x + "][description][]\" class=\"editor\" cols=\"30\" rows=\"10\">Add Text Here!</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"text\"><p class=\"text-right\"><a data-close>Remove Section</a></p></div>";
 
         var name = "section[" + x + "][description][]";
 
@@ -140,7 +140,7 @@
         addNamedEditor(name);
 
       } else {
-        var str = "<div class=\"callout secondary small margin-top-20\"><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"></div>";
+        var str = "<div class=\"callout secondary small margin-top-20\" data-closable><label>Header:<input name=\"section[" + x + "][header][]\" type=\"text\" placeholder=\"Video Title\" value=\"\"></label><label>Caption:<textarea name=\"section[" + x + "][caption][]\" class=\"editor\" cols=\"30\" rows=\"4\">Caption</textarea></label><label>Embed:<textarea name=\"section[" + x + "][embed][]\" class=\"editor\" cols=\"30\" rows=\"2\">Embed Video</textarea></label><input type=\"hidden\" name=\"section[" + x + "][type][]\" value=\"video\"><p class=\"text-right\"><a data-close>Remove Section</a></p></div>";
 
         var id = x;
         attachBrowser(id);
