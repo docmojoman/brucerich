@@ -66,14 +66,29 @@ class InsightsController extends Controller
         ]);
 
         // Attach Tags
-        if (request('tags')) {
-            foreach (request('tags') as $tag) {
-                if (!\App\Tag::exists($tag)) {
-                    $tag = \App\Tag::create(['name' => $tag]);
+        if ($request->tags) {
+            foreach ($request->tags as $tag) {
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId) {
+                    if (\App\Tag::taggedAlready($tagHasId, $insight->id, 'insight')->count() <= 0) {
+                        $insight->tags()->attach($tagHasId);
+                    }
+                } else {
+                    $newTag = \App\Tag::create(['name' => $tag]);
+                    $insight->tags()->attach($newTag->id);
                 }
-                $insight->tags()->attach($tag);
             }
         }
+
+        // Attach Tags
+        // if (request('tags')) {
+        //     foreach (request('tags') as $tag) {
+        //         if (!\App\Tag::exists($tag)) {
+        //             $tag = \App\Tag::create(['name' => $tag]);
+        //         }
+        //         $insight->tags()->attach($tag);
+        //     }
+        // }
 
         // return $request;
         return redirect('admin/insights')->with('status', 'Insight created!');

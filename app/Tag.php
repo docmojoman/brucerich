@@ -50,6 +50,40 @@ class Tag extends Model
         return static::where('id', $tag)->exists();
     }
 
+    // public static function hasId($tag)
+    // {
+    //     return static::where('name', $tag)->pluck('id');
+    // }
+
+    /**
+    'ashoka' has id
+    '1' is the id for 'ashoka'
+    'foo' has no id
+    '2001' has no id
+    */
+
+
+    public static function hasId($tag)
+    {
+        if (static::where('name', $tag)->pluck('id')->isEmpty()) {
+            if (static::exists($tag)) {
+                return $tag;
+            }
+            return false;
+        } else {
+            // if (static::exists($tag)) {
+            //     return $tag;
+            // }
+            return static::where('name', $tag)->pluck('id')->toArray();
+        }
+    }
+
+    public static function taggedAlready($tag_id, $taggable_id, $taggable_type)
+    {
+        // Check taggables to see if relationship exists
+        return \App\Taggable::where([['tag_id', '=', $tag_id], ['taggable_id', '=', $taggable_id], ['taggable_type', '=', $taggable_type]]);
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name']  = $value;
@@ -103,4 +137,5 @@ class Tag extends Model
         return $allTags->whereIn('id', $uTags);
 
     }
+
 }

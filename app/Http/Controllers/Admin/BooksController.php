@@ -70,6 +70,7 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
                 'title'         => 'required',
                 'menu_title'    => 'required'
@@ -111,12 +112,18 @@ class BooksController extends Controller
         // Attach Tags
         if ($request->tags) {
             foreach ($request->tags as $tag) {
-                if (!\App\Tag::exists($tag)) {
-                    $tag = \App\Tag::create(['name' => $tag]);
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId) {
+                    if (\App\Tag::taggedAlready($tagHasId, $book->id, 'book')->count() <= 0) {
+                        $book->tags()->attach($tagHasId);
+                    }
+                } else {
+                    $newTag = \App\Tag::create(['name' => $tag]);
+                    $book->tags()->attach($newTag->id);
                 }
-                $book->tags()->attach($tag);
             }
         }
+
 
         // return $request;
         return redirect('admin/books')->with('status', 'Book created!');

@@ -99,14 +99,29 @@ class ArticlesController extends Controller
         ]);
 
         // Attach Tags
-        if (request('tags')) {
-            foreach (request('tags') as $tag) {
-                if (!\App\Tag::exists($tag)) {
-                    $tag = \App\Tag::create(['name' => $tag]);
+        if ($request->tags) {
+            foreach ($request->tags as $tag) {
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId) {
+                    if (\App\Tag::taggedAlready($tagHasId, $article->id, 'article')->count() <= 0) {
+                        $article->tags()->attach($tagHasId);
+                    }
+                } else {
+                    $newTag = \App\Tag::create(['name' => $tag]);
+                    $article->tags()->attach($newTag->id);
                 }
-                $article->tags()->attach($tag);
             }
         }
+
+        // Attach Tags
+        // if (request('tags')) {
+        //     foreach (request('tags') as $tag) {
+        //         if (!\App\Tag::exists($tag)) {
+        //             $tag = \App\Tag::create(['name' => $tag]);
+        //         }
+        //         $article->tags()->attach($tag);
+        //     }
+        // }
 
         // return $request;
         return redirect('admin/articles')->with('status', 'Article created!');

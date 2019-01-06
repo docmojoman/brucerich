@@ -84,12 +84,27 @@ class VideosController extends Controller
         ]);
 
         // Attach Tags
-        foreach (request('tags') as $tag) {
-            if (!\App\Tag::exists($tag)) {
-                $tag = \App\Tag::create(['name' => $tag]);
+        if ($request->tags) {
+            foreach ($request->tags as $tag) {
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId) {
+                    if (\App\Tag::taggedAlready($tagHasId, $video->id, 'video')->count() <= 0) {
+                        $video->tags()->attach($tagHasId);
+                    }
+                } else {
+                    $newTag = \App\Tag::create(['name' => $tag]);
+                    $video->tags()->attach($newTag->id);
+                }
             }
-            $video->tags()->attach($tag);
         }
+
+        // Attach Tags
+        // foreach (request('tags') as $tag) {
+        //     if (!\App\Tag::exists($tag)) {
+        //         $tag = \App\Tag::create(['name' => $tag]);
+        //     }
+        //     $video->tags()->attach($tag);
+        // }
 
         // return $request;
         return redirect('admin/videos')->with('status', 'Video created!');

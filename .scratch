@@ -255,3 +255,16 @@ GET|HEAD  | video/{video}           |                 | App\Http\Controllers\Vid
 
         $(sections).append(str);
       }
+
+
+
+      DB::table('section')->where('id',14)->delete();
+
+
+Economic Development, World Bank, Environmental Politics, Climate Change, Carbon Trading, Clean Development Mechanism, Kyoto Protocol, price incentives, ashoka,
+
+
+
+(\App\Tag::taggedAlready(1, 1, 'book')->isEmpty()) ? true : false;
+
+($user['permissions'] == 'admin') ? true : false;
