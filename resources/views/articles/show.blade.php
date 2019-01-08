@@ -62,7 +62,13 @@
           </ul>
           {!! $article->description !!}
 
-          <p><a href="{{ $article->pdf }}">Read full article (PDF)</a></p>
+          @if($article->link != null)
+            <p><a href="{{ $article->link }}">Read full article (LINK)</a></p>
+          @endif
+
+          @if($article->pdf != null)
+            <p><a href="{{ $article->pdf }}">Read full article (PDF)</a></p>
+          @endif
         </div> <!-- .cell .medium-9 .article-body -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- grid-container -->
