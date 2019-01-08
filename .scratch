@@ -268,3 +268,6 @@ Economic Development, World Bank, Environmental Politics, Climate Change, Carbon
 (\App\Tag::taggedAlready(1, 1, 'book')->isEmpty()) ? true : false;
 
 ($user['permissions'] == 'admin') ? true : false;
+
+
+ERR_SSL_VERSION_OR_CIPHER_MISMATCH

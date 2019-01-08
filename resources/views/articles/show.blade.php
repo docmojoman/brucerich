@@ -37,7 +37,11 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-3 small-order-2 medium-order-1">
           <span class="book">
+            @if($article->image === null)
             <p><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></p>
+            @else
+            <p><img src="{{ $article->image }}" alt=""></p>
+            @endif
 
             <h3 class="h4">Tags:</h3>
             <ul class="book-submenu">
