@@ -148,6 +148,10 @@ class TagsController extends Controller
 
             \App\Tag::destroy($id);
 
+        } else {
+
+            \App\Tag::destroy($id);
+
         }
 
         return redirect('admin/tags')->with('status', 'Tag Deleted!');
