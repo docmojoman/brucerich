@@ -80,7 +80,7 @@ Route::post('/admin/articlegroups', 'Admin\ArticleGroupsController@store');
 
 Route::get('/admin/articlegroups/edit/{id}', 'Admin\ArticleGroupsController@edit');
 
-Route::patch('/admin/articlegroups', 'Admin\ArticleGroupsController@update');
+Route::patch('/admin/articlegroups/{id}', 'Admin\ArticleGroupsController@update');
 
 Route::get('/admin/articlegroups/delete/{id}', 'Admin\ArticleGroupsController@destroy');
 
@@ -143,6 +143,17 @@ Route::get('/admin/videos/publish/{id}', 'Admin\VideosController@publish');
 Route::get('/admin/tags', 'Admin\TagsController@index');
 
 Route::get('/admin/tags/fetch', 'Admin\TagsController@fetch');
+
+Route::get('/admin/tags/create', 'Admin\TagsController@create');
+
+Route::post('/admin/tags', 'Admin\TagsController@store');
+
+Route::get('/admin/tags/edit/{id}', 'Admin\TagsController@edit');
+
+Route::patch('/admin/tags/{id}', 'Admin\TagsController@update');
+
+Route::get('/admin/tags/delete/{id}', 'Admin\TagsController@destroy');
+
 
 // Filemanager
 Route::get('/admin/filemanager', 'Admin\FilesController@index');

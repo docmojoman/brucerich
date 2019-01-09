@@ -38,7 +38,6 @@ class InsightsController extends Controller
      */
     public function create()
     {
-        $library = true;
 
         return view('admin.insights.create');
     }

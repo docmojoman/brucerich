@@ -27,9 +27,11 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = \App\Tag::all()->pluck('name');
+        // $tags = \App\Tag::all()->orderByRaw('LOWER(name) DESC');
 
-        return $tags;
+        $tags = DB::table('tags')->select('*')->orderByRaw('LOWER(name)')->get();
+
+        return view('admin.tags.index', compact('tags'));
     }
     /**
      * Display a listing of the resource.
@@ -63,7 +65,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
     }
 
     /**
@@ -74,7 +76,16 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'         => 'required'
+        ]);
+
+        // Store Request Data
+        $tag = \App\Tag::create([
+            'name'         => request('name')
+        ]);
+
+        return redirect('admin/tags')->with('status', 'Tag created!');
     }
 
     /**
@@ -96,7 +107,9 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = \App\Tag::find($id);
+
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -106,9 +119,17 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $tag = \App\Tag::find(request('id'));
+
+        $tag->name = request('name');
+
+        $tag->slug = str_slug(request('name'));
+
+        $tag->save();
+
+        return redirect('admin/tags')->with('status', 'Tag Updated!');
     }
 
     /**
@@ -119,6 +140,16 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // $tag = \App\Tag::find($id);
+
+        // Remove relationships
+        // \App\Taggable::destroyRelationships($id);
+        if (DB::table('taggables')->where('tag_id', '=', $id)->delete()) {
+
+            \App\Tag::destroy($id);
+
+        }
+
+        return redirect('admin/tags')->with('status', 'Tag Deleted!');
     }
 }

@@ -13,7 +13,7 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="cell medium-6 medium-offset-3">
-          <form method="POST" action="/admin/articlegroups">
+          <form method="POST" action="{{ url('/admin/articlegroups', $articlegroup->id) }}">
             @csrf
             @method('PATCH')
             <input type="hidden" name="id" value="{{ $articlegroup->id }}">

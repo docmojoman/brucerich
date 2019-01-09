@@ -17,4 +17,11 @@ class Taggable extends Model
         }
     }
 
+    public function destroyRelationships($tag_id)
+    {
+    	// find tag_id in taggables
+    	// delete them
+    	return static::table('taggables')->where('tag_id', '=', $tag_id)->delete();
+    }
+
 }
