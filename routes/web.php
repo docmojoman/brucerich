@@ -62,6 +62,8 @@ Route::get('admin/articles/edit/{id}', 'Admin\ArticlesController@edit');
 
 Route::post('admin/articles', 'Admin\ArticlesController@store');
 
+Route::get('admin/article/{article}', 'Admin\ArticlesController@show');
+
 Route::patch('admin/articles/{id}', 'Admin\ArticlesController@update');
 
 Route::get('/admin/articles/delete/{id}', 'Admin\ArticlesController@destroy');
@@ -88,6 +90,8 @@ Route::get('/admin/books/create', 'Admin\BooksController@create');
 
 Route::get('/admin/books', 'Admin\BooksController@index');
 
+Route::get('/admin/book/{book}', 'Admin\BooksController@show');
+
 Route::post('/admin/books', 'Admin\BooksController@store');
 
 Route::get('/admin/books/edit/{id}', 'Admin\BooksController@edit');
@@ -106,6 +110,8 @@ Route::get('/admin/insights', 'Admin\InsightsController@index');
 
 Route::post('/admin/insights', 'Admin\InsightsController@store');
 
+Route::get('/admin/insight/{insight}', 'Admin\InsightsController@show');
+
 Route::get('/admin/insights/edit/{id}', 'Admin\InsightsController@edit');
 
 Route::patch('/admin/insights/{id}', 'Admin\InsightsController@update');
@@ -123,6 +129,8 @@ Route::get('/admin/videos', 'Admin\VideosController@index');
 Route::post('/admin/videos', 'Admin\VideosController@store');
 
 Route::get('/admin/videos/edit/{id}', 'Admin\VideosController@edit');
+
+Route::get('/admin/video/{video}', 'Admin\VideosController@show');
 
 Route::patch('/admin/videos/{id}', 'Admin\VideosController@update');
 

@@ -116,9 +116,13 @@ class VideosController extends Controller
      * @param  \App\Videos  $videos
      * @return \Illuminate\Http\Response
      */
-    public function show(Videos $videos)
+    public function show(Video $video)
     {
-        //
+        // $video = \App\Video::find($slug);
+        $tags = $video->tags;
+        // return $video;
+
+        return view('admin.videos.show', compact('video', 'tags'));
     }
 
     /**
@@ -194,6 +198,10 @@ class VideosController extends Controller
      */
     public function destroy($id)
     {
+        $unlink = \App\Video::find($id);
+
+        $unlink->tags()->detach();
+
         \App\Video::destroy($id);
 
         return redirect('admin/videos');

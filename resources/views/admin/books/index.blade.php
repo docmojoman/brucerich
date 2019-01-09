@@ -35,7 +35,7 @@
           @else
           @foreach($books as $book)
             <tr data-index="{{ $book->id }}" data-position="">
-              <td><p class="title"><a href="{{ url('/book', $book->slug) }}">{{ $book->title }}</a></p></td>
+              <td><p class="title"><a href="{{ url('/admin/book', $book->slug) }}">{{ $book->title }}</a></p></td>
               <td>
                 <select id="status" onChange="top.location.href=this.options[this.selectedIndex].value;">
                   <option>Status</option>

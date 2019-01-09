@@ -100,9 +100,12 @@ class InsightsController extends Controller
      * @param  \App\Insights  $insights
      * @return \Illuminate\Http\Response
      */
-    public function show(Insights $insights)
+    public function show(Insight $insight)
     {
-        //
+        // $insight = \App\Insight::find($id);
+        $tags = $insight->tags;
+
+        return view('admin.insights.show', compact('insight', 'tags'));
     }
 
     /**
@@ -179,6 +182,10 @@ class InsightsController extends Controller
      */
     public function destroy($id)
     {
+        $unlink = \App\Insight::find($id);
+
+        $unlink->tags()->detach();
+
         \App\Insight::destroy($id);
 
         return redirect('admin/insights');

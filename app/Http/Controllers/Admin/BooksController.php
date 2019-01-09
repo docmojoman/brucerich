@@ -136,9 +136,19 @@ class BooksController extends Controller
      * @param  \App\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(book $book)
+    public function show(Book $book)
     {
-        //
+        // $book = \App\Book::find($id);
+
+        // return $book;
+
+        $sections = $book->sections;
+
+        $tags = $book->tags;
+
+        // dd($sections);
+
+        return view('admin.books.show', compact('book', 'sections', 'tags'));
     }
 
     /**
@@ -262,8 +272,12 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
+        $unlink = \App\Book::find($id);
+
+        $unlink->tags()->detach();
+
         \App\Book::destroy($id);
-        // return back();
+
         return redirect('admin/books');
     }
 

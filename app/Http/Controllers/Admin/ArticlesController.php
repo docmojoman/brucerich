@@ -133,9 +133,47 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        // return $article;
+        // $article = \App\Article::findOrFail($id);
+        $tags = $article->tags;
+
+        $category = \App\ArticleGroup::findOrFail($article->group_id);
+
+        // Get prev and next articles
+        // get articles in group list
+        $list = Article::pubd()->category($article->group_id)->get();
+        // cast to Array
+        $l_array = $list->toArray();
+
+        // Get Key
+        $key = array_search($article->id, array_column($l_array, 'id'));
+        $prev = $key - 1;
+        $next = $key + 1;
+
+        // return $key;
+        // $is_admin = ($user['permissions'] == 'admin') ? true : false;
+
+        // if $prev is a negative value $prev = null
+        // if $next is greater than $key - 1, $next = null
+        if ($prev >= 0) {
+            $pages['prev']['slug'] = $list[$prev]['slug'];
+            $pages['prev']['title'] = $list[$prev]['title'];
+        } else {
+            $pages['prev'] = null;
+        }
+
+        if ($next <= (count($list) - 1)) {
+            $pages['next']['slug'] = $list[$next]['slug'];
+            $pages['next']['title'] = $list[$next]['title'];
+        } else {
+            $pages['next'] = null;
+        }
+
+        // return $pages;
+
+        return view('admin.articles.show', compact('article', 'category', 'tags', 'pages'));
     }
 
     /**
@@ -217,6 +255,10 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
+        $unlink = \App\Article::find($id);
+
+        $unlink->tags()->detach();
+
         \App\Article::destroy($id);
 
         return redirect('admin/articles');
