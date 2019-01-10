@@ -247,6 +247,7 @@ class BooksController extends Controller
                     $tagHasId = \App\Tag::addNew($tag);
                 }
 
+                // Convert $tagHasId to numeric
                 if (is_array($tagHasId)) {
                     $bk = $tagHasId[0];
                 } else {

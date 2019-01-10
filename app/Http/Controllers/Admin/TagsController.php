@@ -123,6 +123,19 @@ class TagsController extends Controller
     {
         $tag = \App\Tag::find(request('id'));
 
+        $existingTag = \App\Tag::where('name', request('name'))->first();
+
+        // echo '<pre>';
+        // echo $tag->id;
+        // echo '<br /><br />';
+        // echo $existingTag->id;
+        // echo '</pre>';
+        // die();
+
+        if ($existingTag != null && $existingTag->id != $tag->id) {
+            return back()->with('status', 'Tag "'.request('name').'" Already Exists!');
+        }
+
         $tag->name = request('name');
 
         $tag->slug = str_slug(request('name'));
