@@ -236,23 +236,28 @@ class BooksController extends Controller
 
         // Attach Tags
         $book = \App\Book::find($id);
-
         $syncTags = [];
-
         // Attach Tags
         if (request('tags')) {
             foreach (request('tags') as $tag) {
-                if (!\App\Tag::exists($tag)) {
-                    $tag = \App\Tag::addNew($tag);
+                // $tagHasId returns id if numeric else id[0] if alpha
+                // $tagHasId returns false if doen't exist
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId === false) {
+                    $tagHasId = \App\Tag::addNew($tag);
                 }
 
-                $bk = (int)$tag;
+                if (is_array($tagHasId)) {
+                    $bk = $tagHasId[0];
+                } else {
+                    $bk = $tagHasId;
+                }
+                // Check to see if relationship exists
+                // $bk = (int)$tag;
                 array_push($syncTags, $bk);
             }
-
             // return $syncTags;
             $book->tags()->sync($syncTags);
-
         } else {
             // Detach All Tags
             $oldTags = $book->tags()->pluck('id');

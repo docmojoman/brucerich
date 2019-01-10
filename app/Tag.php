@@ -71,9 +71,6 @@ class Tag extends Model
             }
             return false;
         } else {
-            // if (static::exists($tag)) {
-            //     return $tag;
-            // }
             return static::where('name', $tag)->pluck('id')->toArray();
         }
     }

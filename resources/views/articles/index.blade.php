@@ -49,7 +49,11 @@
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
         <div class="cell medium-2 list-icon">
+          @if($article->slug != null)
+          <a href="{{ url('article', $article->slug) }}"><img src="{{ $article->image }}" alt=""></a>
+          @else
           <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
+          @endif
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3"><a href="{{ url('article', $article->slug) }}">{{ $article->title }}</a></h2>

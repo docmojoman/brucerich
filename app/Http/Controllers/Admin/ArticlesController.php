@@ -101,6 +101,8 @@ class ArticlesController extends Controller
         // Attach Tags
         if ($request->tags) {
             foreach ($request->tags as $tag) {
+                // $tagHasId returns id if numeric else id[0] if alpha
+                // $tagHasId returns false if doen't exist
                 $tagHasId = \App\Tag::hasId($tag);
                 if ($tagHasId) {
                     if (\App\Tag::taggedAlready($tagHasId, $article->id, 'article')->count() <= 0) {
