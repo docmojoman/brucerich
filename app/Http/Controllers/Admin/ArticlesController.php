@@ -227,14 +227,23 @@ class ArticlesController extends Controller
         // Attach Tags
         if (request('tags')) {
             foreach (request('tags') as $tag) {
-                if (!\App\Tag::exists($tag)) {
-                    $tag = \App\Tag::addNew($tag);
+                // $tagHasId returns id if numeric else id[0] if alpha
+                // $tagHasId returns false if doen't exist
+                $tagHasId = \App\Tag::hasId($tag);
+                if ($tagHasId === false) {
+                    $tagHasId = \App\Tag::addNew($tag);
                 }
 
-                $t = (int)$tag;
-                array_push($syncTags, $t);
+                // Convert $tagHasId to numeric
+                if (is_array($tagHasId)) {
+                    $bk = $tagHasId[0];
+                } else {
+                    $bk = $tagHasId;
+                }
+                // Check to see if relationship exists
+                // $bk = (int)$tag;
+                array_push($syncTags, $bk);
             }
-
             // return $syncTags;
             $article->tags()->sync($syncTags);
 
@@ -246,7 +255,7 @@ class ArticlesController extends Controller
         }
 
         // return $request;
-        return redirect('admin/articles')->with('status', 'Article updated!');
+        return back()->with('status', 'Article updated!');
     }
 
     /**

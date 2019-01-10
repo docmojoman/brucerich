@@ -125,7 +125,7 @@ class ArticleGroupsController extends Controller
 
         $articlegroup->save();
 
-        return redirect('admin/articlegroups')->with('status', 'Article Group Updated!');
+        return back()->with('status', 'Article Group Updated!');
     }
 
     /**

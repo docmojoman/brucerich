@@ -267,7 +267,7 @@ class BooksController extends Controller
         }
 
         // return $request;
-        return redirect('admin/books')->with('status', 'Book updated!');
+        return back()->with('status', 'Book updated!');
     }
 
     /**
