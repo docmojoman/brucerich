@@ -49,7 +49,7 @@
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
         <div class="cell medium-2 list-icon">
-          @if($article->slug != null)
+          @if($article->image != null)
           <a href="{{ url('article', $article->slug) }}"><img src="{{ $article->image }}" alt=""></a>
           @else
           <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt=""></a>
