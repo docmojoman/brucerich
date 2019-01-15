@@ -48,7 +48,7 @@
              </div>
             </label>
             <label>Link:
-              <input name="link" type="text" placeholder="link" value="{{ $article->link }}">
+              <input name="link" type="text" placeholder="Optional" value="{{ $article->link }}">
             </label>
             <label>Pdf:
             <div class="input-group">

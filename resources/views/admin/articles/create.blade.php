@@ -40,7 +40,7 @@
              </div>
             </label>
             <label>Link:
-              <input name="link" type="text" placeholder="link" value="{{ old('link') }}">
+              <input name="link" type="text" placeholder="Optional" value="{{ old('link') }}">
             </label>
             <label>Pdf:
             <div class="input-group">
