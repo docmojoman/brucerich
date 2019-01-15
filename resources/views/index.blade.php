@@ -73,7 +73,7 @@
                 <h1 class="h2">To Uphold the World: A Call for a New Global Ethic from Ancient India</h1>
                 <h4><a href="{{ url('about') }}">Bruce Rich<br />
                 Beacon Press, 2010</a></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem voluptate libero ratione accusamus nostrum quas, recusandae, praesentium ipsa dolorem minima, necessitatibus? Reiciendis cupiditate maiores in libero excepturi exercitationem laudantium distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem quod enim qui natus dolore distinctio nisi repellat, ut sit hic atque temporibus ipsum, veniam fugiat eaque fuga aspernatur optio! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quos sunt magnam porro neque harum qui consectetur, optio et cum quas error ut dolore aperiam veritatis eius voluptate asperiores commodi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et illo necessitatibus labore saepe quasi provident veritatis, soluta est dignissimos molestiae, maiores dicta quidem accusantium facere, iusto doloremque. Assumenda, cumque, possimus.</p>
+                <p>Bruce Rich traveled to Orissa in eastern India and gazed upon the rock edicts erected by the Indian emperor Ashoka over 2,200 years ago. Intrigued by the stone inscriptions that declared religious tolerance, conservation, nonviolence, species protection, and human rights, he was drawn into Ashoka’s world. Ashoka was a powerful conqueror who converted to Buddhism on the heels of a bloody war, yet his empire rested on a political system that prioritized material wealth and amoral realpolitik. This system had been perfected by Kautilya, a statesman and political genius who wrote the world’s first treatise on economics. Both addressed the choice between political realism and idealism, the role of force and violence in international realtions, and the tension between economics and ethics. In this powerful critique of the current wave of globalization, Rich urgently calls for a new global ethic, distilling the messages of Ashoka and Kautilya while reflecting on thinkers across the ages from Aristotle and Adam Smith to George Soros.</p>
 
                 <!-- mobile -->
                 <p class="hide-for-medium"><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india#mobile">Discover more about this book</a></p>
@@ -90,7 +90,7 @@
                 <img class="book-sm" src="{{ asset('img/sm-book-01.png') }}" alt="">
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Mortgaging The Earth</a></h2>
-                    <p>Lorem ipsum dolor sit amet, how the <strong>World Bank's</strong>  adipisicing elit <strong>Environmental Impovershment</strong>. Dignissimos quo ipsam aperiam velit ad.</p>
+                    <p>Mortgaging the Earth exposes the systemic record of failed projects and misplaced priorities in the operations of the world's preeminent international development institution, the World Bank.</p>
                     <p><a href="http://brucemrich.com/book/mortgaging-the-earth-the-world-bank-environmental-impoverishment-and-the-crisis-of-development">Discover more about this book</a></p>
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
@@ -98,8 +98,8 @@
                 <img class="book-sm" src="{{ asset('img/sm-book-02.png') }}" alt="">
                 <div class="book-text">
                     <h2 class="h4"><a class="black" href="{{ url('about') }}">Foreclosing the Future</a></h2>
-                    <p>How the <strong>World Bank's</strong> Lorem ipsum dolor sit amet, <strong>environmental destruction</strong> adipisicing elit. Dignissimos quo ipsam aperiam velit ad.</p>
-                    <p><a href="http://brucemrich.com/book/foreclosing-the-future-the-world-bank-and-the-politics-of-environmental-destruction">Discover more about this book</a></p>
+                    <p>Foreclosing the Future reveals the World Bank as a microcosm of global politics, where governments and markets are failing to address the most urgent challenges facing our world.</p>
+                    <p><a href="http://brucemrich.com/book/foreclosing-the-future-the-world-bank-and-the-politics-of-environmental-destruction-2-test">Discover more about this book</a></p>
                 </div> <!-- .book-text -->
             </div> <!-- .cell medium-6 -->
         </div> <!-- .grid-x grid-margin-x -->
