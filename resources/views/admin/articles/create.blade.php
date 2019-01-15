@@ -11,7 +11,7 @@
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ old('title') }}" required="required">
             </label>
-            <label>Author ( + coauthor if provided ):
+            <label>Author (+coauthor if provided):
               <input name="author" type="text" placeholder="Author" value="{{ old('author') }}">
             </label>
             <label>Publication:
