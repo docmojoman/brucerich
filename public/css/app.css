@@ -11152,8 +11152,9 @@ h6,
 }
 
 .h4-display {
-  font-size: 1.5rem;
+  font-size: 1.525rem;
   letter-spacing: .05rem;
+  margin-bottom: 0.6rem;
 }
 
 a {
