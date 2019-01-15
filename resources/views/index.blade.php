@@ -66,7 +66,7 @@
                 <div class="book">
                     <p><img src="{{ asset('img/book.png') }}" alt=""></p>
                     <p class="text-center"><img id="amazon" src="{{ asset('img/buy-button-amazon.png') }}" alt=""></p>
-                    <p class="text-center"><a href="{{ url('about') }}">View purchasing options</a></p>
+                    <p class="text-center"><a href="http://brucemrich.com/book/to-uphold-the-world-a-call-for-a-new-global-ethic-from-ancient-india">View purchasing options</a></p>
                 </div> <!-- .book -->
             </div> <!-- .cell medium-3 -->
             <div class="cell medium-auto">

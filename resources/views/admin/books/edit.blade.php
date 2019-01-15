@@ -41,8 +41,8 @@
             <label>Book Image Alt Tags:
               <input name="alt_tags" type="text" placeholder="Book Image Alt Tags" value="{{ $book->alt_tags }}">
             </label>
-            <label>Amazon Link (optional):
-              <input name="amazon" type="text" placeholder="Amazon Link (optional)" value="{{ $book->amazon }}">
+            <label>Amazon Link (Optional):
+              <input name="amazon" type="text" placeholder="Amazon Link" value="{{ $book->amazon }}">
             </label>
             <label>Introduction:
               <textarea name="introduction" cols="30" rows="2">{!! $book->introduction !!}</textarea>

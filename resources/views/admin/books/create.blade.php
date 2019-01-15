@@ -33,8 +33,8 @@
             <label>Book Image Alt Tags:
               <input name="alt_tags" type="text" placeholder="Book Image Alt Tags" value="{{ old('alt_tags') }}">
             </label>
-            <label>Amazon Link (optional):
-              <input name="amazon" type="text" placeholder="Amazon Link (optional)" value="{{ old('amazon') }}">
+            <label>Amazon Link (Optional):
+              <input name="amazon" type="text" placeholder="Amazon Link" value="{{ old('amazon') }}">
             </label>
             <label>Introduction:
               <textarea name="introduction" cols="30" rows="2">{!! old('introduction') !!}</textarea>
