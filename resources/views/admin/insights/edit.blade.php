@@ -19,7 +19,7 @@
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ $insight->title }}">
             </label>
-            <label>Author ( + coauthor if provided ):
+            <label>Author (+coauthor if provided):
               <input name="author" type="text" placeholder="Author" value="{{ $insight->author }}">
             </label>
             <label>Description:
