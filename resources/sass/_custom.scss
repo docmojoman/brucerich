@@ -20,26 +20,31 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 24), //24
+    'h2': ('font-size': 20), //20
+    'h3': ('font-size': 19), //19
+    'h4': ('font-size': 18), //18
+    'h5': ('font-size': 17), //17
+    'h6': ('font-size': 16), //16
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 48), //48
+    'h2': ('font-size': 40), //40
+    'h3': ('font-size': 31), //31
+    'h4': ('font-size': 25), //25
+    'h5': ('font-size': 20), //20
+    'h6': ('font-size': 16), //16
   ),
 );
 
 .h1-display {
 	font-size: 3.0rem;
 	letter-spacing: .08rem;
+}
+
+.h4-display {
+	font-size: 1.5rem;
+	letter-spacing: .05rem;
 }
 
 a {

@@ -11151,6 +11151,11 @@ h6,
   letter-spacing: .08rem;
 }
 
+.h4-display {
+  font-size: 1.5rem;
+  letter-spacing: .05rem;
+}
+
 a {
   font-style: semi-bold;
   font-weight: 600;
