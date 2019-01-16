@@ -7,6 +7,10 @@
         <div class="cell  small-8 small-offset-2">
           <h1 class="text-center">Sections</h1>
         </div>
+        <div class="cell small-2 align-middle">
+          <a href="{{ url('/admin/books/edit', $book_id) }}" id="new-article" class="button dark">
+            <i class="fi-arrow-left"></i> Back to Edit</a>
+        </div>
       </div>
       <hr />
       <div class="grid-x grid-margin-x margin-top-30">

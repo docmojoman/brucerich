@@ -46,8 +46,11 @@ class SectionsController extends Controller
             $sections = Section::where('book_id', $id)->get();
         }
 
+        // Redirect
+        $book_id = $id;
+
         // dd($sections);
-        return view('admin.sections.index', compact('sections'));
+        return view('admin.sections.index', compact('sections', 'book_id'));
     }
 
     /**
