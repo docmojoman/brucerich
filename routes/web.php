@@ -102,6 +102,11 @@ Route::get('/admin/books/delete/{id}', 'Admin\BooksController@destroy');
 
 Route::get('/admin/books/publish/{id}', 'Admin\BooksController@publish');
 
+// Sections
+Route::get('/admin/sections/{id}', 'Admin\SectionsController@index');
+
+Route::get('/admin/sections/delete/{id}', 'Admin\SectionsController@destroy');
+
 
 // Insights
 Route::get('/admin/insights/create', 'Admin\InsightsController@create');

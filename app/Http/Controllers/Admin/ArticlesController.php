@@ -277,9 +277,9 @@ class ArticlesController extends Controller
 
     public function publish($id)
     {
-        \App\Article::publish($id);
+        $status = \App\Article::publish($id);
 
-        return back()->with('status', 'Article published!');
+        return back()->with(compact('status'));
     }
 
 }

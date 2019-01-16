@@ -82,12 +82,14 @@ class Article extends Model
 
             $article->published = 1;
             $article->save();
-            return true;
+            $status = "Article published!";
+            return $status;
         }
 
         $article->published = 0;
         $article->save();
-        return true;
+        $status = "Article un-published!";
+        return $status;
     }
 
     /**

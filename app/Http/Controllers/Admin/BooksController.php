@@ -161,7 +161,26 @@ class BooksController extends Controller
     {
         $book = \App\Book::find($id);
 
-        $sections = $book->sections;
+        // $sections = $book->sections;
+        // Sortable Sections
+        $sortable_type = 'section';
+        $unsorted_sections = Section::where('book_id', $id)->get();
+        $sectionIds = $unsorted_sections->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $sectionIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_sections->sortByIds($order->toArray());
+
+            $bks = $ordered->values()->toArray();
+
+            $sections = array_map(function($array){
+                return (object)$array;
+            }, $bks);
+        } else {
+            $sections = Section::where('book_id', $id)->get();
+        }
+        // End Sortable Sections
 
         $tags = $book->tags;
 

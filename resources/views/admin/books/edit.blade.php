@@ -52,6 +52,7 @@
             </label>
             {{-- Begin Dynamic Form Sections --}}
             @foreach($sections as $section)
+            <a name="{{ $section->id }}"></a>
             <div class="margin-top-30">
             @if($section->type == 'text')
             <div class="callout secondary small">
@@ -87,8 +88,9 @@
             {{-- End New Dynamic Form Section --}}
             <hr />
             <div class="text-center">
-              <label>Add New Section
+              <label>Add/Edit Section
               <br />
+              <a href="{{ url('/admin/sections', $book->id) }}" style="font-weight: 400" class="new_section button large dark margin-top-20" data-id="text" >Edit Sections</a>
               <button class="new_section button large dark margin-top-20" data-id="text" >Add New Section</button>
               <button class="new_section button large dark margin-top-20"data-id="video" >Add Video to Page</button>
             </div>
