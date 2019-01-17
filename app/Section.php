@@ -47,4 +47,30 @@ class Section extends Model
                     ->withTimestamps();
     }
 
+    /**
+    * Public Book Sections Page
+    */
+    public static function sections($book_id)
+    {
+        $sortable_type = 'section';
+        $unsorted_sections = static::where('book_id', $book_id)->get();
+        $sectionIds = $unsorted_sections->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $sectionIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_sections->sortByIds($order->toArray());
+
+            $bks = $ordered->values()->toArray();
+
+            $sections = array_map(function($array){
+                return (object)$array;
+            }, $bks);
+        } else {
+            $sections = static::where('book_id', $book_id)->get();
+        }
+
+        return $sections;
+    }
+
 }

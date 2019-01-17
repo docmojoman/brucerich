@@ -36,7 +36,8 @@ class BooksController extends Controller
 
         // return $book;
 
-        $sections = $book->sections;
+        // $sections = $book->sections;
+        $sections = \App\Section::sections($book->id);
 
         $tags = $book->tags;
 
