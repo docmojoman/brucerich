@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     {
         // return $article;
         // $article = \App\Article::findOrFail($id);
-        $tags = $article->tags;
+        $tags = $article->tags->sortBy('name');
 
         $category = \App\ArticleGroup::findOrFail($article->group_id);
 

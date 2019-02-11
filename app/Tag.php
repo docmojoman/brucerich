@@ -125,7 +125,7 @@ class Tag extends Model
     public static function usedTags()
     {
         // Show only tags that are attached
-        $allTags = static::all();
+        $allTags = static::all()->sortBy('name');
         // Get ids from Taggables
         $attached = \App\Taggable::all()->pluck('tag_id');
         // Cast to array

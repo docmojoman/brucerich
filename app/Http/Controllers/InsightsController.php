@@ -55,7 +55,7 @@ class InsightsController extends Controller
     public function show(Insight $insight)
     {
         // $insight = \App\Insight::find($id);
-        $tags = $insight->tags;
+        $tags = $insight->tags->sortBy('name');
 
         return view('insights.show', compact('insight', 'tags'));
     }
