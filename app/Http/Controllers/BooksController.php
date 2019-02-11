@@ -39,7 +39,7 @@ class BooksController extends Controller
         // $sections = $book->sections;
         $sections = \App\Section::sections($book->id);
 
-        $tags = $book->tags->sortBy('name');
+        $tags = $book->tags->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
 
         // dd($sections);
 
