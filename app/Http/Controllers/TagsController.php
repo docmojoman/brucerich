@@ -22,4 +22,36 @@ class TagsController extends Controller
     		return view('tags', compact('tags'));
     	}
     }
+
+    public function all()
+    {
+        // $tags       = Tag::usedTags();
+        $tags       = Tag::all()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
+        $ordered = [];
+        $numbers = [];
+        $keys = ['#' => [], 'a' => [], 'b' => []];
+        $byGroup = [];
+        // foreach ($tags as $tag) {
+        //     $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
+        //     $ordered[$tag->slug[0]][] = $tag;
+        // }
+
+        foreach ($tags as $tag) {
+            // $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
+            if (ctype_alpha($tag->slug[0])) {
+                $ordered[$tag->slug[0]][] = $tag;
+            } else {
+                $numbers[$tag->slug[0]][] = $tag;
+            }
+        }
+
+        // for each key
+        // if alpha add to $keys array by key
+        // else add to $keys '#' key
+
+        //
+        // $ordered = $this->chunkByAlpha($tags);
+
+        return view('tags.index', compact('ordered', 'numbers'));
+    }
 }

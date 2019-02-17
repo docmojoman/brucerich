@@ -1,3 +1,52 @@
+  <!-- number row -->
+      <div class="grid-x grid-margin-x">
+          <div class="cell medium-12">
+            <h1 class="h2 uppercase black">#</h1>
+          </div> <!-- /medium-4 -->
+      </div>
+      <div class="grid-x grid-margin-x">
+        @isset($numbers)
+        @php
+          $numCount = round(count($numbers)/3);
+          $numColOne = array_slice($numbers, 0, $numCount);
+          $numColTwo = array_slice($numbers, $numCount, $numCount);
+          $numColThree = array_slice($numbers, ($numCount*2), $numCount);
+        @endphp
+          <!-- columns -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColOne as $num1)
+              <li><a href="tag/{{ $num1->slug }}">{{ $num1->name }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColTwo as $num2)
+              <li><a href="tag/{{ $num2->slug }}">{{ $num2->name }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColThree as $num3)
+              <li><a href="tag/{{ $num3->slug }}">{{ $num3->name }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <!-- /columns -->
+    @endisset
+      </div>
+      <div class="grid-x grid-margin-x">
+          <div class="cell medium-12">
+            <hr>
+          </div> <!-- /medium-4 -->
+      </div>
+    <!-- /number row -->
+
+
+
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ueWXAb9PMxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-jDGQHaWiNQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
