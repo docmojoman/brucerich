@@ -48,9 +48,12 @@ class TagsController extends Controller
         // for each key
         // if alpha add to $keys array by key
         // else add to $keys '#' key
+        // $sortedNums = ksort($numbers,SORT_NUMERIC);
 
-        //
-        // $ordered = $this->chunkByAlpha($tags);
+        foreach ( $numbers as $key=>$item ){
+            ksort($numbers);
+            $numbers[$key] = $item;
+        }
 
         return view('tags.index', compact('ordered', 'numbers'));
     }

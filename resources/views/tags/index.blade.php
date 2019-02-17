@@ -31,7 +31,20 @@
     </div> <!-- #blog-title -->
     <div id="blog-list">
     <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+	        <div class="cell medium-12">
+	        	<p class="text-center">
+	        		<a href="#a">A</a> | <a href="#b">B</a> | <a href="#c">C</a> | <a href="#d">D</a> | <a href="#e">E</a> | <a href="#f">F</a> | <a href="#g">G</a> | <a href="#h">H</a> | <a href="#i">I</a> | <a href="#j">J</a> | <a href="#k">K</a> | <a href="#l">L</a> | <a href="#m">M</a> | <a href="#n">N</a> | <a href="#o">O</a> | <a href="#p">P</a> | <a href="#q">Q</a> | <a href="#r">R</a> | <a href="#s">S</a> | <a href="#t">T</a> | <a href="#u">V</a> | <a href="#w">W</a> | <a href="#x">X</a> | <a href="#y">Y</a> | <a href="#z">Z</a> | <a href="#1">#</a>
+	        	</p>
+	        </div> <!-- /medium-4 -->
+      </div>
+      <div class="grid-x grid-margin-x">
+	        <div class="cell medium-12">
+	        	<hr>
+	        </div> <!-- /medium-4 -->
+	    </div>
 	<!-- letter row -->
+	  <a name="a"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">A</h1>
@@ -77,6 +90,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="b"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">B</h1>
@@ -122,6 +136,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="c"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">C</h1>
@@ -167,6 +182,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="d"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">D</h1>
@@ -212,6 +228,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="e"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">E</h1>
@@ -257,6 +274,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="f"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">F</h1>
@@ -302,6 +320,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="g"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">G</h1>
@@ -347,6 +366,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="h"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">H</h1>
@@ -392,6 +412,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="i"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">I</h1>
@@ -437,6 +458,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="j"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">J</h1>
@@ -482,6 +504,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="k"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">K</h1>
@@ -527,6 +550,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="l"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">L</h1>
@@ -572,6 +596,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="m"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">M</h1>
@@ -617,6 +642,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="n"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">N</h1>
@@ -662,6 +688,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="o"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">O</h1>
@@ -707,6 +734,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="p"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">P</h1>
@@ -752,6 +780,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="q"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">Q</h1>
@@ -797,6 +826,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="r"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">R</h1>
@@ -842,6 +872,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="s"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">S</h1>
@@ -887,6 +918,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="t"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">T</h1>
@@ -932,6 +964,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="u"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">U</h1>
@@ -977,6 +1010,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="v"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">V</h1>
@@ -1022,6 +1056,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="w"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">W</h1>
@@ -1067,6 +1102,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="x"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">X</h1>
@@ -1112,6 +1148,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="y"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">Y</h1>
@@ -1157,6 +1194,7 @@
       </div>
     <!-- /letter row -->
 	<!-- letter row -->
+	  <a name="z"></a>
       <div class="grid-x grid-margin-x">
 	        <div class="cell medium-12">
 	        	<h1 class="h2 uppercase black">Z</h1>
@@ -1201,6 +1239,53 @@
 	        </div> <!-- /medium-4 -->
       </div>
     <!-- /letter row -->
+  <!-- number row -->
+	  <a name="1"></a>
+      <div class="grid-x grid-margin-x">
+          <div class="cell medium-12">
+            <h1 class="h2 uppercase black">#</h1>
+          </div> <!-- /medium-4 -->
+      </div>
+      <div class="grid-x grid-margin-x">
+        @isset($numbers)
+        @php
+          $numCount = round(count($numbers)/3);
+          $numColOne = array_slice($numbers, 0, $numCount);
+        // dd($numColOne);
+          $numColTwo = array_slice($numbers, $numCount, $numCount);
+          $numColThree = array_slice($numbers, ($numCount*2), $numCount);
+        @endphp
+          <!-- columns -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColOne as $num1)
+              <li><a href="tag/{{ $num1[0]['slug'] }}">{{ $num1[0]['name'] }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColTwo as $num2)
+              <li><a href="tag/{{ $num2[0]['slug'] }}">{{ $num2[0]['name'] }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <div class="cell medium-4">
+            <ul class="tag-list">
+              @foreach($numColThree as $num3)
+              <li><a href="tag/{{ $num3[0]['slug'] }}">{{ $num3[0]['name'] }}</a></li>
+              @endforeach
+            </ul>
+          </div> <!-- /medium-4 -->
+          <!-- /columns -->
+    @endisset
+      </div>
+      <div class="grid-x grid-margin-x">
+          <div class="cell medium-12">
+            <hr>
+          </div> <!-- /medium-4 -->
+      </div>
+    <!-- /number row -->
     </div> <!-- grid-container -->
     </div> <!-- /#blog-list -->
     </div> <!-- blog nav -->
