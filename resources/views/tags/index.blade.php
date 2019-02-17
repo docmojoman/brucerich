@@ -54,6 +54,7 @@
       	@isset($ordered['a'])
       	@php
       		$aCount = round(count($ordered['a'])/3);
+      		($aCount < 2) ? $aCount = 2 : $aCount;
       		$aColOne = array_slice($ordered['a'], 0, $aCount);
       		$aColTwo = array_slice($ordered['a'], $aCount, $aCount);
       		$aColThree = array_slice($ordered['a'], ($aCount*2), $aCount);
@@ -100,6 +101,7 @@
       	@isset($ordered['b'])
       	@php
       		$bCount = round(count($ordered['b'])/3);
+      		($bCount < 2) ? $bCount = 2 : $bCount;
       		$bColOne = array_slice($ordered['b'], 0, $bCount);
       		$bColTwo = array_slice($ordered['b'], $bCount, $bCount);
       		$bColThree = array_slice($ordered['b'], ($bCount*2), $bCount);
@@ -146,6 +148,7 @@
       	@isset($ordered['c'])
       	@php
       		$cCount = round(count($ordered['c'])/3);
+      		($cCount < 2) ? $cCount = 2 : $cCount;
       		$cColOne = array_slice($ordered['c'], 0, $cCount);
       		$cColTwo = array_slice($ordered['c'], $cCount, $cCount);
       		$cColThree = array_slice($ordered['c'], ($cCount*2), $cCount);
@@ -192,6 +195,7 @@
       	@isset($ordered['d'])
       	@php
       		$dCount = round(count($ordered['d'])/3);
+      		($dCount < 2) ? $dCount = 2 : $dCount;
       		$dColOne = array_slice($ordered['d'], 0, $dCount);
       		$dColTwo = array_slice($ordered['d'], $dCount, $dCount);
       		$dColThree = array_slice($ordered['d'], ($dCount*2), $dCount);
@@ -238,6 +242,7 @@
       	@isset($ordered['e'])
       	@php
       		$eCount = round(count($ordered['e'])/3);
+      		($eCount < 2) ? $eCount = 2 : $eCount;
       		$eColOne = array_slice($ordered['e'], 0, $eCount);
       		$eColTwo = array_slice($ordered['e'], $eCount, $eCount);
       		$eColThree = array_slice($ordered['e'], ($eCount*2), $eCount);
@@ -284,6 +289,7 @@
       	@isset($ordered['f'])
       	@php
       		$fCount = round(count($ordered['f'])/3);
+      		($fCount < 2) ? $fCount = 2 : $fCount;
       		$fColOne = array_slice($ordered['f'], 0, $fCount);
       		$fColTwo = array_slice($ordered['f'], $fCount, $fCount);
       		$fColThree = array_slice($ordered['f'], ($fCount*2), $fCount);
@@ -330,6 +336,7 @@
       	@isset($ordered['g'])
       	@php
       		$gCount = round(count($ordered['g'])/3);
+      		($gCount < 2) ? $gCount = 2 : $gCount;
       		$gColOne = array_slice($ordered['g'], 0, $gCount);
       		$gColTwo = array_slice($ordered['g'], $gCount, $gCount);
       		$gColThree = array_slice($ordered['g'], ($gCount*2), $gCount);
@@ -376,6 +383,7 @@
       	@isset($ordered['h'])
       	@php
       		$hCount = round(count($ordered['h'])/3);
+      		($hCount < 2) ? $hCount = 2 : $hCount;
       		$hColOne = array_slice($ordered['h'], 0, $hCount);
       		$hColTwo = array_slice($ordered['h'], $hCount, $hCount);
       		$hColThree = array_slice($ordered['h'], ($hCount*2), $hCount);
@@ -422,6 +430,7 @@
       	@isset($ordered['i'])
       	@php
       		$iCount = round(count($ordered['i'])/3);
+      		($iCount < 2) ? $iCount = 2 : $iCount;
       		$iColOne = array_slice($ordered['i'], 0, $iCount);
       		$iColTwo = array_slice($ordered['i'], $iCount, $iCount);
       		$iColThree = array_slice($ordered['i'], ($iCount*2), $iCount);
@@ -468,6 +477,7 @@
       	@isset($ordered['j'])
       	@php
       		$jCount = round(count($ordered['j'])/3);
+      		($jCount < 2) ? $jCount = 2 : $jCount;
       		$jColOne = array_slice($ordered['j'], 0, $jCount);
       		$jColTwo = array_slice($ordered['j'], $jCount, $jCount);
       		$jColThree = array_slice($ordered['j'], ($jCount*2), $jCount);
@@ -514,6 +524,7 @@
       	@isset($ordered['k'])
       	@php
       		$kCount = round(count($ordered['k'])/3);
+      		($kCount < 2) ? $kCount = 2 : $kCount;
       		$kColOne = array_slice($ordered['k'], 0, $kCount);
       		$kColTwo = array_slice($ordered['k'], $kCount, $kCount);
       		$kColThree = array_slice($ordered['k'], ($kCount*2), $kCount);
@@ -560,6 +571,7 @@
       	@isset($ordered['l'])
       	@php
       		$lCount = round(count($ordered['l'])/3);
+      		($lCount < 2) ? $lCount = 2 : $lCount;
       		$lColOne = array_slice($ordered['l'], 0, $lCount);
       		$lColTwo = array_slice($ordered['l'], $lCount, $lCount);
       		$lColThree = array_slice($ordered['l'], ($lCount*2), $lCount);
@@ -606,6 +618,7 @@
       	@isset($ordered['m'])
       	@php
       		$mCount = round(count($ordered['m'])/3);
+      		($mCount < 2) ? $mCount = 2 : $mCount;
       		$mColOne = array_slice($ordered['m'], 0, $mCount);
       		$mColTwo = array_slice($ordered['m'], $mCount, $mCount);
       		$mColThree = array_slice($ordered['m'], ($mCount*2), $mCount);
@@ -652,6 +665,7 @@
       	@isset($ordered['n'])
       	@php
       		$nCount = round(count($ordered['n'])/3);
+      		($nCount < 2) ? $nCount = 2 : $nCount;
       		$nColOne = array_slice($ordered['n'], 0, $nCount);
       		$nColTwo = array_slice($ordered['n'], $nCount, $nCount);
       		$nColThree = array_slice($ordered['n'], ($nCount*2), $nCount);
@@ -698,6 +712,7 @@
       	@isset($ordered['o'])
       	@php
       		$oCount = round(count($ordered['o'])/3);
+      		($oCount < 2) ? $oCount = 2 : $oCount;
       		$oColOne = array_slice($ordered['o'], 0, $oCount);
       		$oColTwo = array_slice($ordered['o'], $oCount, $oCount);
       		$oColThree = array_slice($ordered['o'], ($oCount*2), $oCount);
@@ -744,6 +759,7 @@
       	@isset($ordered['p'])
       	@php
       		$pCount = round(count($ordered['p'])/3);
+      		($pCount < 2) ? $pCount = 2 : $pCount;
       		$pColOne = array_slice($ordered['p'], 0, $pCount);
       		$pColTwo = array_slice($ordered['p'], $pCount, $pCount);
       		$pColThree = array_slice($ordered['p'], ($pCount*2), $pCount);
@@ -790,6 +806,7 @@
       	@isset($ordered['q'])
       	@php
       		$qCount = round(count($ordered['q'])/3);
+      		($qCount < 2) ? $qCount = 2 : $qCount;
       		$qColOne = array_slice($ordered['q'], 0, $qCount);
       		$qColTwo = array_slice($ordered['q'], $qCount, $qCount);
       		$qColThree = array_slice($ordered['q'], ($qCount*2), $qCount);
@@ -836,6 +853,7 @@
       	@isset($ordered['r'])
       	@php
       		$rCount = round(count($ordered['r'])/3);
+      		($rCount < 2) ? $rCount = 2 : $rCount;
       		$rColOne = array_slice($ordered['r'], 0, $rCount);
       		$rColTwo = array_slice($ordered['r'], $rCount, $rCount);
       		$rColThree = array_slice($ordered['r'], ($rCount*2), $rCount);
@@ -882,6 +900,7 @@
       	@isset($ordered['s'])
       	@php
       		$sCount = round(count($ordered['s'])/3);
+      		($sCount < 2) ? $sCount = 2 : $sCount;
       		$sColOne = array_slice($ordered['s'], 0, $sCount);
       		$sColTwo = array_slice($ordered['s'], $sCount, $sCount);
       		$sColThree = array_slice($ordered['s'], ($sCount*2), $sCount);
@@ -928,6 +947,7 @@
       	@isset($ordered['t'])
       	@php
       		$tCount = round(count($ordered['t'])/3);
+      		($tCount < 2) ? $tCount = 2 : $tCount;
       		$tColOne = array_slice($ordered['t'], 0, $tCount);
       		$tColTwo = array_slice($ordered['t'], $tCount, $tCount);
       		$tColThree = array_slice($ordered['t'], ($tCount*2), $tCount);
@@ -974,6 +994,7 @@
       	@isset($ordered['u'])
       	@php
       		$uCount = round(count($ordered['u'])/3);
+      		($uCount < 2) ? $uCount = 2 : $uCount;
       		$uColOne = array_slice($ordered['u'], 0, $uCount);
       		$uColTwo = array_slice($ordered['u'], $uCount, $uCount);
       		$uColThree = array_slice($ordered['u'], ($uCount*2), $uCount);
@@ -1020,6 +1041,7 @@
       	@isset($ordered['v'])
       	@php
       		$vCount = round(count($ordered['v'])/3);
+      		($vCount < 2) ? $vCount = 2 : $vCount;
       		$vColOne = array_slice($ordered['v'], 0, $vCount);
       		$vColTwo = array_slice($ordered['v'], $vCount, $vCount);
       		$vColThree = array_slice($ordered['v'], ($vCount*2), $vCount);
@@ -1066,6 +1088,7 @@
       	@isset($ordered['w'])
       	@php
       		$wCount = round(count($ordered['w'])/3);
+      		($wCount < 2) ? $wCount = 2 : $wCount;
       		$wColOne = array_slice($ordered['w'], 0, $wCount);
       		$wColTwo = array_slice($ordered['w'], $wCount, $wCount);
       		$wColThree = array_slice($ordered['w'], ($wCount*2), $wCount);
@@ -1112,6 +1135,7 @@
       	@isset($ordered['x'])
       	@php
       		$xCount = round(count($ordered['x'])/3);
+      		($xCount < 2) ? $xCount = 2 : $xCount;
       		$xColOne = array_slice($ordered['x'], 0, $xCount);
       		$xColTwo = array_slice($ordered['x'], $xCount, $xCount);
       		$xColThree = array_slice($ordered['x'], ($xCount*2), $xCount);
@@ -1158,6 +1182,7 @@
       	@isset($ordered['y'])
       	@php
       		$yCount = round(count($ordered['y'])/3);
+      		($yCount < 2) ? $yCount = 2 : $yCount;
       		$yColOne = array_slice($ordered['y'], 0, $yCount);
       		$yColTwo = array_slice($ordered['y'], $yCount, $yCount);
       		$yColThree = array_slice($ordered['y'], ($yCount*2), $yCount);
@@ -1204,6 +1229,7 @@
       	@isset($ordered['z'])
       	@php
       		$zCount = round(count($ordered['z'])/3);
+      		($zCount < 2) ? $zCount = 2 : $zCount;
       		$zColOne = array_slice($ordered['z'], 0, $zCount);
       		$zColTwo = array_slice($ordered['z'], $zCount, $zCount);
       		$zColThree = array_slice($ordered['z'], ($zCount*2), $zCount);
@@ -1250,6 +1276,7 @@
         @isset($numbers)
         @php
           $numCount = round(count($numbers)/3);
+      		($numCount < 2) ? $numCount = 2 : $numCount;
           $numColOne = array_slice($numbers, 0, $numCount);
         // dd($numColOne);
           $numColTwo = array_slice($numbers, $numCount, $numCount);

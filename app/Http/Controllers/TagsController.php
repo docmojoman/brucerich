@@ -29,8 +29,6 @@ class TagsController extends Controller
         $tags       = Tag::all()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $ordered = [];
         $numbers = [];
-        $keys = ['#' => [], 'a' => [], 'b' => []];
-        $byGroup = [];
         // foreach ($tags as $tag) {
         //     $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
         //     $ordered[$tag->slug[0]][] = $tag;
@@ -44,6 +42,8 @@ class TagsController extends Controller
                 $numbers[$tag->slug[0]][] = $tag;
             }
         }
+
+        // dd($ordered);
 
         // for each key
         // if alpha add to $keys array by key
