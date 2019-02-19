@@ -39,7 +39,7 @@
             <ul class="book-submenu">
               @if($sections)
               @foreach($sections as $section)
-              <li><a href="#{{ $section->header }}">{{ str_limit($section->header, 26) }}</a></li>
+              <li><a href="#{{ $section->header }}" title="{{ $section->header }}">{{ str_limit($section->header, 26) }}</a></li>
               @endforeach
               @endif
             </ul>

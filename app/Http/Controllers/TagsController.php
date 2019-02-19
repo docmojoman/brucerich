@@ -29,10 +29,6 @@ class TagsController extends Controller
         $tags       = Tag::usedTags()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $ordered = [];
         $numbers = [];
-        // foreach ($tags as $tag) {
-        //     $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
-        //     $ordered[$tag->slug[0]][] = $tag;
-        // }
 
         foreach ($tags as $tag) {
             // $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
