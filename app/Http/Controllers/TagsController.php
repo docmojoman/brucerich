@@ -26,7 +26,7 @@ class TagsController extends Controller
     public function all()
     {
         // $tags       = Tag::usedTags();
-        $tags       = Tag::all()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
+        $tags       = Tag::usedTags()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $ordered = [];
         $numbers = [];
         // foreach ($tags as $tag) {
@@ -56,5 +56,10 @@ class TagsController extends Controller
         }
 
         return view('tags.index', compact('ordered', 'numbers'));
+    }
+
+    public function related(Tag $tag)
+    {
+        // Takes tag
     }
 }
