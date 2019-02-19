@@ -34,7 +34,7 @@
               {!! $video->embed !!}
             </div>
             @if($video->caption)
-            <p>{{ $video->caption }}</p>
+            <p>{!! $video->caption !!}</p>
             @endif
           </div>
           <div class="cell medium-3">

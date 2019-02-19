@@ -1,3 +1,8 @@
+SELECT tag_id, count(*)
+FROM taggables
+GROUP BY tag_id
+ORDER BY count(*) DESC;
+
   <!-- number row -->
       <div class="grid-x grid-margin-x">
           <div class="cell medium-12">
