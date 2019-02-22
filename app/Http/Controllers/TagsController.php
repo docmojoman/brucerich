@@ -14,8 +14,25 @@ class TagsController extends Controller
     	$articles	= $tag->articles->where('published', '=', 1);
     	$insights	= $tag->insights->where('published', '=', 1);
     	$videos		= $tag->videos->where('published', '=', 1);
-    	$tags 		= Tag::usedTags();
-    	// return $books;
+    	// $tags 		= Tag::usedTags();
+
+        $relatedBooks =  Tag::related($books);
+        $relatedArticles =  Tag::related($articles);
+        $relatedInsights =  Tag::related($insights);
+        $relatedVideos =  Tag::related($videos);
+        $allTags = array_values(array_unique(array_collapse([
+            $relatedBooks,
+            $relatedArticles,
+            $relatedInsights,
+            $relatedVideos
+        ])));
+
+        $tags = Tag::all()->whereIn('id', $allTags)->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
+
+        // $allTagsSorted = sort($allTags);
+
+        // dd($tags);
+
     	if ($tag->count()) {
     	return view('tags', compact('books', 'articles','insights', 'videos', 'tag', 'tags'));
     	} else {
@@ -25,10 +42,9 @@ class TagsController extends Controller
 
     public function all()
     {
-        // $tags       = Tag::usedTags();
         $tags       = Tag::usedTags()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
-        $ordered = [];
-        $numbers = [];
+        $ordered    = [];
+        $numbers    = [];
 
         foreach ($tags as $tag) {
             // $key = ctype_alpha($tag->slug[0]) ? $tag->slug[0] : 'other';
@@ -39,14 +55,7 @@ class TagsController extends Controller
             }
         }
 
-        // dd($ordered);
-
-        // for each key
-        // if alpha add to $keys array by key
-        // else add to $keys '#' key
-        // $sortedNums = ksort($numbers,SORT_NUMERIC);
-
-        foreach ( $numbers as $key=>$item ){
+        foreach ($numbers as $key=>$item){
             ksort($numbers);
             $numbers[$key] = $item;
         }
@@ -54,8 +63,15 @@ class TagsController extends Controller
         return view('tags.index', compact('ordered', 'numbers'));
     }
 
-    public function related(Tag $tag)
-    {
-        // Takes tag
-    }
+    // public function related($tag)
+    // {
+    //     $ids = [];
+    //     $i = 0;
+    //     foreach($tag as $t) {
+    //         $ids['taggable_id'][$i] = $t['pivot']->taggable_id;
+    //         $ids['taggable_type'][$i] = $t['pivot']->taggable_type;
+    //         $i++;
+    //     }
+    //     return $ids;
+    // }
 }

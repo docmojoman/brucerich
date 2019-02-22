@@ -118,6 +118,7 @@
               @endforeach
               @endif
             </ul>
+            <h5><a href="/tags" class="black" style="text-decoration: underline;">All Tags&hellip;</a></h5>
         </div>
         <!-- /tags column -->
       </div> <!-- /#blog-list -->

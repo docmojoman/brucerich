@@ -45,46 +45,31 @@ class Tag extends Model
         return $this->morphedByMany('App\Video', 'taggable');
     }
 
+    /**
+     * Sets Slug
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name']  = $value;
+        $this->attributes['slug']   = $this->uniqueSlug($value);
+    }
+
+    /**
+     * Check to see if tag exists
+     */
     public static function exists($tag)
     {
         return static::where('id', $tag)->exists();
     }
 
-    // public static function hasId($tag)
-    // {
-    //     return static::where('name', $tag)->pluck('id');
-    // }
-
     /**
-    'ashoka' has id
-    '1' is the id for 'ashoka'
-    'foo' has no id
-    '2001' has no id
-    */
-
-
-    public static function hasId($tag)
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
     {
-        if (static::where('name', $tag)->pluck('id')->isEmpty()) {
-            if (static::exists($tag)) {
-                return $tag;
-            }
-            return false;
-        } else {
-            return static::where('name', $tag)->pluck('id')->toArray();
-        }
-    }
-
-    public static function taggedAlready($tag_id, $taggable_id, $taggable_type)
-    {
-        // Check taggables to see if relationship exists
-        return \App\Taggable::where([['tag_id', '=', $tag_id], ['taggable_id', '=', $taggable_id], ['taggable_type', '=', $taggable_type]]);
-    }
-
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name']  = $value;
-        $this->attributes['slug']   = $this->uniqueSlug($value);
+        return 'slug';
     }
 
     /**
@@ -102,6 +87,28 @@ class Tag extends Model
         return $count ? "{$slug}-{$count}" : $slug;
     }
 
+    public static function hasId($tag)
+    {
+        if (static::where('name', $tag)->pluck('id')->isEmpty()) {
+            if (static::exists($tag)) {
+                return $tag;
+            }
+            return false;
+        } else {
+            return static::where('name', $tag)->pluck('id')->toArray();
+        }
+    }
+
+
+    /**
+     * Check taggables to see if relationship exists
+     */
+    public static function taggedAlready($tag_id, $taggable_id, $taggable_type)
+    {
+        // Check taggables to see if relationship exists
+        return \App\Taggable::where([['tag_id', '=', $tag_id], ['taggable_id', '=', $taggable_id], ['taggable_type', '=', $taggable_type]]);
+    }
+
     public static function addNew($tag)
     {
         return static::insertGetId([
@@ -112,27 +119,36 @@ class Tag extends Model
         ]);
     }
 
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public static function usedTags()
     {
-        // Show only tags that are attached
+        // Get all tags and sort
         $allTags = static::all()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
-        // Get ids from Taggables
+        // Get all tag_ids from Taggables
         $attached = \App\Taggable::all()->pluck('tag_id');
         // Cast to array
         $uTags = array_unique($attached->toArray());
 
         return $allTags->whereIn('id', $uTags);
+    }
 
+    public static function related($tag)
+    {
+        $ids = [];
+        $tags = [];
+        $i = 0;
+        foreach($tag as $t) {
+            // $ids['taggable_id'][$i] = $t['pivot']->taggable_id;
+            // $ids['taggable_type'][$i] = $t['pivot']->taggable_type;
+            $tags[$i] = static::getTags($t['pivot']->taggable_type, $t['pivot']->taggable_id);
+            $i++;
+        }
+        return array_values(array_unique(array_collapse($tags)));
+        // return $ids;
+    }
+
+    public static function getTags($taggable_type, $taggable_id)
+    {
+        return \App\Taggable::where([['taggable_id', '=', $taggable_id], ['taggable_type', '=', $taggable_type]])->pluck('tag_id');
     }
 
 }
