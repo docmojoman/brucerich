@@ -31,7 +31,11 @@
         <div class="grid-x grid-margin-x">
           <div class="cell medium-9">
             <div class="responsive-embed">
+              @if($video->embed != null)
               {!! $video->embed !!}
+              @else
+              <a href="{{ $video->link }}" class="thumbnail" target="_blank"><img src="{{$video->thumbnail}}" alt="{{ $video->title }}" class="media-thumb"></a>
+              @endif
             </div>
             @if($video->caption)
             <p>{!! $video->caption !!}</p>

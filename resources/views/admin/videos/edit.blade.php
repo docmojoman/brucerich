@@ -19,13 +19,15 @@
             <label>Title:
               <input name="title" type="text" placeholder="Title" value="{{ $video->title }}">
             </label>
+            <div class="callout secondary small"> <!-- callout -->
+              <p>Choose one method (Video Embed or Link with Image):</p>
             <label>Video Imbed Code:
               <textarea name="embed" id="" cols="30" rows="4">{{ $video->embed }}</textarea>
             </label>
-            <label>Caption:
-              <textarea name="caption" id="" cols="30" rows="10">
-                {{ $video->caption }}
-              </textarea>
+            <p class="text-center">– or –</p>
+            <div class="callout small">
+            <label>Video Link:
+              <input name="link" type="text" placeholder="Video Link" value="{{ $video->link }}">
             </label>
             <label>Thumbnail:
             <div class="input-group">
@@ -36,6 +38,13 @@
                </span>
                <input id="thumbnail-image" class="form-control" type="text" name="thumbnail" value="{{ $video->thumbnail }}">
              </div>
+            </label>
+            </div>
+            </div> <!-- end callout -->
+            <label>Caption:
+              <textarea name="caption" id="" cols="30" rows="10">
+                {{ $video->caption }}
+              </textarea>
             </label>
             <label>Tags:
               <select id="tags" class="js-example-basic-multiple" name="tags[]" multiple="multiple">

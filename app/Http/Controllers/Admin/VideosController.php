@@ -79,6 +79,7 @@ class VideosController extends Controller
             'user_id'           => \Auth::id(),
             'title'             => request('title'),
             'embed'             => request('embed'),
+            'link'             => request('link'),
             'thumbnail'         => request('thumbnail'),
             'caption'           => request('caption'),
         ]);
@@ -157,6 +158,7 @@ class VideosController extends Controller
                     'user_id'           => \Auth::id(),
                     'title'             => request('title'),
                     'embed'             => request('embed'),
+                    'link'             => request('link'),
                     'thumbnail'         => request('thumbnail'),
                     'caption'           => request('caption'),
                 ]);

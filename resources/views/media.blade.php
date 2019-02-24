@@ -38,14 +38,14 @@
                   {!! $video->embed !!}
                 </div>
                 @else
-                <a href="{{ $video->link }}" class="thumbnail"><img src="{{$video->thumbnail}}" alt="{{ $video->title }}" class="media-thumb"></a>
+                <a href="{{ $video->link }}" class="thumbnail" target="_blank"><img src="{{$video->thumbnail}}" alt="{{ $video->title }}" class="media-thumb"></a>
                 @endif
               </div> <!-- card-section -->
               <div class="card-section">
                 <div id="caption-{{ $video->id }}" data-toggler=".view-more" class="view-less">{!! $video->caption !!}</div>
                 @if(strlen($video->caption) > 90)
                 <p class="text-right">
-                  <a data-toggle="caption-{{ $video->id }}">more…</a>
+                  <a href="video/{{ $video->slug }}">Watch Video</a> | <a data-toggle="caption-{{ $video->id }}">more…</a>
                 </p>
                 @else
                 <p class="margin-top-5">&nbsp</p>

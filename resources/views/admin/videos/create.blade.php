@@ -62,7 +62,7 @@
       filebrowserBrowseUrl: '/laravel-filemanager?type=Images',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}'
     };
-    // CKEDITOR.replace( 'caption', options );
+    CKEDITOR.replace( 'caption', options );
   </script>
 @endpush
 @push('scripts')
