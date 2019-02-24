@@ -33,6 +33,11 @@
           <div class="cell">
             <div class="shadow card">
               <div class="card-section">
+                @if(strlen($video->title) >= 60)
+                <h1 class="h5"><a href="video/{{ $video->slug }}" title="{{ $video->title }}" class="black">{{ substr($video->title, 0, 60) }}&hellip;</a></h1>
+                @else
+                <h1 class="h5"><a href="video/{{ $video->slug }}" title="{{ $video->title }}" class="black">{{ $video->title }}</a></h1>
+                @endif
                 @if(count($video->embed))
                 <div class="responsive-embed">
                   {!! $video->embed !!}
