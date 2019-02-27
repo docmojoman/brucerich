@@ -19,9 +19,14 @@ class InsightsController extends Controller
                     ->orderBy('id', 'desc')
                     ->paginate(10);
 
-        $tags = \App\Tag::usedTags();
+        $relatedInsights =  \App\Tag::relatedGroupTags('insight', $insights->pluck('id'));
 
-        // $tags = \App\Tag::all();
+        $allTags = array_values(array_unique(array_collapse([
+            $relatedInsights,
+        ])));
+
+        $tags = \App\Tag::all()->whereIn('id', $allTags)->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
+
         return view('insights.index', compact('insights', 'tags'));
     }
 

@@ -137,13 +137,21 @@ class Tag extends Model
         $tags = [];
         $i = 0;
         foreach($tag as $t) {
-            // $ids['taggable_id'][$i] = $t['pivot']->taggable_id;
-            // $ids['taggable_type'][$i] = $t['pivot']->taggable_type;
             $tags[$i] = static::getTags($t['pivot']->taggable_type, $t['pivot']->taggable_id);
             $i++;
         }
         return array_values(array_unique(array_collapse($tags)));
-        // return $ids;
+    }
+
+    public static function relatedGroupTags($taggable_type, $taggable_ids)
+    {
+        $tags = [];
+        $i = 0;
+        foreach ($taggable_ids as $t) {
+            $tags[$i] = static::getTags($taggable_type, $t);
+            $i++;
+        }
+        return array_values(array_unique(array_collapse($tags)));
     }
 
     public static function getTags($taggable_type, $taggable_id)

@@ -14,7 +14,7 @@ class TagsController extends Controller
     	$articles	= $tag->articles->where('published', '=', 1);
     	$insights	= $tag->insights->where('published', '=', 1);
     	$videos		= $tag->videos->where('published', '=', 1);
-    	// $tags 		= Tag::usedTags();
+
 
         $relatedBooks =  Tag::related($books);
         $relatedArticles =  Tag::related($articles);
@@ -28,10 +28,6 @@ class TagsController extends Controller
         ])));
 
         $tags = Tag::all()->whereIn('id', $allTags)->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
-
-        // $allTagsSorted = sort($allTags);
-
-        // dd($tags);
 
     	if ($tag->count()) {
     	return view('tags', compact('books', 'articles','insights', 'videos', 'tag', 'tags'));
@@ -63,15 +59,4 @@ class TagsController extends Controller
         return view('tags.index', compact('ordered', 'numbers'));
     }
 
-    // public function related($tag)
-    // {
-    //     $ids = [];
-    //     $i = 0;
-    //     foreach($tag as $t) {
-    //         $ids['taggable_id'][$i] = $t['pivot']->taggable_id;
-    //         $ids['taggable_type'][$i] = $t['pivot']->taggable_type;
-    //         $i++;
-    //     }
-    //     return $ids;
-    // }
 }
