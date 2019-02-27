@@ -26,7 +26,13 @@
                 <p class="social-footer text-center">
                     <a href="https://www.facebook.com/brucerich" target="_blank"><img src="{{ asset('img/facebook.png') }}" alt="facebook.com"></a>
                     <a href="https://www.linkedin.com/in/bruce-rich-3ba56b15" target="_blank"><img src="{{ asset('img/linkedin.png') }}" alt="linkedin.com"></a></p>
-                <p class="small text-center show-for-medium">&copy; 2018 Bruce Rich | All Rights Reserved</p>
+                <p class="small text-center show-for-medium">&copy; 2018-<script type="text/javascript">
+<!--
+var currentTime = new Date()
+var year = (currentTime.getFullYear() + '').substring(2,4)
+document.write(year)
+//-->
+</script> Bruce Rich | All Rights Reserved</p>
             </div> <!-- .cell medium-3 -->
             <div class="cell medium-auto">
                 <p class="text-center"><img class="mail-icon show-for-medium" src="{{ asset('img/mail-icon.png') }}" alt=""></p>
@@ -45,7 +51,13 @@
                             <input type="email" name="email" placeholder="Enter your email"><input type="submit" value=">">
                         </form>
                     </span>
-                <p class="small text-center hide-for-medium">&copy; 2018 Bruce Rich | All Rights Reserved</p>
+                <p class="small text-center hide-for-medium">&copy; 2018-<script type="text/javascript">
+<!--
+var currentTime = new Date()
+var year = (currentTime.getFullYear() + '').substring(2,4)
+document.write(year)
+//-->
+</script> Bruce Rich | All Rights Reserved</p>
             </div> <!-- .cell .medium-5 -->
         </div> <!-- #footer -->
     </div> <!-- .grid-container -->
