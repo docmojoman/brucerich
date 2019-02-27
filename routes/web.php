@@ -47,7 +47,7 @@ Route::get('info', 'PageController@info');
 
 
 /* Admin Routes */
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/admin', function () {
     return view('admin.dashboard');
