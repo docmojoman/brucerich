@@ -11950,8 +11950,9 @@ img#portrait {
 #media .view-less {
   margin-top: 0px;
   display: block;
-  height: 30px;
+  height: 130px;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 #media .view-more {

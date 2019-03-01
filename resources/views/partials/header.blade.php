@@ -58,6 +58,10 @@
                                 <a href="{{ url('/insights') }}" class="menu-title show-for-medium">Insights</a>
                             </li>
                             <li>
+                                <a href="{{ url('/search#mobile') }}" class="menu-title hide-for-medium">Search</a>
+                                <a href="{{ url('/search') }}" class="menu-title show-for-medium">Search</a>
+                            </li>
+                            <li>
                                 <a href="{{ url('/contact#mobile') }}" class="menu-title hide-for-medium">Contact</a>
                                 <a href="{{ url('/contact') }}" class="menu-title show-for-medium">Contact</a>
                             </li>

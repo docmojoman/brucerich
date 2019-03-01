@@ -47,10 +47,10 @@
                 @endif
               </div> <!-- card-section -->
               <div class="card-section">
-                <div id="caption-{{ $video->id }}" data-toggler=".view-more" class="view-less">{!! $video->caption !!}</div>
+                <div id="caption-{{ $video->id }}" class="view-less">{!! $video->caption !!}</div> <!-- data-toggler removed -->
                 @if(strlen($video->caption) > 90)
                 <p class="text-right">
-                  <a href="video/{{ $video->slug }}">Watch Video</a> | <a data-toggle="caption-{{ $video->id }}">more…</a>
+                  <a href="video/{{ $video->slug }}">More&hellip;</a>
                 </p>
                 @else
                 <p class="margin-top-5">&nbsp</p>

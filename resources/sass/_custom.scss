@@ -355,8 +355,6 @@ p.width-90 {
 	border-right: 1px solid #cacaca;
 }
 
-
-
 #header {
     padding: 3rem 0rem; /* 4.75rem */
 }
@@ -888,8 +886,9 @@ img#portrait {
 	.view-less {
 		margin-top: 0px;
 		display: block;
-		height: 30px;
+		height: 130px; // 30px
 		overflow: hidden;
+		overflow-y: scroll; // modification
 	}
 
 	.view-more {

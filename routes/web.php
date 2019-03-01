@@ -12,7 +12,9 @@
 */
 
 /* Guest Routes */
-Route::get('/', 'PageController@index')->name('home');
+Route::get('/', 'PageController@index');
+
+Route::get('/home', 'PageController@index');
 
 Route::get('/about', 'PageController@about');
 
@@ -35,6 +37,8 @@ Route::get('/insight/{insight}', 'InsightsController@show');
 Route::get('/tag/{tag}', 'TagsController@index');
 
 Route::get('/tags', 'TagsController@all');
+
+Route::get('/search', 'TagsController@all');
 
 Route::get('/contact', 'ContactController@index');
 
