@@ -31,10 +31,10 @@
           @if(count($videos))
           @foreach($videos as $video)
           <div class="cell">
-            <div class="shadow card">
+            <div class="shadow card margin-bottom-30">
               <div class="card-section">
-                @if(strlen($video->title) >= 60)
-                <h1 class="h5"><a href="video/{{ $video->slug }}" title="{{ $video->title }}" class="black">{{ substr($video->title, 0, 60) }}&hellip;</a></h1>
+                @if(strlen($video->title) >= 50)
+                <h1 class="h5"><a href="video/{{ $video->slug }}" title="{{ $video->title }}" class="black">{{ substr($video->title, 0, 50) }}&hellip;</a></h1>
                 @else
                 <h1 class="h5"><a href="video/{{ $video->slug }}" title="{{ $video->title }}" class="black">{{ $video->title }}</a></h1>
                 @endif
