@@ -24,7 +24,7 @@
         <div class="grid-x grid-margin-x">
             <div class="cell medium-12">
                 <h1 class="h2">Contact</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed nesciunt, aliquam mollitia amet perspiciatis quidem veritatis illo. Eos nobis quas quisquam iste, nam odio soluta dolorem rerum delectus, non!</p>
+                <p>If you wish to contact me or have questions, please fill out the short form—it only asks for name and email address, and of course a message, and I will try to get back to you. When you reply, you will be asked to check a box that indicates that you are a real person (this is simply to limit the growing volumes of spam that plague all websites).</p>
             </div> <!-- .cell .medium-12 -->
         </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->

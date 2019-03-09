@@ -24,7 +24,7 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
           <h1 class="h2 uppercase black">Insights</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quo eum voluptas cumque, totam recusandae. Quae eum at sunt, officia ipsum quibusdam natus officiis nesciunt sed? Harum consequatur, architecto sapiente! Consectetur adipisicing elit. Consequuntur similique odio reiciendis odit temporibus atque libero quaerat quis nisi laboriosam, quibusdam omnis, dolor, fugiat beatae mollitia labore possimus nihil ipsum?</p>
+          <p class="lead">Reflections on both current and historical, philosophical issues. This section also explores themes for a new book on contemporary global dilemmas viewed through the perspectives of history, travel and philosophy.</p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->

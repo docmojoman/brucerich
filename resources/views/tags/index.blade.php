@@ -24,7 +24,7 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
           <h1 class="h2 uppercase black">Tags</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta veritatis reiciendis, ex officia ut quibusdam, fuga? Rem doloremque, eos molestias esse quibusdam in dolores architecto error odio est aliquid neque.</p>
+          <p class="lead">This section has a constantly updated, expanding list of tags for issues, places, persons, and themes dealt with in my books, articles, and media.</p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
