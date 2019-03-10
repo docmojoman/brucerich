@@ -35,7 +35,13 @@
       <!-- Article Row -->
       <div class="grid-x grid-margin-x article-row align-middle">
         <div class="cell medium-2 list-icon show-for-medium">
-          <a href="{{ url('/book', $book->slug) }}"><img src="{{ $book->image }}" alt="{{ $book->title }}"></a>
+          <a href="{{ url('/book', $book->slug) }}">
+            @if($book->image != null)
+            <img src="{{ $book->image }}" alt="{{ $book->title }}">
+            @else
+            <img src="{{ asset('img/fpo-image.jpg') }}" alt="">
+            @endif
+          </a>
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
           <h2 class="h3 hide-for-medium"><a href="{{ url('/book', $book->slug) }}#mobile">{{ $book->title }}</a></h2>
