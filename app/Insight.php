@@ -99,6 +99,34 @@ class Insight extends Model
     }
 
     /**
+    * Public Menu View Composer
+    * Public List Page
+    */
+    // public static function insights()
+    // {
+    //     $sortable_type = 'insight';
+    //     $unsorted_insights = static::where('published', 1)->get();
+    //     $insightIds = $unsorted_insights->pluck('id');
+    //     $order = \App\Sort::groupOrder($sortable_type, $insightIds)->pluck('sortable_id');
+
+    //     if ($order != null) {
+    //         // Use SortableCollection Class
+    //         $ordered = $unsorted_insights->sortByIds($order->toArray());
+
+    //         $bks = $ordered->values()->toArray();
+
+    //         $insights = array_map(function($array){
+    //             return (object)$array;
+    //         }, $bks);
+    //     } else {
+    //         $insights = static::all();
+    //     }
+
+    //     return $insights;
+    // }
+
+
+    /**
      * Get all of the tags for the insight.
      */
     public function tags()

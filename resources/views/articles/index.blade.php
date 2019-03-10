@@ -44,7 +44,7 @@
     </div> <!-- #article-title -->
     <div id="articles-list"> <!-- bite hero  -->
     <div class="grid-container">
-      @if($articles->count())
+      @if(count($articles) >= 1)
       @foreach ($articles as $article)
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
@@ -76,13 +76,13 @@
       </div>
       @endif
       <!-- Pagination Row -->
-      <div class="grid-x grid-margin-x article-row-last align-middle">
-        <div class="cell medium-auto medium-offset-2 list-title">
-          @if($articles->links() != null)
+      <!-- <div class="grid-x grid-margin-x article-row-last align-middle">
+        <div class="cell medium-auto medium-offset-2 list-title"> -->
+          {{-- @if($articles->links() != null)
           {{ $articles->links() }}
-          @endif
-        </div> <!-- .cell .medium-auto .medium-offset-2 .list-title -->
-      </div> <!-- .grid-x .grid-margin-x article-row -->
+          @endif --}}
+        <!-- </div> .cell .medium-auto .medium-offset-2 .list-title -->
+      <!-- </div> .grid-x .grid-margin-x article-row -->
       <!-- ./Pagination Row -->
     </div> <!-- grid-container -->
     </div> <!-- article nav -->

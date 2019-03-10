@@ -28,7 +28,7 @@ Route::get('/book/{book}', 'BooksController@show');
 
 Route::get('/article/{article}', 'ArticlesController@show');
 
-Route::get('/articles/{id?}', 'ArticlesController@index');
+Route::get('/articles/{id?}/{title?}', 'ArticlesController@index');
 
 Route::get('/insights', 'InsightsController@index');
 

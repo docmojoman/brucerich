@@ -24,10 +24,12 @@ class ArticlesController extends Controller
 
         } else {
             $category = \App\ArticleGroup::findOrFail($id);
-            $articles = \App\Article::where([
-                ['group_id', '=', $id],
-                ['published', '=', '1'],
-            ])->paginate(10);
+            // $articles = \App\Article::where([
+            //     ['group_id', '=', $id],
+            //     ['published', '=', '1'],
+            // ])->paginate(10);
+
+            $articles = \App\Article::articles();
         }
 
         return view('articles.index', compact('articles', 'category'));

@@ -49,14 +49,22 @@ class Article extends Model
             // Use SortableCollection Class
             $ordered = $unsorted_articles->sortByIds($order->toArray());
 
+            // dd($ordered);
+
             $arts = $ordered->values()->toArray();
 
             $articles = array_map(function($array){
                 return (object)$array;
             }, $arts);
+
+            // $articles = collect($arts)->map(function ($item) {
+            //     return (object) $item;
+            // });
         } else {
             $articles = static::all();
         }
+
+        // dd($articles);
 
         return $articles;
     }
