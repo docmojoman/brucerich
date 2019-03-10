@@ -93,45 +93,63 @@ class Insight extends Model
     * Public Menu
     * View Composer
     */
-    public static function insights()
-    {
-        return static::where('published', 1)->pluck('id', 'title');
-    }
+    // public static function insights()
+    // {
+    //     return static::where('published', 1)->pluck('id', 'title');
+    // }
 
     /**
     * Public Menu View Composer
     * Public List Page
     */
-    // public static function insights()
-    // {
-    //     $sortable_type = 'insight';
-    //     $unsorted_insights = static::where('published', 1)->get();
-    //     $insightIds = $unsorted_insights->pluck('id');
-    //     $order = \App\Sort::groupOrder($sortable_type, $insightIds)->pluck('sortable_id');
+    public static function insights()
+    {
+        $sortable_type = 'insight';
+        $unsorted_insights = static::where('published', 1)->get();
+        $insightIds = $unsorted_insights->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $insightIds)->pluck('sortable_id');
 
-    //     if ($order != null) {
-    //         // Use SortableCollection Class
-    //         $ordered = $unsorted_insights->sortByIds($order->toArray());
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_insights->sortByIds($order->toArray());
 
-    //         $bks = $ordered->values()->toArray();
+            $insts = $ordered->values()->toArray();
 
-    //         $insights = array_map(function($array){
-    //             return (object)$array;
-    //         }, $bks);
-    //     } else {
-    //         $insights = static::all();
-    //     }
+            $insights = array_map(function($array){
+                return (object)$array;
+            }, $insts);
+        } else {
+            $insights = static::all();
+        }
 
-    //     return $insights;
-    // }
+        return $insights;
+    }
 
 
     /**
      * Get all of the tags for the insight.
      */
-    public function tags()
+    public static function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Enable SortableCollection Sorting Feature.
+     */
+    public function newCollection(array $models = array())
+    {
+        return new SortableCollection($models);
+    }
+
+    /**
+     * Get all of the order positions for the insight.
+     * $insight->position()->attach(#);
+     */
+    public function position()
+    {
+        return $this->morphToMany('App\Sort', 'sortable')
                     ->withTimestamps();
     }
 

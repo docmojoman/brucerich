@@ -26,7 +26,24 @@ class InsightsController extends Controller
      */
     public function index()
     {
-        $insights = \App\Insight::all()->sortByDesc('id');
+        // $insights = \App\Insight::all()->sortByDesc('id');
+        $sortable_type = 'insight';
+        $unsorted_insights = Insight::all();
+        $insightIds = $unsorted_insights->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $insightIds)->pluck('sortable_id');
+
+        if ($order != null) {
+            // Use SortableCollection Class
+            $ordered = $unsorted_insights->sortByIds($order->toArray());
+
+            $insts = $ordered->values()->toArray();
+
+            $insights = array_map(function($array){
+                return (object)$array;
+            }, $insts);
+        } else {
+            $insights = Insight::all();
+        }
 
         return view('admin.insights.index', compact('insights'));
     }
