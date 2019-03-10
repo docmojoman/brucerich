@@ -129,7 +129,7 @@ class Insight extends Model
     /**
      * Get all of the tags for the insight.
      */
-    public static function tags()
+    public function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable')
                     ->withTimestamps();
