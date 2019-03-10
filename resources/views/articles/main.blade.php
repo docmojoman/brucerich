@@ -37,7 +37,7 @@
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('articles', $section->id) . '/' . str_slug($section->title, '-') }}">{{ $section->title }}</a></h2>
+          <h2 class="h3"><a href="{{ url('articles', $section->id) }}">{{ $section->title }}</a></h2>
           <p>{{ str_limit($section->description, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
