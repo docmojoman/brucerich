@@ -29,7 +29,7 @@ class ArticlesController extends Controller
             //     ['published', '=', '1'],
             // ])->paginate(10);
 
-            $articles = \App\Article::articles();
+            $articles = \App\Article::articles($id);
         }
 
         return view('articles.index', compact('articles', 'category'));

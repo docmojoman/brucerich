@@ -37,10 +37,10 @@ class Article extends Model
     /**
     * Public List Page
     */
-    public static function articles()
+    public static function articles($group_id)
     {
         $sortable_type = 'article';
-        $unsorted_articles = static::where('published', 1)->get();
+        $unsorted_articles = static::where([['group_id', '=', $group_id], ['published', '=', 1]])->get();
         // dd($unsorted_articles);
         $articleIds = $unsorted_articles->pluck('id');
         $order = \App\Sort::groupOrder($sortable_type, $articleIds)->pluck('sortable_id');
