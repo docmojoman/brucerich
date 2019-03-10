@@ -15,14 +15,15 @@ class InsightsController extends Controller
      */
     public function index()
     {
-        $insights = \App\Insight::where('published', 1)
-                    ->orderBy('id', 'desc')
-                    ->paginate(10);
-
-        // $insights = \App\Insight::insights()
+        // $insights = \App\Insight::where('published', 1)
+        //             ->orderBy('id', 'desc')
         //             ->paginate(10);
 
-        $relatedInsights =  \App\Tag::relatedGroupTags('insight', $insights->pluck('id'));
+        $insights = \App\Insight::insights();
+
+        // return array_pluck($insights, 'id');
+
+        $relatedInsights =  \App\Tag::relatedGroupTags('insight', array_pluck($insights, 'id'));
 
         $allTags = array_values(array_unique(array_collapse([
             $relatedInsights,

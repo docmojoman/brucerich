@@ -36,7 +36,7 @@
         <div class="cell medium-9">
           <!-- Blog Row -->
           <ul class="list-row">
-            @if($insights->count())
+            @if(count($insights))
               @foreach($insights as $insight)
             <li>
               <h2 class="h3 hide-for-medium"><a href="{{ url('/insight', $insight->slug) }}#mobile">{{ $insight->title }}</a></h2>
@@ -66,11 +66,11 @@
         <!-- /tags column -->
       </div> <!-- /#blog-list -->
           <!-- Pagination Row -->
-          <div class="grid-x grid-margin-x article-row-last align-middle">
-            <div class="cell medium-12">
-              {{ $insights->links() }}
-            </div>
-          </div>
+          <!-- <div class="grid-x grid-margin-x article-row-last align-middle">
+            <div class="cell medium-12"> -->
+              {{-- {{ $insights->links() }} --}}
+            <!-- </div> -->
+          <!-- </div> -->
           <!-- ./Pagination Row -->
     </div> <!-- grid-container -->
     </div> <!-- blog nav -->
