@@ -145,4 +145,15 @@ class Interview extends Model
                     ->withTimestamps();
     }
 
+    /**
+     * Scope a query to only include published articles.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePubd($query)
+    {
+        return $query->where('published', '=', 1);
+    }
+
 }

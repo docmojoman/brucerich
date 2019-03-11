@@ -30,7 +30,7 @@ Route::get('/article/{article}', 'ArticlesController@show');
 
 Route::get('/articles/{id?}/{title?}', 'ArticlesController@index');
 
-Route::get('/interviews/{interview}', 'InterviewsController@show');
+Route::get('/interview/{interview}', 'InterviewsController@show');
 
 Route::get('/interviews', 'InterviewsController@index');
 
@@ -136,7 +136,7 @@ Route::get('/admin/insights/delete/{id}', 'Admin\InsightsController@destroy');
 Route::get('/admin/insights/publish/{id}', 'Admin\InsightsController@publish');
 
 
-// Interview
+// Interviews
 Route::get('/admin/interviews/create', 'Admin\InterviewsController@create');
 
 Route::get('/admin/interviews', 'Admin\InterviewsController@index');

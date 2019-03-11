@@ -1,7 +1,7 @@
 @extends('layouts.public')
-@section('title', '- Articles')
+@section('title', '- Interviews')
 @section('content')
-    <a name="articles" class="hide-for-medium"></a>
+    <a name="interviews" class="hide-for-medium"></a>
     <div id="br-breadcrumbs">
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
@@ -10,18 +10,9 @@
             <ul class="breadcrumbs">
               <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
               <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
-              @empty($category)
               <li>
-                <span class="show-for-sr">Current: </span> Articles
+                <span class="show-for-sr">Current: </span> Interviews
               </li>
-              @endempty
-              @if(isset($category))
-              <li class="hide-for-medium"><a href="{{ url('articles') }}#mobile">Articles</a></li>
-              <li class="show-for-medium"><a href="{{ url('articles') }}">Articles</a></li>
-              <li>
-                <span class="show-for-sr">Current: </span> {{ $category->title }}
-              </li>
-              @endif
             </ul>
           </nav>
         </div> <!-- .cell .medium-12 -->
@@ -32,40 +23,35 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          @if(isset($category))
-          <h1 class="h2">{{ $category->title }}</h1>
-          <p class="lead">{{ $category->description }}</p>
-          @else
-          <h1 class="h2">Articles</h1>
-          @endif
+          <h1 class="h2">Interviews</h1>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
     </div> <!-- #article-title -->
     <div id="articles-list"> <!-- bite hero  -->
     <div class="grid-container">
-      @if(count($articles) >= 1)
-      @foreach ($articles as $article)
+      @if(count($interviews) >= 1)
+      @foreach ($interviews as $interview)
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
         <div class="cell medium-2 list-icon">
-          @if($article->image != null)
-          <a href="{{ url('article', $article->slug) }}"><img src="{{ $article->image }}" alt="{{ $article->title }}"></a>
+          @if($interview->image != null)
+          <a href="{{ url('interview', $interview->slug) }}"><img src="{{ $interview->image }}" alt="{{ $interview->title }}"></a>
           @else
-          <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt="{{ $article->title }}"></a>
+          <a href="{{ url('interview', $interview->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt="{{ $interview->title }}"></a>
           @endif
         </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('article', $article->slug) }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit($article->introduction, 360) }}</p>
+          <h2 class="h3"><a href="{{ url('interview', $interview->slug) }}">{{ $interview->title }}</a></h2>
+          <p>{{ str_limit($interview->introduction, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Desktop -->
       <!-- Article Row Mobile -->
       <div class="grid-x grid-margin-x article-row align-middle hide-for-medium">
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('article', $article->slug) . '#mobile' }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit($article->introduction, 360) }}</p>
+          <h2 class="h3"><a href="{{ url('interview', $interview->slug) . '#mobile' }}">{{ $interview->title }}</a></h2>
+          <p>{{ str_limit($interview->introduction, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Mobile -->
@@ -78,7 +64,7 @@
       <!-- Pagination Row -->
       <!-- <div class="grid-x grid-margin-x article-row-last align-middle">
         <div class="cell medium-auto medium-offset-2 list-title"> -->
-          {{-- @if($articles->links() != null)
+          {{-- @if($interviews->links() != null)
           {{ $articles->links() }}
           @endif --}}
         <!-- </div> .cell .medium-auto .medium-offset-2 .list-title -->

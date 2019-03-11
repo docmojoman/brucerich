@@ -101,7 +101,7 @@ class InterviewsController extends Controller
             }
         }
 
-        return redirect('admin/interviews')->with('status', 'Insight created!');
+        return redirect('admin/interviews')->with('status', 'Interview created!');
     }
 
     /**
@@ -110,7 +110,7 @@ class InterviewsController extends Controller
      * @param  \App\Interviews  $interviews
      * @return \Illuminate\Http\Response
      */
-    public function show(Insight $interview)
+    public function show(Interview $interview)
     {
         // $interview = \App\Interview::find($id);
         $tags = $interview->tags;

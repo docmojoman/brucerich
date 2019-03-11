@@ -41,6 +41,16 @@
       <hr />
       <div class="grid-x grid-margin-x margin-top-40">
         <div class="cell medium-3">
+          <h2>Interviews</h2>
+        </div>
+        <div class="cell medium-6">
+          <a class="button large dark expanded uppercase" href="{{ url('admin/interviews/create') }}">Add interview</a>
+          <a class="button large dark expanded uppercase" href="{{ url('admin/interviews') }}">Edit interviews</a>
+        </div>
+      </div>
+      <hr />
+      <div class="grid-x grid-margin-x margin-top-40">
+        <div class="cell medium-3">
           <h2>Video</h2>
         </div>
         <div class="cell medium-6">

@@ -15,13 +15,6 @@
                 <span class="show-for-sr">Current: </span> Articles
               </li>
               @endempty
-              @if(isset($category))
-              <li class="hide-for-medium"><a href="{{ url('articles') }}#mobile">Articles</a></li>
-              <li class="show-for-medium"><a href="{{ url('articles') }}">Articles</a></li>
-              <li>
-                <span class="show-for-sr">Current: </span> {{ $category->title }}
-              </li>
-              @endif
             </ul>
           </nav>
         </div> <!-- .cell .medium-12 -->
@@ -32,40 +25,28 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
-          @if(isset($category))
-          <h1 class="h2">{{ $category->title }}</h1>
-          <p class="lead">{{ $category->description }}</p>
-          @else
           <h1 class="h2">Articles</h1>
-          @endif
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
     </div> <!-- #article-title -->
     <div id="articles-list"> <!-- bite hero  -->
     <div class="grid-container">
-      @if(count($articles) >= 1)
-      @foreach ($articles as $article)
+      @if($sections != null)
+      @foreach ($sections as $section)
       <!-- Article Row Desktop -->
       <div class="grid-x grid-margin-x article-row align-middle show-for-medium">
-        <div class="cell medium-2 list-icon">
-          @if($article->image != null)
-          <a href="{{ url('article', $article->slug) }}"><img src="{{ $article->image }}" alt="{{ $article->title }}"></a>
-          @else
-          <a href="{{ url('article', $article->slug) }}"><img src="{{ asset('img/00-article_fpo.jpg') }}" alt="{{ $article->title }}"></a>
-          @endif
-        </div> <!-- .cell .medium-2 -->
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('article', $article->slug) }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit($article->introduction, 360) }}</p>
+          <h2 class="h3"><a href="{{ url('articles', $section->id) . '/' . str_slug($section->title, '-') }}">{{ $section->title }}</a></h2>
+          <p>{{ str_limit($section->description, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Desktop -->
       <!-- Article Row Mobile -->
       <div class="grid-x grid-margin-x article-row align-middle hide-for-medium">
         <div class="cell medium-auto list-title">
-          <h2 class="h3"><a href="{{ url('article', $article->slug) . '#mobile' }}">{{ $article->title }}</a></h2>
-          <p>{{ str_limit($article->introduction, 360) }}</p>
+          <h2 class="h3"><a href="{{ url('articles', $section->id) . '#mobile' }}">{{ $section->title }}</a></h2>
+          <p>{{ str_limit($section->description, 360) }}</p>
         </div> <!-- .cell .medium-auto .list-title -->
       </div> <!-- .grid-x .grid-margin-x article-row -->
       <!-- ./Article Row Mobile -->
@@ -75,15 +56,6 @@
         <div class="cell v-space-30">&nbsp;</div>
       </div>
       @endif
-      <!-- Pagination Row -->
-      <!-- <div class="grid-x grid-margin-x article-row-last align-middle">
-        <div class="cell medium-auto medium-offset-2 list-title"> -->
-          {{-- @if($articles->links() != null)
-          {{ $articles->links() }}
-          @endif --}}
-        <!-- </div> .cell .medium-auto .medium-offset-2 .list-title -->
-      <!-- </div> .grid-x .grid-margin-x article-row -->
-      <!-- ./Pagination Row -->
     </div> <!-- grid-container -->
     </div> <!-- article nav -->
 @endsection
