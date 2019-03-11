@@ -220,9 +220,9 @@ class VideosController extends Controller
 
     public function publish($id)
     {
-        \App\Video::publish($id);
+        $status = \App\Video::publish($id);
 
-        return back();
+        return back()->with(compact('status'));
     }
 
 }

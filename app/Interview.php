@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Book extends Model
+class Interview extends Model
 {
     use SoftDeletes;
 
@@ -29,19 +29,24 @@ class Book extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function sections()
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
     {
-    	return $this->hasMany('App\Section');
+        return 'slug';
     }
 
     public function setTitleAttribute($value)
     {
-    	$this->attributes['title']	= $value;
-    	$this->attributes['slug']	= $this->uniqueSlug($value);
+        $this->attributes['title']  = $value;
+        $this->attributes['slug']   = $this->uniqueSlug($value);
     }
 
     /**
-     * Create a unique slug.
+     * Create a conversation slug.
      *
      * @param  string $title
      * @return string
@@ -57,7 +62,7 @@ class Book extends Model
 
     /**
      * Add method for fetching published.
-     * \App\Book::published();
+     * \App\Interview::published();
      */
     public static function published()
     {
@@ -65,67 +70,56 @@ class Book extends Model
     }
 
     /**
-     * Add method for publishing.
-     * \App\Article::publish($id);
+     * Method for publishing.
      */
     public static function publish($id)
     {
-        $book = static::find($id);
+        $interview = static::find($id);
 
-        if ($book->published == 0) {
+        if ($interview->published == 0) {
 
-            $book->published = 1;
-            $book->save();
-            $status = "Book published!";
+            $interview->published = 1;
+            $interview->save();
+            $status = "Interview published!";
             return $status;
         }
 
-        $book->published = 0;
-        $book->save();
-        $status = "Book un-published!";
+        $interview->published = 0;
+        $interview->save();
+        $status = "Interview un-published!";
         return $status;
-    }
-
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 
     /**
     * Public Menu View Composer
     * Public List Page
     */
-    public static function books()
+    public static function interviews()
     {
-        $sortable_type = 'book';
-        $unsorted_books = static::where('published', 1)->get();
-        $bookIds = $unsorted_books->pluck('id');
-        $order = \App\Sort::groupOrder($sortable_type, $bookIds)->pluck('sortable_id');
+        $sortable_type = 'interview';
+        $unsorted_interviews = static::where('published', 1)->get();
+        $interviewIds = $unsorted_interviews->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $interviewIds)->pluck('sortable_id');
 
         if ($order != null) {
             // Use SortableCollection Class
-            $ordered = $unsorted_books->sortByIds($order->toArray());
+            $ordered = $unsorted_interviews->sortByIds($order->toArray());
 
-            $bks = $ordered->values()->toArray();
+            $insts = $ordered->values()->toArray();
 
-            $books = array_map(function($array){
+            $interviews = array_map(function($array){
                 return (object)$array;
-            }, $bks);
+            }, $insts);
         } else {
-            $books = static::all();
+            $interviews = static::all();
         }
 
-        return $books;
+        return $interviews;
     }
 
+
     /**
-     * Get all of the tags for the book.
+     * Get all of the tags for the insight.
      */
     public function tags()
     {
@@ -142,8 +136,8 @@ class Book extends Model
     }
 
     /**
-     * Get all of the order positions for the book.
-     * $book->position()->attach(#);
+     * Get all of the order positions for the insight.
+     * $interview->position()->attach(#);
      */
     public function position()
     {

@@ -30,6 +30,10 @@ Route::get('/article/{article}', 'ArticlesController@show');
 
 Route::get('/articles/{id?}/{title?}', 'ArticlesController@index');
 
+Route::get('/interviews/{interview}', 'InterviewsController@show');
+
+Route::get('/interviews', 'InterviewsController@index');
+
 Route::get('/insights', 'InsightsController@index');
 
 Route::get('/insight/{insight}', 'InsightsController@show');
@@ -130,6 +134,24 @@ Route::patch('/admin/insights/{id}', 'Admin\InsightsController@update');
 Route::get('/admin/insights/delete/{id}', 'Admin\InsightsController@destroy');
 
 Route::get('/admin/insights/publish/{id}', 'Admin\InsightsController@publish');
+
+
+// Interview
+Route::get('/admin/interviews/create', 'Admin\InterviewsController@create');
+
+Route::get('/admin/interviews', 'Admin\InterviewsController@index');
+
+Route::post('/admin/interviews', 'Admin\InterviewsController@store');
+
+Route::get('/admin/interview/{interview}', 'Admin\InterviewsController@show');
+
+Route::get('/admin/interviews/edit/{id}', 'Admin\InterviewsController@edit');
+
+Route::patch('/admin/interviews/{id}', 'Admin\InterviewsController@update');
+
+Route::get('/admin/interviews/delete/{id}', 'Admin\InterviewsController@destroy');
+
+Route::get('/admin/interviews/publish/{id}', 'Admin\InterviewsController@publish');
 
 
 // Videos

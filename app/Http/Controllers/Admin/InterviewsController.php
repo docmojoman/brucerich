@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Insight;
+use App\Interview;
 
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
-class InsightsController extends Controller
+class InterviewsController extends Controller
 {
     /**
      * Protected for Admin.
@@ -26,26 +26,26 @@ class InsightsController extends Controller
      */
     public function index()
     {
-        // $insights = \App\Insight::all()->sortByDesc('id');
-        $sortable_type = 'insight';
-        $unsorted_insights = Insight::all();
-        $insightIds = $unsorted_insights->pluck('id');
-        $order = \App\Sort::groupOrder($sortable_type, $insightIds)->pluck('sortable_id');
+        // $interviews = \App\Interview::all()->sortByDesc('id');
+        $sortable_type = 'interview';
+        $unsorted_interviews = Interview::all();
+        $interviewIds = $unsorted_interviews->pluck('id');
+        $order = \App\Sort::groupOrder($sortable_type, $interviewIds)->pluck('sortable_id');
 
         if ($order != null) {
             // Use SortableCollection Class
-            $ordered = $unsorted_insights->sortByIds($order->toArray());
+            $ordered = $unsorted_interviews->sortByIds($order->toArray());
 
-            $insts = $ordered->values()->toArray();
+            $intrvw = $ordered->values()->toArray();
 
-            $insights = array_map(function($array){
+            $interviews = array_map(function($array){
                 return (object)$array;
-            }, $insts);
+            }, $intrvw);
         } else {
-            $insights = Insight::all();
+            $interviews = Interview::all();
         }
 
-        return view('admin.insights.index', compact('insights'));
+        return view('admin.interviews.index', compact('interviews'));
     }
 
     /**
@@ -56,7 +56,7 @@ class InsightsController extends Controller
     public function create()
     {
 
-        return view('admin.insights.create');
+        return view('admin.interviews.create');
     }
 
     /**
@@ -72,13 +72,18 @@ class InsightsController extends Controller
         ]);
 
         // Store Request Data
-        $insight = Insight::create([
+        $interview = Interview::create([
             'user_id'       => \Auth::id(),
             'title'         => request('title'),
             'author'        => request('author'),
+            'publication'   => request('publication'),
+            'date'          => request('date'),
+            'page'          => request('page'),
             'introduction'   => request('introduction'),
             'description'   => request('description'),
-            'copy'          => request('copy'),
+            'image'         => request('image'),
+            'link'          => request('link'),
+            'pdf'           => request('pdf'),
         ]);
 
         // Attach Tags
@@ -86,82 +91,74 @@ class InsightsController extends Controller
             foreach ($request->tags as $tag) {
                 $tagHasId = \App\Tag::hasId($tag);
                 if ($tagHasId) {
-                    if (\App\Tag::taggedAlready($tagHasId, $insight->id, 'insight')->count() <= 0) {
-                        $insight->tags()->attach($tagHasId);
+                    if (\App\Tag::taggedAlready($tagHasId, $interview->id, 'interview')->count() <= 0) {
+                        $interview->tags()->attach($tagHasId);
                     }
                 } else {
                     $newTag = \App\Tag::create(['name' => $tag]);
-                    $insight->tags()->attach($newTag->id);
+                    $interview->tags()->attach($newTag->id);
                 }
             }
         }
 
-        // Attach Tags
-        // if (request('tags')) {
-        //     foreach (request('tags') as $tag) {
-        //         if (!\App\Tag::exists($tag)) {
-        //             $tag = \App\Tag::create(['name' => $tag]);
-        //         }
-        //         $insight->tags()->attach($tag);
-        //     }
-        // }
-
-        // return $request;
-        return redirect('admin/insights')->with('status', 'Insight created!');
+        return redirect('admin/interviews')->with('status', 'Insight created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Insights  $insights
+     * @param  \App\Interviews  $interviews
      * @return \Illuminate\Http\Response
      */
-    public function show(Insight $insight)
+    public function show(Insight $interview)
     {
-        // $insight = \App\Insight::find($id);
-        $tags = $insight->tags;
+        // $interview = \App\Interview::find($id);
+        $tags = $interview->tags;
 
-        return view('admin.insights.show', compact('insight', 'tags'));
+        return view('admin.interviews.show', compact('interview', 'tags'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Insights  $insights
+     * @param  \App\Interviews  $interviews
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $insight = \App\Insight::find($id);
+        $interview = \App\Interview::find($id);
 
-        $tags = $insight->tags;
+        $tags = $interview->tags;
 
-        $library = true;
-
-        return view('admin.insights.edit', compact('insight', 'tags'));
+        return view('admin.interviews.edit', compact('interview', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Insights  $insights
+     * @param  \App\Interviews  $interviews
      * @return \Illuminate\Http\Response
      */
     public function update($id)
     {
         // Store Request Data
-        Insight::where('id', $id)
+        Interview::where('id', $id)
                 ->update([
                     'user_id'       => \Auth::id(),
                     'title'         => request('title'),
                     'author'        => request('author'),
+                    'publication'   => request('publication'),
+                    'date'          => request('date'),
+                    'page'          => request('page'),
                     'introduction'   => request('introduction'),
                     'description'   => request('description'),
-                    'copy'   => request('copy'),
+                    'image'         => request('image'),
+                    'link'          => request('link'),
+                    'pdf'           => request('pdf'),
                 ]);
 
-        $insight = \App\Insight::find($id);
+        $interview = \App\Interview::find($id);
 
         $syncTags = [];
 
@@ -186,39 +183,39 @@ class InsightsController extends Controller
                 array_push($syncTags, $bk);
             }
             // return $syncTags;
-            $insight->tags()->sync($syncTags);
+            $interview->tags()->sync($syncTags);
 
         } else {
             // Detach All Tags
-            $oldTags = $insight->tags()->pluck('id');
+            $oldTags = $interview->tags()->pluck('id');
             // return $oldTags;
-            $insight->tags()->detach($oldTags);
+            $interview->tags()->detach($oldTags);
         }
 
         // return $request;
-        return back()->with('status', 'Insights Post updated!');
+        return back()->with('status', 'Interview updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Insights  $insights
+     * @param  \App\Interviews  $interviews
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $unlink = \App\Insight::find($id);
+        $unlink = \App\Interview::find($id);
 
         $unlink->tags()->detach();
 
-        \App\Insight::destroy($id);
+        \App\Interview::destroy($id);
 
-        return redirect('admin/insights');
+        return redirect('admin/interviews');
     }
 
     public function publish($id)
     {
-        $status = \App\Insight::publish($id);
+        $status = \App\Interview::publish($id);
 
         return back()->with(compact('status'));
     }

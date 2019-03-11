@@ -81,12 +81,14 @@ class Insight extends Model
 
             $insight->published = 1;
             $insight->save();
-            return true;
+            $status = "Post Published!";
+            return $status;
         }
 
         $insight->published = 0;
         $insight->save();
-        return true;
+        $status = "Post un-published!";
+        return $status;
     }
 
     /*

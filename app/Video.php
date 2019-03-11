@@ -122,12 +122,14 @@ class Video extends Model
 
             $video->published = 1;
             $video->save();
-            return true;
+            $status = "Video published!";
+            return $status;
         }
 
         $video->published = 0;
         $video->save();
-        return true;
+        $status = "Video un-published!";
+        return $status;
     }
 
     /**

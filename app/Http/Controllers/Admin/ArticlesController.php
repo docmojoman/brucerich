@@ -115,17 +115,6 @@ class ArticlesController extends Controller
             }
         }
 
-        // Attach Tags
-        // if (request('tags')) {
-        //     foreach (request('tags') as $tag) {
-        //         if (!\App\Tag::exists($tag)) {
-        //             $tag = \App\Tag::create(['name' => $tag]);
-        //         }
-        //         $article->tags()->attach($tag);
-        //     }
-        // }
-
-        // return $request;
         return redirect('admin/articles')->with('status', 'Article created!');
     }
 
@@ -189,7 +178,6 @@ class ArticlesController extends Controller
         $categories = \App\ArticleGroup::all();
         $article = \App\Article::find($id);
         $tags = $article->tags;
-        $library = true;
 
         return view('admin.articles.edit', compact('categories', 'article', 'tags'));
     }

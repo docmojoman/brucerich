@@ -68,6 +68,9 @@ class Sort extends Model
             case "insight":
                 return new \App\Insight;
                 break;
+            case "interview":
+                return new \App\Interview;
+                break;
             case "section":
                 return new \App\Section;
                 break;

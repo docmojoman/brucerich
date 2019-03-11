@@ -309,9 +309,9 @@ class BooksController extends Controller
 
     public function publish($id)
     {
-        \App\Book::publish($id);
+        $status = \App\Book::publish($id);
 
-        return back();
+        return back()->with(compact('status'));
     }
 
 }
