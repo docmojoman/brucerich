@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
             'articleGroup'  => 'App\ArticleGroup',
             'book'          => 'App\Book',
             'insight'       => 'App\Insight',
+            'interview'     => 'App\Interview',
             'section'       => 'App\Section',
             'video'         => 'App\Video',
         ]);

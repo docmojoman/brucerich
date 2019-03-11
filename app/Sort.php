@@ -102,10 +102,18 @@ class Sort extends Model
     /**
      * Establish the sort postion of the insight.
      */
-    // public function insights()
-    // {
-    //     return $this->morphedByMany('App\Insight', 'sortable');
-    // }
+    public function insights()
+    {
+        return $this->morphedByMany('App\Insight', 'sortable');
+    }
+
+    /**
+     * Establish the sort postion of the video.
+     */
+    public function interviews()
+    {
+        return $this->morphedByMany('App\Interview', 'sortable');
+    }
 
     /**
      * Establish the sort postion of the video.
@@ -122,4 +130,5 @@ class Sort extends Model
     {
         return $this->morphedByMany('App\Section', 'sortable');
     }
+
 }
