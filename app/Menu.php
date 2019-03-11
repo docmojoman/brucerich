@@ -13,7 +13,6 @@ class Menu extends Model
     	$articles = \App\Article::where('published', 1)->pluck('id', 'title');
 
     	$insights = \App\Insight::where('published', 1)->pluck('id', 'title');
-
-    	// return static::compact('books', 'articles', 'insights');
     }
+
 }

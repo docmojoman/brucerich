@@ -23,6 +23,7 @@
                                 </ul> <!-- .vertical .menu .align-left -->
                                 <ul class="vertical menu align-left show-for-medium">
                                     <li><a href="{{ url('/about') }}">About The Author</a></li>
+                                    <li><a href="{{ url('/interviews') }}">Interviews</a></li>
                                     <li><a href="{{ url('/media') }}">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                             </li>

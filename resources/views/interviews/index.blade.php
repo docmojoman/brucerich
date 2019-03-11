@@ -24,6 +24,7 @@
       <div class="grid-x grid-margin-x">
         <div class="cell medium-12">
           <h1 class="h2">Interviews</h1>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam tempora nobis, obcaecati natus suscipit. Placeat a rem eveniet aliquam deleniti dolor, beatae alias iste qui, modi dignissimos repellat, ipsum natus.</p>
         </div> <!-- .cell .medium-12 -->
       </div> <!-- .grid-x .grid-margin-x -->
     </div> <!-- .grid-container -->
