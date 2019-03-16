@@ -41,14 +41,16 @@ document.write(year)
                     <p class="text-center"><img class="mail-icon margin-top-20 hide-for-medium" src="{{ asset('img/mail-icon.png') }}" alt=""></p>
                     <p class="text-center margin-bottom-10 hide-for-medium">Sign-up For News And Alerts</p>
                     <span id="subscribe" class="hide-for-medium">
-                        <form action="">
-                            <input type="email" name="email" placeholder="email"><input type="submit" value=">">
+                        <form action="https://brucemrich.us20.list-manage.com/subscribe/post?u=188c9b113afb7f347ed0b96fc&amp;id=1367e8b5c4" method="post" target="_blank">
+                            <input type="text" name="b_188c9b113afb7f347ed0b96fc_1367e8b5c4" tabindex="-1" value="" class="hide">
+                            <input type="email" name="EMAIL" placeholder="email"><input type="submit" value=">">
                         </form>
                     </span>
                     <!-- desktop -->
                     <span id="subscribe" class="show-for-medium">
-                        <form action="">
-                            <input type="email" name="email" placeholder="Enter your email"><input type="submit" value=">">
+                        <form action="https://brucemrich.us20.list-manage.com/subscribe/post?u=188c9b113afb7f347ed0b96fc&amp;id=1367e8b5c4" method="post" target="_blank">
+                            <input type="text" name="b_188c9b113afb7f347ed0b96fc_1367e8b5c4" tabindex="-1" value="" class="hide">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required><input type="submit" value=">">
                         </form>
                     </span>
                 <p class="small text-center hide-for-medium">&copy; 2018-<script type="text/javascript">
