@@ -25,7 +25,7 @@ class VideosController extends Controller
     public function show(Video $video)
     {
         // $video = \App\Video::find($slug);
-        $tags = $video->tags;
+        $tags = $video->tags->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         // return $video;
 
         return view('video', compact('video', 'tags'));
