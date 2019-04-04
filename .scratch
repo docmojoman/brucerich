@@ -1,3 +1,12 @@
+ffmpeg -i test.mp4 -vf select=not(mod(n\,120)),scale=800:-1,tile=1x4 -vsync 0 in-grid.jpg
+ffmpeg -i test1.mp4 -vf select='not(mod(n\,80))',scale=120:-1,tile=6x1 -vsync 0 in-grid1.jpg
+ffmpeg -i test1.mp4 -vf select='not(mod(n\,80))',scale=120:-1,tile=6x2 -vsync 0 in-grid2.jpg
+
+
+
+
+
+
 <!-- Begin Mailchimp Signup Form -->
 <div id="mc_embed_signup">
 <form action="https://brucemrich.us20.list-manage.com/subscribe/post?u=188c9b113afb7f347ed0b96fc&amp;id=1367e8b5c4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
