@@ -24,7 +24,7 @@
         <div class="grid-x grid-margin-x">
             <div class="cell medium-12">
                 <h1 class="h2">Media</h1>
-                <p class="lead">Discussions on To Uphold the World with Canadian, Hawaiian and Indian journals, with insights into the philosophical approach of some of my writings.</p>
+                <p class="lead">Videos giving a perspective on my writings on historical and contemporary themes, as well as on my engagement as an advocate.</p>
             </div> <!-- .cell .medium-12 -->
         </div> <!-- .grid-x .grid-margin-x -->
         <!-- media grid -->

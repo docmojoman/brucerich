@@ -187,6 +187,14 @@ Route::patch('/admin/tags/{id}', 'Admin\TagsController@update');
 
 Route::get('/admin/tags/delete/{id}', 'Admin\TagsController@destroy');
 
+// About
+Route::get('/admin/about/create', 'Admin\AboutController@create');
+
+Route::get('/admin/about/edit', 'Admin\AboutController@edit');
+
+Route::patch('/admin/about', 'Admin\AboutController@update');
+
+
 
 // Filemanager
 Route::get('/admin/filemanager', 'Admin\FilesController@index');

@@ -61,6 +61,15 @@
       <hr />
       <div class="grid-x grid-margin-x margin-top-40">
         <div class="cell medium-3">
+          <h2>About Page</h2>
+        </div>
+        <div class="cell medium-6">
+          <a class="button large dark expanded uppercase" href="{{ url('admin/about/edit') }}">Edit About Page</a>
+        </div>
+      </div>
+      <hr />
+      <div class="grid-x grid-margin-x margin-top-40">
+        <div class="cell medium-3">
           <h2>Tags</h2>
         </div>
         <div class="cell medium-6">
