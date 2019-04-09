@@ -42,7 +42,7 @@ class AboutController extends Controller
             'content'         => request('content')
         ]);
 
-        return redirect('admin/about')->with('status', 'About content created!');
+        return redirect('admin/dashboard')->with('status', 'About content created!');
     }
 
     /**
@@ -55,6 +55,8 @@ class AboutController extends Controller
     {
         $about = \App\About::first();
     	// dd($about);
+    	// var_dump($about);
+    	// die;
         return view('admin.about.edit', compact('about'));
     }
 
@@ -68,10 +70,6 @@ class AboutController extends Controller
     public function update(Request $request)
     {
     	$about = \App\About::first();
-
-        if ($about == null) {
-        	$about = new \App\About;
-        }
 
         $about->introduction = request('introduction');
 

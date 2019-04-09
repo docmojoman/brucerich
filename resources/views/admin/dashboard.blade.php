@@ -64,6 +64,9 @@
           <h2>About Page</h2>
         </div>
         <div class="cell medium-6">
+          @empty($about)
+          <a class="button large dark expanded uppercase" href="{{ url('admin/about/create') }}">Create About Page Content</a>
+          @endempty
           <a class="button large dark expanded uppercase" href="{{ url('admin/about/edit') }}">Edit About Page</a>
         </div>
       </div>

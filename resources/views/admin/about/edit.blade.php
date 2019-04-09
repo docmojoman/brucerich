@@ -15,10 +15,10 @@
             @csrf
             @method('PATCH')
             <label>Introduction:
-              <textarea name="introduction" id="editor" cols="30" rows="5"><?php (isset($about->introduction)) ? $about->introduction : '' ?></textarea>
+              <textarea name="introduction" id="editor" cols="30" rows="5">{!! $about->introduction !!}</textarea>
             </label>
             <label>Content:
-              <textarea name="content" id="editor" cols="30" rows="10"><?php (isset($about->content)) ? $about->content : '' ?></textarea>
+              <textarea name="content" id="editor" cols="30" rows="10">{!! $about->content !!}</textarea>
             </label>
 
             <input type="submit" class="button large dark expanded uppercase" value="Submit">

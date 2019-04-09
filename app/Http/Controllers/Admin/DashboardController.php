@@ -17,6 +17,9 @@ class DashboardController extends Controller
 
     public function index()
     {
-    	return view('admin.dashboard');
+        // Check to see if About page has data
+        $about = \App\About::first();
+
+    	return view('admin.dashboard', compact('about'));
     }
 }
