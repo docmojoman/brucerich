@@ -61,13 +61,13 @@
       <hr />
       <div class="grid-x grid-margin-x margin-top-40">
         <div class="cell medium-3">
-          <h2>About Page</h2>
+          <h2>About</h2>
         </div>
         <div class="cell medium-6">
           @empty($about)
-          <a class="button large dark expanded uppercase" href="{{ url('admin/about/create') }}">Create About Page Content</a>
+          <a class="button large dark expanded uppercase" href="{{ url('admin/about/create') }}">Create About Content</a>
           @endempty
-          <a class="button large dark expanded uppercase" href="{{ url('admin/about/edit') }}">Edit About Page</a>
+          <a class="button large dark expanded uppercase" href="{{ url('admin/about/edit') }}">Edit About</a>
         </div>
       </div>
       <hr />
