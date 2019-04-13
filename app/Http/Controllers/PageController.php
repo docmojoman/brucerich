@@ -8,12 +8,10 @@ class PageController extends Controller
 {
     public function index()
     {
-        $insights = \App\Insight::where('published', 1)
-            ->latest()->get();
+
+        $insights = \App\Insight::insights();
 
         $home = true;
-
-            // dd($insights);
 
     	return view('index', compact('insights', 'home'));
     }

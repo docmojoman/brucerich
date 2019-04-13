@@ -43,11 +43,11 @@
                 <h2 class="h4-display">Latest Insights</h2>
                 {{-- @if($insights->count()) --}}
                 @isset($insights)
-                <p>{{ str_limit(strip_tags($insights[0]->description), 420) }}</p>
+                <p>{{ str_limit(strip_tags($insights[0]['description']), 420) }}</p>
                 <!-- mobile -->
-                <p class="hide-for-medium"><a href="{{ url('insight', $insights[0]->slug) }}#mobile">Read More</a></p>
+                <p class="hide-for-medium"><a href="{{ url('insight', $insights[0]['slug']) }}#mobile">Read More</a></p>
                 <!-- desktop -->
-                <p class="show-for-medium"><a href="{{ url('insight', $insights[0]->slug) }}">Read More</a></p>
+                <p class="show-for-medium"><a href="{{ url('insight', $insights[0]['slug']) }}">Read More</a></p>
                 {{-- @endif --}}
                 @endisset
             </div>
