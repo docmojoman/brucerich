@@ -19,6 +19,7 @@
                             <a id="menu-about" href="{{ url('about') }}" class="menu-title">About</a>
                                 <ul class="vertical menu align-left hide-for-medium">
                                     <li><a href="{{ url('/about#about') }}">About The Author</a></li>
+                                    <li><a href="{{ url('/interviews') }}">Interviews</a></li>
                                     <li><a href="{{ url('/media#about') }}">Media</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                                 <ul class="vertical menu align-left show-for-medium">
