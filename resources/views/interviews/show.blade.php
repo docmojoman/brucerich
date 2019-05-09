@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', '- ')
+@section('title', '| Interviews - '.$interview->title)
 @section('content')
     <a name="article" class="hide-for-medium"></a>
     <div id="br-breadcrumbs">

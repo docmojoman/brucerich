@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', '- Articles')
+@section('title', '| Books')
 @section('content')
     <div id="br-breadcrumbs">
     <div class="grid-container">

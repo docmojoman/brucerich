@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', '- Media')
+@section('title', '| Media - '.$video->title)
 @section('content')
     <a name="about" class="hide-for-medium"></a>
     <div id="br-breadcrumbs">
