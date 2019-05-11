@@ -32,7 +32,7 @@
         <div class="grid-x margin-top-60">
             <div class="cell medium-6 index-about">
                 <h2 class="h4-display">Improbable Challenges</h2>
-                <p>Enjoying improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization.  He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy.&hellip;</p>
+                <p>Drawn to improbable challenges, author and lawyer Bruce Rich has fought for higher environmental and social standards in international finance, and written books on the World Bank as well as on ancient Indian political philosophy, Buddhism and the crises of 21st Century globalization. He is working on a new book exploring the dilemmas of our interdependent yet fractured world through the lenses of history, travel, and philosophy&hellip;</p>
 
                 <!-- mobile -->
                 <p class="hide-for-medium"><a href="{{ url('about') }}#mobile">More about Bruce</a></p>
