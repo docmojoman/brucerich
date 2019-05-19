@@ -18,7 +18,7 @@ Route::get('/home', 'PageController@index');
 
 Route::get('/about', 'PageController@about');
 
-Route::get('/media', 'VideosController@index');
+Route::get('/video', 'VideosController@index');
 
 Route::get('/video/{video}', 'VideosController@show');
 

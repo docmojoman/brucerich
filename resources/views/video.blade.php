@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', '| Media - '.$video->title)
+@section('title', '| Video - '.$video->title)
 @section('content')
     <a name="about" class="hide-for-medium"></a>
     <div id="br-breadcrumbs">
@@ -10,8 +10,8 @@
                   <ul class="breadcrumbs">
                     <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
                     <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
-                    <li class="hide-for-medium"><a href="{{ url('/media') }}#mobile">Media</a></li>
-                    <li class="show-for-medium"><a href="{{ url('/media') }}">Media</a></li>
+                    <li class="hide-for-medium"><a href="{{ url('/video') }}#mobile">Video</a></li>
+                    <li class="show-for-medium"><a href="{{ url('/video') }}">Video</a></li>
                     <li>
                       <span class="show-for-sr">Current: </span> {{ $video->title }}
                     </li>

@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', '- Media')
+@section('title', '- Video')
 @section('content')
     <a name="about" class="hide-for-medium"></a>
     <div id="br-breadcrumbs">
@@ -11,7 +11,7 @@
                     <li class="hide-for-medium"><a href="{{ url('./') }}#mobile">Home</a></li>
                     <li class="show-for-medium"><a href="{{ url('./') }}">Home</a></li>
                     <li>
-                      <span class="show-for-sr">Current: </span> Media
+                      <span class="show-for-sr">Current: </span> Video
                     </li>
                   </ul>
                 </nav>
@@ -23,7 +23,7 @@
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell medium-12">
-                <h1 class="h2">Media</h1>
+                <h1 class="h2">Video</h1>
                 <p class="lead">Videos giving a perspective on my writings on historical and contemporary themes, as well as on my engagement as an advocate.</p>
             </div> <!-- .cell .medium-12 -->
         </div> <!-- .grid-x .grid-margin-x -->

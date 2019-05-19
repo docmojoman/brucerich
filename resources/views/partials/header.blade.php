@@ -20,12 +20,12 @@
                                 <ul class="vertical menu align-left hide-for-medium">
                                     <li><a href="{{ url('/about#about') }}">About The Author</a></li>
                                     <li><a href="{{ url('/interviews') }}">Interviews</a></li>
-                                    <li><a href="{{ url('/media#about') }}">Media</a></li>
+                                    <li><a href="{{ url('/video#about') }}">Video</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                                 <ul class="vertical menu align-left show-for-medium">
                                     <li><a href="{{ url('/about') }}">About The Author</a></li>
                                     <li><a href="{{ url('/interviews') }}">Interviews</a></li>
-                                    <li><a href="{{ url('/media') }}">Media</a></li>
+                                    <li><a href="{{ url('/video') }}">Video</a></li>
                                 </ul> <!-- .vertical .menu .align-left -->
                             </li>
                             <li>
